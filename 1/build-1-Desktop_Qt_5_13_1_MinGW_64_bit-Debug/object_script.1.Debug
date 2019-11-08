@@ -1,0 +1,10 @@
+debug/add1.o
+debug/building.o
+debug/data.o
+debug/judge.o
+debug/main.o
+debug/mainwindow.o
+debug/mymath.o
+debug/prime.o
+debug/problemset.o
+debug/moc_mainwindow.o
