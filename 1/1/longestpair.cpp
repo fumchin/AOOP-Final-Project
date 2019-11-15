@@ -1,5 +1,6 @@
 #include "longestpair.h"
 #include <iostream>
+#include <math.h>
 #include <string>
 #include <sstream>
 #include <math.h>
@@ -23,33 +24,33 @@ string LongestPair::solve(string s){
     while(ss>>n){
         //turn number into odd number
         if (counter%3 == 0)
-            x[counter%3] = n;
+            x[counter/3] = n;
         else if (counter%3 == 1)
-            y[counter%3] = n;
+            y[counter/3] = n;
         else if (counter%3 == 2)
-            z[counter%3] = n;
+            z[counter/3] = n;
         counter++;
     }
 
-    for (int j=0; j< (counter+1)/3; j++)
+    cout << "counter: " << counter << endl;
+    for (int j=0; j< counter/3; j++)
     {
-        cout << x[j/counter] << " " << y[j/counter]  << " " << z[j/counter] << endl;
+        cout << x[j] << " " << y[j]  << " " << z[j] << endl;
     }
 
     max = sqrt(pow(x[1]-x[0],2)+pow(y[1]-y[0],2)+pow(z[1]-z[0],2));
-    for (int i=0; i< (counter+1)/3-1; i++)
+    for (int i=0; i< counter/3-1; i++)
     {
-        for (int j=i+1; j< (counter+1)/3; j++)
+        for (int j=i+1; j< counter/3; j++)
         {
             if(sqrt(pow(x[j]-x[i],2)+pow(y[j]-y[i],2)+pow(z[j]-z[i],2)) > max)
-                max = sqrt( pow(x[j]-x[i],2)+pow(y[j]-y[i],2)+pow(z[1]-z[0],2) );
+                max = sqrt( pow(x[j]-x[i],2)+pow(y[j]-y[i],2)+pow(z[j]-z[i],2) );
         }
     }
     ostringstream strs;
-    cout << max << endl;
+    max = floor(max*100)/100;//set precision to 2 manually
     strs << max;
-//    QDebug() << max;
+    cout << max << endl;
     string result = strs.str();
     return result;
-//    return "test";
 }
