@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
@@ -30,19 +31,12 @@ public:
     QLabel *label_2;
     QLabel *label_3;
     QLabel *label_4;
-    QLabel *label_5;
-    QLabel *label_6;
-    QLabel *label_7;
-    QLabel *label_8;
     QLineEdit *Testdata_1;
     QLineEdit *Submitdata_1;
     QLineEdit *Spend_time_1;
     QLineEdit *Correct_1;
-    QLineEdit *Testdata_2;
-    QLineEdit *Submitdata_2;
-    QLineEdit *Spend_time_2;
-    QLineEdit *Correct_2;
     QPushButton *pushButton;
+    QComboBox *OptionComboBox;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -56,59 +50,43 @@ public:
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         label = new QLabel(centralWidget);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(30, 20, 61, 16));
+        label->setGeometry(QRect(480, 20, 61, 16));
         label_2 = new QLabel(centralWidget);
         label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(30, 70, 47, 12));
+        label_2->setGeometry(QRect(480, 70, 47, 12));
         label_3 = new QLabel(centralWidget);
         label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setGeometry(QRect(30, 110, 41, 20));
+        label_3->setGeometry(QRect(480, 110, 41, 20));
         label_4 = new QLabel(centralWidget);
         label_4->setObjectName(QString::fromUtf8("label_4"));
-        label_4->setGeometry(QRect(6, 170, 71, 20));
-        label_5 = new QLabel(centralWidget);
-        label_5->setObjectName(QString::fromUtf8("label_5"));
-        label_5->setGeometry(QRect(260, 20, 47, 12));
-        label_6 = new QLabel(centralWidget);
-        label_6->setObjectName(QString::fromUtf8("label_6"));
-        label_6->setGeometry(QRect(260, 70, 47, 12));
-        label_7 = new QLabel(centralWidget);
-        label_7->setObjectName(QString::fromUtf8("label_7"));
-        label_7->setGeometry(QRect(270, 120, 41, 20));
-        label_8 = new QLabel(centralWidget);
-        label_8->setObjectName(QString::fromUtf8("label_8"));
-        label_8->setGeometry(QRect(260, 170, 51, 20));
+        label_4->setGeometry(QRect(456, 170, 71, 20));
         Testdata_1 = new QLineEdit(centralWidget);
         Testdata_1->setObjectName(QString::fromUtf8("Testdata_1"));
-        Testdata_1->setGeometry(QRect(90, 20, 151, 20));
+        Testdata_1->setGeometry(QRect(540, 20, 151, 20));
         Submitdata_1 = new QLineEdit(centralWidget);
         Submitdata_1->setObjectName(QString::fromUtf8("Submitdata_1"));
-        Submitdata_1->setGeometry(QRect(90, 70, 151, 20));
+        Submitdata_1->setGeometry(QRect(540, 70, 151, 20));
         Spend_time_1 = new QLineEdit(centralWidget);
         Spend_time_1->setObjectName(QString::fromUtf8("Spend_time_1"));
-        Spend_time_1->setGeometry(QRect(90, 110, 113, 20));
+        Spend_time_1->setGeometry(QRect(540, 110, 113, 20));
         Correct_1 = new QLineEdit(centralWidget);
         Correct_1->setObjectName(QString::fromUtf8("Correct_1"));
-        Correct_1->setGeometry(QRect(90, 170, 121, 20));
-        Testdata_2 = new QLineEdit(centralWidget);
-        Testdata_2->setObjectName(QString::fromUtf8("Testdata_2"));
-        Testdata_2->setGeometry(QRect(310, 20, 451, 20));
-        Submitdata_2 = new QLineEdit(centralWidget);
-        Submitdata_2->setObjectName(QString::fromUtf8("Submitdata_2"));
-        Submitdata_2->setGeometry(QRect(310, 70, 451, 20));
-        Spend_time_2 = new QLineEdit(centralWidget);
-        Spend_time_2->setObjectName(QString::fromUtf8("Spend_time_2"));
-        Spend_time_2->setGeometry(QRect(310, 120, 141, 20));
-        Correct_2 = new QLineEdit(centralWidget);
-        Correct_2->setObjectName(QString::fromUtf8("Correct_2"));
-        Correct_2->setGeometry(QRect(320, 170, 151, 20));
+        Correct_1->setGeometry(QRect(540, 170, 121, 20));
         pushButton = new QPushButton(centralWidget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         pushButton->setGeometry(QRect(190, 220, 75, 23));
+        OptionComboBox = new QComboBox(centralWidget);
+        OptionComboBox->addItem(QString());
+        OptionComboBox->addItem(QString());
+        OptionComboBox->addItem(QString());
+        OptionComboBox->addItem(QString());
+        OptionComboBox->addItem(QString());
+        OptionComboBox->setObjectName(QString::fromUtf8("OptionComboBox"));
+        OptionComboBox->setGeometry(QRect(170, 70, 69, 22));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 791, 17));
+        menuBar->setGeometry(QRect(0, 0, 791, 21));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
@@ -129,11 +107,13 @@ public:
         label_2->setText(QCoreApplication::translate("MainWindow", "Submitdata", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "Spend time", nullptr));
         label_4->setText(QCoreApplication::translate("MainWindow", "Correct or not", nullptr));
-        label_5->setText(QCoreApplication::translate("MainWindow", "Testdata", nullptr));
-        label_6->setText(QCoreApplication::translate("MainWindow", "Submitdata", nullptr));
-        label_7->setText(QCoreApplication::translate("MainWindow", "Spend time", nullptr));
-        label_8->setText(QCoreApplication::translate("MainWindow", "Correct or not", nullptr));
         pushButton->setText(QCoreApplication::translate("MainWindow", "Run", nullptr));
+        OptionComboBox->setItemText(0, QCoreApplication::translate("MainWindow", "1", nullptr));
+        OptionComboBox->setItemText(1, QCoreApplication::translate("MainWindow", "2", nullptr));
+        OptionComboBox->setItemText(2, QCoreApplication::translate("MainWindow", "3", nullptr));
+        OptionComboBox->setItemText(3, QCoreApplication::translate("MainWindow", "4", nullptr));
+        OptionComboBox->setItemText(4, QCoreApplication::translate("MainWindow", "5", nullptr));
+
     } // retranslateUi
 
 };

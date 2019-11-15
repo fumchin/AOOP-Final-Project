@@ -7,7 +7,7 @@ class ProblemSet //: public Building
 {
 public:
     ProblemSet();
-    string solve(string s){};
+    virtual string solve(string s) = 0;
 };
 
 #endif // PROBLEMSET_H

@@ -28,7 +28,9 @@ SOURCES += \
         add1.cpp \
         building.cpp \
         data.cpp \
+        floor.cpp \
         judge.cpp \
+        longestpair.cpp \
         main.cpp \
         mainwindow.cpp \
         mymath.cpp \
@@ -39,7 +41,9 @@ HEADERS += \
         add1.h \
         building.h \
         data.h \
+        floor.h \
         judge.h \
+        longestpair.h \
         mainwindow.h \
         mymath.h \
         prime.h \

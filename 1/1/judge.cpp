@@ -11,7 +11,7 @@ string Judge::getData(int question){
     srand((unsigned)time(NULL));
 
     int n;
-    if(question == 0){
+    if(question == 0 || question == 2){
         n = 2*(rand()%3)+1; //choose number from 1,3,5
     }
     else if(question == 1){
@@ -23,7 +23,16 @@ string Judge::getData(int question){
 
     ifstream infile;
     string fileName;
-    fileName = to_string(question)+".txt";
+
+    if (question == 0 || question == 1)
+        fileName = to_string(question)+".txt";
+    else if (question == 2)
+        fileName = "longest.txt";
+    else if (question == 3)
+        fileName = "shygame.txt";
+    else if (question == 4)
+        fileName = "myfibfib.txt";
+
     infile.open(fileName);
     if(!infile){
         cout<<"fail open file"<<endl;

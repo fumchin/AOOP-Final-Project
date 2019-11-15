@@ -1,7 +1,9 @@
 release/add1.o
 release/building.o
 release/data.o
+release/floor.o
 release/judge.o
+release/longestpair.o
 release/main.o
 release/mainwindow.o
 release/mymath.o

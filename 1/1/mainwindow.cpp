@@ -22,16 +22,12 @@ void MainWindow::on_pushButton_clicked()
     Data windata;
     //Q1
     Building building;
-    building.run();
+    building.run(ui->OptionComboBox->currentIndex());//選擇的樓層
     windata = building.getdata();
+
     ui->Testdata_1->setText(QString::fromStdString(windata.testdata1));
     ui->Submitdata_1->setText(QString::fromStdString(windata.submit1));
     ui->Correct_1->setText(QString::fromStdString(to_string(windata.correct1)));
     ui->Spend_time_1->setText(QString::fromStdString(to_string(windata.spendtime1)));
 
-    //Q2
-    ui->Testdata_2->setText(QString::fromStdString(windata.testdata2));
-    ui->Submitdata_2->setText(QString::fromStdString(windata.submit2));
-    ui->Correct_2->setText(QString::fromStdString(to_string(windata.correct2)));
-    ui->Spend_time_2->setText(QString::fromStdString(to_string(windata.spendtime2)));
 }

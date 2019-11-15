@@ -1,30 +1,30 @@
 #include "building.h"
 #include "add1.h"
+#include "longestpair.h"
 #include <string>
 #include <QTimer>
 using namespace std;
 Building::Building()
 {
+    floor[0] = new Floor(new Add1());
+    floor[1] = new Floor(new Prime());
+    floor[2] = new Floor(new LongestPair());
 
 }
-void Building::run()
+void Building::run(int question)
 {
-    string s = judge.getData(0);
+    //0.txt
+    string s = judge.getData(question);
     data.testdata1 = s;
-    string s2 = add1.solve(s);
+
+    string s2 = floor[question]->p->solve(s);
+
+//    cout << s2;
     data.submit1 = s2;
     bool correct = judge.submitData(s2);
     data.correct1 = correct;
     data.spendtime1 = judge.getSpendTime();
 
-    //Advanced
-    s = judge.getData(1);
-    data.testdata2 = s;
-    s2 = prime.solve(s);
-    data.submit2 = s2;
-    correct = judge.submitData(s2);
-    data.correct2 = correct;
-    data.spendtime2 = judge.getSpendTime();
 
 }
 
