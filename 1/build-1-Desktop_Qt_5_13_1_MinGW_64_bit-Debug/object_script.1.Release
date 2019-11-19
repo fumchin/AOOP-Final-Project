@@ -9,4 +9,5 @@ release/mainwindow.o
 release/mymath.o
 release/prime.o
 release/problemset.o
+release/shygame.o
 release/moc_mainwindow.o

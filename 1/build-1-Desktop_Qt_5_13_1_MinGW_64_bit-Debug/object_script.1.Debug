@@ -9,4 +9,5 @@ debug/mainwindow.o
 debug/mymath.o
 debug/prime.o
 debug/problemset.o
+debug/shygame.o
 debug/moc_mainwindow.o
