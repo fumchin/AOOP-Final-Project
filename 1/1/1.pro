@@ -35,7 +35,8 @@ SOURCES += \
         mainwindow.cpp \
         mymath.cpp \
         prime.cpp \
-        problemset.cpp
+        problemset.cpp \
+        shygame.cpp
 
 HEADERS += \
         add1.h \
@@ -47,7 +48,8 @@ HEADERS += \
         mainwindow.h \
         mymath.h \
         prime.h \
-        problemset.h
+        problemset.h \
+        shygame.h
 
 FORMS += \
         mainwindow.ui

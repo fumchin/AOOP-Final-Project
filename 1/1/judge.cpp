@@ -11,7 +11,7 @@ string Judge::getData(int question){
     srand((unsigned)time(NULL));
 
     int n;
-    if(question == 0 || question == 2){
+    /*if(question == 0 || question == 2){
         n = 2*(rand()%3)+1; //choose number from 1,3,5
     }
     else if(question == 1){
@@ -19,7 +19,7 @@ string Judge::getData(int question){
     }
     else {
         return  0;
-    }
+    }*/
 
     ifstream infile;
     string fileName;
@@ -37,6 +37,20 @@ string Judge::getData(int question){
     if(!infile){
         cout<<"fail open file"<<endl;
     }
+
+    //count how many line in the filer
+    string unused;
+    int line_count=0;
+    while(getline(infile,unused)){
+        line_count++;
+    }
+
+    //choose question
+    n = 2*(rand()%(line_count/2))+1;
+
+    //file rewind
+    infile.clear();
+    infile.seekg(0);
 
     string result;
     for(int i=0;i<n;i++){
