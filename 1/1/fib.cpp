@@ -8,7 +8,7 @@ Fib::Fib()
 
 }
 
-void fib_last_digit(int *f,int n){
+void Fib::fib_last_digit(int *f,int n){
     f[0]=0;
     f[1]=1;
     for(int i=2;i<n;i++){
@@ -16,11 +16,11 @@ void fib_last_digit(int *f,int n){
     }
 }
 
-int find_last_digit(int *f,int n){
+int Fib::find_last_digit(int *f,int n){
     return f[n];
 }
 
-int shift(int n){
+int Fib::shift(int n){
     int f0=0,f1=1;
     int result=1;
     for(int i=2;i<=n;i++){
@@ -31,7 +31,6 @@ int shift(int n){
         f0 = f1;
         f1 = result;
     }
-    //cout<<result<<endl;
     return  result;
 }
 
