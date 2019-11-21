@@ -65,13 +65,6 @@ void dequeue(QUEUE* queue,int n){
             queue->head = p->next;
             queue->node_count--;
         }
-
-        /*p=del_p;
-        del_p = del_p->next;
-        p->next = del_p->next;
-        free(del_p);
-        p = p->next;
-        queue->node_count--;*/
     }
 }
 
@@ -95,7 +88,7 @@ string Shygame::solve(string s){
         for(int i=1;i<=total;i++){
             enqueue(queue,i);
         }
-        //head and tail
+        //hew1ad and tail
         queue->tail->next = queue->head;
 
         //dequeue
