@@ -3,7 +3,8 @@
 #include "longestpair.h"
 #include <string>
 #include <QTimer>
-#include <shygame.h>
+#include "shygame.h"
+#include "fib.h"
 using namespace std;
 Building::Building()
 {
@@ -11,6 +12,7 @@ Building::Building()
     floor[1] = new Floor(new Prime());
     floor[2] = new Floor(new LongestPair());
     floor[3] = new Floor(new Shygame());
+    floor[4] = new Floor(new Fib());
 }
 void Building::run(int question)
 {

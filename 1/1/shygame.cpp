@@ -95,7 +95,7 @@ string Shygame::solve(string s){
         for(int i=1;i<=total;i++){
             enqueue(queue,i);
         }
-        //head and tail
+        //hew1ad and tail
         queue->tail->next = queue->head;
 
         //dequeue

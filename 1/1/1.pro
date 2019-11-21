@@ -28,6 +28,7 @@ SOURCES += \
         add1.cpp \
         building.cpp \
         data.cpp \
+        fib.cpp \
         floor.cpp \
         judge.cpp \
         longestpair.cpp \
@@ -42,6 +43,7 @@ HEADERS += \
         add1.h \
         building.h \
         data.h \
+        fib.h \
         floor.h \
         judge.h \
         longestpair.h \
