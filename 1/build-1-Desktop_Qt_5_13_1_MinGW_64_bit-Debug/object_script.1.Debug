@@ -2,6 +2,7 @@ debug/add1.o
 debug/building.o
 debug/data.o
 debug/fib.o
+debug/findfactorial.o
 debug/floor.o
 debug/judge.o
 debug/longestpair.o

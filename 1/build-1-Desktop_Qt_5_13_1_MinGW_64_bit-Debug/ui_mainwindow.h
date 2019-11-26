@@ -50,32 +50,33 @@ public:
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         label = new QLabel(centralWidget);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(480, 20, 61, 16));
+        label->setGeometry(QRect(340, 20, 61, 16));
         label_2 = new QLabel(centralWidget);
         label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(480, 70, 47, 12));
+        label_2->setGeometry(QRect(330, 80, 47, 12));
         label_3 = new QLabel(centralWidget);
         label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setGeometry(QRect(480, 110, 41, 20));
+        label_3->setGeometry(QRect(330, 110, 41, 20));
         label_4 = new QLabel(centralWidget);
         label_4->setObjectName(QString::fromUtf8("label_4"));
-        label_4->setGeometry(QRect(456, 170, 71, 20));
+        label_4->setGeometry(QRect(330, 170, 71, 20));
         Testdata_1 = new QLineEdit(centralWidget);
         Testdata_1->setObjectName(QString::fromUtf8("Testdata_1"));
-        Testdata_1->setGeometry(QRect(540, 20, 151, 20));
+        Testdata_1->setGeometry(QRect(410, 20, 281, 20));
         Submitdata_1 = new QLineEdit(centralWidget);
         Submitdata_1->setObjectName(QString::fromUtf8("Submitdata_1"));
-        Submitdata_1->setGeometry(QRect(540, 70, 151, 20));
+        Submitdata_1->setGeometry(QRect(410, 70, 281, 20));
         Spend_time_1 = new QLineEdit(centralWidget);
         Spend_time_1->setObjectName(QString::fromUtf8("Spend_time_1"));
-        Spend_time_1->setGeometry(QRect(540, 110, 113, 20));
+        Spend_time_1->setGeometry(QRect(412, 110, 241, 20));
         Correct_1 = new QLineEdit(centralWidget);
         Correct_1->setObjectName(QString::fromUtf8("Correct_1"));
-        Correct_1->setGeometry(QRect(540, 170, 121, 20));
+        Correct_1->setGeometry(QRect(410, 170, 251, 20));
         pushButton = new QPushButton(centralWidget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         pushButton->setGeometry(QRect(190, 220, 75, 23));
         OptionComboBox = new QComboBox(centralWidget);
+        OptionComboBox->addItem(QString());
         OptionComboBox->addItem(QString());
         OptionComboBox->addItem(QString());
         OptionComboBox->addItem(QString());
@@ -86,7 +87,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 791, 21));
+        menuBar->setGeometry(QRect(0, 0, 791, 17));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
@@ -113,6 +114,7 @@ public:
         OptionComboBox->setItemText(2, QCoreApplication::translate("MainWindow", "3", nullptr));
         OptionComboBox->setItemText(3, QCoreApplication::translate("MainWindow", "4", nullptr));
         OptionComboBox->setItemText(4, QCoreApplication::translate("MainWindow", "5", nullptr));
+        OptionComboBox->setItemText(5, QCoreApplication::translate("MainWindow", "6", nullptr));
 
     } // retranslateUi
 

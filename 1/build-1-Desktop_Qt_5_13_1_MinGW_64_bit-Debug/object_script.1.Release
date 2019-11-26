@@ -2,6 +2,7 @@ release/add1.o
 release/building.o
 release/data.o
 release/fib.o
+release/findfactorial.o
 release/floor.o
 release/judge.o
 release/longestpair.o
