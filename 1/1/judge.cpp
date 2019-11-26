@@ -11,16 +11,6 @@ string Judge::getData(int question){
     srand((unsigned)time(NULL));
 
     int n;
-    /*if(question == 0 || question == 2){
-        n = 2*(rand()%3)+1; //choose number from 1,3,5
-    }
-    else if(question == 1){
-        n = 2*(rand()%4)+1;//choose number from 1,3,5,7
-    }
-    else {
-        return  0;
-    }*/
-
     ifstream infile;
     string fileName;
 
@@ -32,9 +22,11 @@ string Judge::getData(int question){
         fileName = "shygame.txt";
     else if (question == 4)
         fileName = "myfibfib.txt";
-    else if (question == 5){
+    else if (question == 5)
         fileName = "findfactorial.txt";
-    }
+    else if (question == 6)
+        fileName = "shortestdistance.txt";
+
 
     infile.open(fileName);
     if(!infile){

@@ -82,6 +82,7 @@ public:
         OptionComboBox->addItem(QString());
         OptionComboBox->addItem(QString());
         OptionComboBox->addItem(QString());
+        OptionComboBox->addItem(QString());
         OptionComboBox->setObjectName(QString::fromUtf8("OptionComboBox"));
         OptionComboBox->setGeometry(QRect(170, 70, 69, 22));
         MainWindow->setCentralWidget(centralWidget);
@@ -115,6 +116,7 @@ public:
         OptionComboBox->setItemText(3, QCoreApplication::translate("MainWindow", "4", nullptr));
         OptionComboBox->setItemText(4, QCoreApplication::translate("MainWindow", "5", nullptr));
         OptionComboBox->setItemText(5, QCoreApplication::translate("MainWindow", "6", nullptr));
+        OptionComboBox->setItemText(6, QCoreApplication::translate("MainWindow", "7", nullptr));
 
     } // retranslateUi
 

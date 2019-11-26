@@ -6,6 +6,7 @@
 #include "shygame.h"
 #include "fib.h"
 #include "findfactorial.h"
+#include "shortestdistance.h"
 using namespace std;
 Building::Building()
 {
@@ -15,21 +16,17 @@ Building::Building()
     floor[3] = new Floor(new Shygame());
     floor[4] = new Floor(new Fib());
     floor[5] = new Floor(new FindFactorial());
+    floor[6] = new Floor(new ShortestDistance());
 }
 void Building::run(int question)
 {
-    //0.txt
     string s = judge.getData(question);
     data.testdata1 = s;
-
     string s2 = floor[question]->p->solve(s);
 
-//    cout << s2;
     data.submit1 = s2;
     bool correct = judge.submitData(s2);
     data.correct1 = correct;
     data.spendtime1 = judge.getSpendTime();
-
-
 }
 

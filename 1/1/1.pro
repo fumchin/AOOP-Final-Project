@@ -38,6 +38,7 @@ SOURCES += \
         mymath.cpp \
         prime.cpp \
         problemset.cpp \
+        shortestdistance.cpp \
         shygame.cpp
 
 HEADERS += \
@@ -53,6 +54,7 @@ HEADERS += \
         mymath.h \
         prime.h \
         problemset.h \
+        shortestdistance.h \
         shygame.h
 
 FORMS += \
