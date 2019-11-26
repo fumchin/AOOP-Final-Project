@@ -5,6 +5,7 @@
 #include <QTimer>
 #include "shygame.h"
 #include "fib.h"
+#include "findfactorial.h"
 using namespace std;
 Building::Building()
 {
@@ -13,6 +14,7 @@ Building::Building()
     floor[2] = new Floor(new LongestPair());
     floor[3] = new Floor(new Shygame());
     floor[4] = new Floor(new Fib());
+    floor[5] = new Floor(new FindFactorial());
 }
 void Building::run(int question)
 {

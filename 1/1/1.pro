@@ -29,6 +29,7 @@ SOURCES += \
         building.cpp \
         data.cpp \
         fib.cpp \
+        findfactorial.cpp \
         floor.cpp \
         judge.cpp \
         longestpair.cpp \
@@ -44,6 +45,7 @@ HEADERS += \
         building.h \
         data.h \
         fib.h \
+        findfactorial.h \
         floor.h \
         judge.h \
         longestpair.h \
