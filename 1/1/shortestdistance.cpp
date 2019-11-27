@@ -109,9 +109,40 @@ string ShortestDistance::solve(string s){
             }
             pointVect.clear();
 
-            cout << totalMinDistance << " " << totalMinDistance2 << endl;//<< totalMinDistance3 << endl;
+            pointVect = tempVect;
+            double totalMinDistance3 = 0;
+            while (pointVect.size() != 0)
+            {
+                int i = 0;
+//                    cout << "contents: ";
+//                    for (int k=0; k<pointVect.size(); k++)
+//                        cout << pointVect[k].X << " " << pointVect[k].Y << " ";
+//                    cout << endl;
+
+                    int removeIndex = i+1;
+                    double minDistance = pow(pointVect[i].X-pointVect[i+1].X ,2)+pow(pointVect[i].Y-pointVect[i+1].Y ,2);
+                    for (int j=1; j<pointVect.size(); j++)
+                    {
+//                        cout << "i: " << i << " j: " << j << " " << minDistance << endl;
+                        if (pow(pointVect[i].X-pointVect[j].X ,2)+pow(pointVect[i].Y-pointVect[j].Y ,2) < minDistance)
+                        {
+                            minDistance = pow(pointVect[i].X-pointVect[j].X ,2)+pow(pointVect[i].Y-pointVect[j].Y ,2);
+                            removeIndex = j;
+                        }
+                    }
+//                    cout << "distance: " << minDistance << " i: " << i <<  " removeIndex: " << removeIndex;
+                    totalMinDistance3 += sqrt(minDistance);
+                    pointVect.erase(pointVect.begin()+removeIndex);
+                    pointVect.erase(pointVect.begin()+i);
+//                    cout << " size: " << pointVect.size() << endl;
+                    if (pointVect.size() == 0)
+                        break;
+            }
+            pointVect.clear();
+
+            cout << totalMinDistance << " " << totalMinDistance2 << " "<< totalMinDistance3 << endl;
             double Min = totalMinDistance<totalMinDistance2? totalMinDistance : totalMinDistance2;
-//            Min = totalMinDistance3 < Min ? totalMinDistance3 : Min;
+            Min = totalMinDistance3 < Min ? totalMinDistance3 : Min;
             Min = rounding(Min, 2);
             cout << Min << endl;
             ostringstream strs;
