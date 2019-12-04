@@ -9,6 +9,7 @@ using namespace std;
 #include "floor.h"
 #include "mymath.h"
 #include "prime.h"
+#include "problemset.h"
 #include <string>
 
 
@@ -21,8 +22,8 @@ public:
 private:
     Judge judge;
     Data data;
-    Add1 add1;
-    Prime prime;
+    //Add1 add1;
+    //Prime prime;
     Floor *floor[30];
 };
 

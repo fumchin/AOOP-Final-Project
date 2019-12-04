@@ -3,7 +3,7 @@
 
 #include <string>
 using namespace std;
-class ProblemSet //: public Building
+class ProblemSet
 {
 public:
     ProblemSet();
