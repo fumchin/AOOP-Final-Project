@@ -17,11 +17,29 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::connectDB()
+{
+    QSqlDatabase database;
+    database = QSqlDatabase::addDatabase("QMYSQL");
+    database.setHostName("localhost");
+    database.setUserName("root");
+    database.setPassword("123456789");
+    database.setPort(3306);
+    bool ok = database.open();
+    if(ok){
+        qDebug()<<"Connected!!";
+    }
+    else{
+        qDebug()<<"fail to connect";
+    }
+}
+    Building building;
 void MainWindow::on_pushButton_clicked()
 {
+
     Data windata;
     //Q1
-    Building building;
+
     building.run(ui->OptionComboBox->currentIndex());//選擇的樓層
     windata = building.getdata();
 
@@ -29,5 +47,7 @@ void MainWindow::on_pushButton_clicked()
     ui->Submitdata_1->setText(QString::fromStdString(windata.submit1));
     ui->Correct_1->setText(QString::fromStdString(to_string(windata.correct1)));
     ui->Spend_time_1->setText(QString::fromStdString(to_string(windata.spendtime1)));
+    ui->PeopleNum->setText(QString::fromStdString(to_string(building.people[ui->OptionComboBox->currentIndex()]->Number)));
+    ui->Destination->setText(QString::fromStdString(to_string(building.people[ui->OptionComboBox->currentIndex()]->Destination)));
 
 }

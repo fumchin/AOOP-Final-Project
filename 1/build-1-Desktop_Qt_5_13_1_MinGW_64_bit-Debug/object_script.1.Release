@@ -9,6 +9,7 @@ release/longestpair.o
 release/main.o
 release/mainwindow.o
 release/mymath.o
+release/people.o
 release/prime.o
 release/problemset.o
 release/shygame.o

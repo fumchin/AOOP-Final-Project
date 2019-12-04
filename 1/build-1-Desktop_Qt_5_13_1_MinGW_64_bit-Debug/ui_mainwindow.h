@@ -37,6 +37,10 @@ public:
     QLineEdit *Correct_1;
     QPushButton *pushButton;
     QComboBox *OptionComboBox;
+    QLineEdit *PeopleNum;
+    QLineEdit *Destination;
+    QLabel *label_5;
+    QLabel *label_6;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -84,6 +88,18 @@ public:
         OptionComboBox->addItem(QString());
         OptionComboBox->setObjectName(QString::fromUtf8("OptionComboBox"));
         OptionComboBox->setGeometry(QRect(170, 70, 69, 22));
+        PeopleNum = new QLineEdit(centralWidget);
+        PeopleNum->setObjectName(QString::fromUtf8("PeopleNum"));
+        PeopleNum->setGeometry(QRect(410, 210, 251, 20));
+        Destination = new QLineEdit(centralWidget);
+        Destination->setObjectName(QString::fromUtf8("Destination"));
+        Destination->setGeometry(QRect(410, 230, 251, 20));
+        label_5 = new QLabel(centralWidget);
+        label_5->setObjectName(QString::fromUtf8("label_5"));
+        label_5->setGeometry(QRect(330, 200, 61, 16));
+        label_6 = new QLabel(centralWidget);
+        label_6->setObjectName(QString::fromUtf8("label_6"));
+        label_6->setGeometry(QRect(330, 230, 61, 16));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
@@ -116,6 +132,8 @@ public:
         OptionComboBox->setItemText(4, QCoreApplication::translate("MainWindow", "5", nullptr));
         OptionComboBox->setItemText(5, QCoreApplication::translate("MainWindow", "6", nullptr));
 
+        label_5->setText(QCoreApplication::translate("MainWindow", "PeopleNum", nullptr));
+        label_6->setText(QCoreApplication::translate("MainWindow", "Destination", nullptr));
     } // retranslateUi
 
 };

@@ -36,6 +36,7 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
         mymath.cpp \
+        people.cpp \
         prime.cpp \
         problemset.cpp \
         shygame.cpp
@@ -51,6 +52,7 @@ HEADERS += \
         longestpair.h \
         mainwindow.h \
         mymath.h \
+        people.h \
         prime.h \
         problemset.h \
         shygame.h
