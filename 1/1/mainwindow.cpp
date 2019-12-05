@@ -17,11 +17,11 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+    Building building;
 void MainWindow::on_pushButton_clicked()
 {
     Data windata;
     //Q1
-    Building building;
     building.run(ui->OptionComboBox->currentIndex());//選擇的樓層
     windata = building.getdata();
 

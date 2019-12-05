@@ -5,6 +5,7 @@ release/fib.o
 release/findfactorial.o
 release/floor.o
 release/judge.o
+release/largefactorial.o
 release/longestpair.o
 release/main.o
 release/mainwindow.o

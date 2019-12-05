@@ -35,6 +35,12 @@ string Judge::getData(int question){
     else if (question == 5){
         fileName = "findfactorial.txt";
     }
+    else if(question == 6){
+        fileName = "bigfact.txt";
+    }
+    else if(question == 7){
+        fileName = "bigfact.txt";
+    }
 
     infile.open(fileName);
     if(!infile){

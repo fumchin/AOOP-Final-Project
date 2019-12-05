@@ -32,6 +32,7 @@ SOURCES += \
         findfactorial.cpp \
         floor.cpp \
         judge.cpp \
+        largefactorial.cpp \
         longestpair.cpp \
         main.cpp \
         mainwindow.cpp \
@@ -48,6 +49,7 @@ HEADERS += \
         findfactorial.h \
         floor.h \
         judge.h \
+        largefactorial.h \
         longestpair.h \
         mainwindow.h \
         mymath.h \

@@ -6,6 +6,7 @@
 #include "shygame.h"
 #include "fib.h"
 #include "findfactorial.h"
+#include "largefactorial.h"
 using namespace std;
 Building::Building()
 {
@@ -15,6 +16,8 @@ Building::Building()
     floor[3] = new Floor(new Shygame());
     floor[4] = new Floor(new Fib());
     floor[5] = new Floor(new FindFactorial());
+    floor[6] = new Floor(new LargeFactorial());
+    floor[7] = new Floor(new LargeFactorial());
 }
 void Building::run(int question)
 {
