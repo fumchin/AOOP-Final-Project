@@ -45,10 +45,10 @@ Building::Building()
     query.exec("load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/data.csv' into table peoplelist fields terminated by ',' lines terminated by '\n' ignore 1 rows");
 
     //create people
-    srand((unsigned)time(NULL));
+    srand((unsigned)time(nullptr));
     QString n = QString::number(rand()%30 + 1);
     n = "'%0"+n+"-%'";
-    cout<<n.toStdString()<<endl;
+    //cout<<n.toStdString()<<endl;
     query.exec("select * from peoplelist where id like "+n);
     for(int i=0;i<10;i++){
         query.next();
