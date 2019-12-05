@@ -158,6 +158,26 @@
       <string>6</string>
      </property>
     </item>
+    <item>
+     <property name="text">
+      <string>7</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>8</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>9</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>10</string>
+     </property>
+    </item>
    </widget>
    <widget class="QLineEdit" name="PeopleNum">
     <property name="geometry">
@@ -212,7 +232,7 @@
      <x>0</x>
      <y>0</y>
      <width>791</width>
-     <height>17</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

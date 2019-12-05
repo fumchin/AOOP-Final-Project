@@ -19,19 +19,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::connectDB()
 {
-    QSqlDatabase database;
-    database = QSqlDatabase::addDatabase("QMYSQL");
-    database.setHostName("localhost");
-    database.setUserName("root");
-    database.setPassword("123456789");
-    database.setPort(3306);
-    bool ok = database.open();
-    if(ok){
-        qDebug()<<"Connected!!";
-    }
-    else{
-        qDebug()<<"fail to connect";
-    }
 }
     Building building;
 void MainWindow::on_pushButton_clicked()

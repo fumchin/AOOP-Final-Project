@@ -32,9 +32,10 @@ string Judge::getData(int question){
         fileName = "shygame.txt";
     else if (question == 4)
         fileName = "myfibfib.txt";
-    else if (question == 5){
+    else if (question == 5)
         fileName = "findfactorial.txt";
-    }
+    else if(question == 9)
+        fileName = "myDatabase1_EasyCity2.txt";
 
     infile.open(fileName);
     if(!infile){

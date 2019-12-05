@@ -28,6 +28,7 @@ SOURCES += \
         add1.cpp \
         building.cpp \
         data.cpp \
+        easycity2.cpp \
         fib.cpp \
         findfactorial.cpp \
         floor.cpp \
@@ -35,6 +36,7 @@ SOURCES += \
         longestpair.cpp \
         main.cpp \
         mainwindow.cpp \
+        mydatabase.cpp \
         mymath.cpp \
         people.cpp \
         prime.cpp \
@@ -45,12 +47,14 @@ HEADERS += \
         add1.h \
         building.h \
         data.h \
+        easycity2.h \
         fib.h \
         findfactorial.h \
         floor.h \
         judge.h \
         longestpair.h \
         mainwindow.h \
+        mydatabase.h \
         mymath.h \
         people.h \
         prime.h \

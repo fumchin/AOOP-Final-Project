@@ -11,6 +11,7 @@
 #include "fib.h"
 #include "findfactorial.h"
 #include "people.h"
+#include "easycity2.h"
 #include <time.h>
 #include <QString>
 using namespace std;
@@ -23,12 +24,16 @@ Building::Building()
     floor[3] = new Floor(new Shygame());
     floor[4] = new Floor(new Fib());
     floor[5] = new Floor(new FindFactorial());
+    floor[6] = new Floor();
+    floor[7] = new Floor();
+    floor[8] = new Floor();
+    floor[9] = new Floor(new EasyCity2());
     //connect database
     QSqlDatabase database;
     database = QSqlDatabase::addDatabase("QMYSQL");
     database.setHostName("localhost");
     database.setUserName("root");
-    database.setPassword("123456789");
+    database.setPassword("nctuece");
     database.setPort(3306);
     bool ok = database.open();
     if(ok){
@@ -39,6 +44,7 @@ Building::Building()
     }
     //create schema
     QSqlQuery query;
+
     query.exec("create schema if not exists Course6");
     query.exec("use Course6");
     query.exec("create table if not exists peoplelist (id char(8),Nowfloor int,Destination int,Number int,PRIMARY KEY(id))");
