@@ -13,6 +13,7 @@ public:
     virtual string solve(string) = 0;
     vector<int>stringtoVectorInt(string);
     string vectorIntToString(vector<int>);
+    //virtual ~MyMath(){};
 };
 
 #endif // MYMATH_H

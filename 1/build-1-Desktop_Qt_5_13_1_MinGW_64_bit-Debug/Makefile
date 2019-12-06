@@ -237,6 +237,7 @@ Makefile: ../1/1.pro C:/Qt/5.13.1/mingw73_64/mkspecs/win32-g++/qmake.conf C:/Qt/
 		../1/1.pro \
 		C:/Qt/5.13.1/mingw73_64/lib/Qt5Widgets.prl \
 		C:/Qt/5.13.1/mingw73_64/lib/Qt5Gui.prl \
+		C:/Qt/5.13.1/mingw73_64/lib/Qt5Sql.prl \
 		C:/Qt/5.13.1/mingw73_64/lib/Qt5Core.prl \
 		C:/Qt/5.13.1/mingw73_64/lib/qtmain.prl
 	$(QMAKE) -o Makefile ..\1\1.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
@@ -414,6 +415,7 @@ C:/Qt/5.13.1/mingw73_64/mkspecs/features/lex.prf:
 ../1/1.pro:
 C:/Qt/5.13.1/mingw73_64/lib/Qt5Widgets.prl:
 C:/Qt/5.13.1/mingw73_64/lib/Qt5Gui.prl:
+C:/Qt/5.13.1/mingw73_64/lib/Qt5Sql.prl:
 C:/Qt/5.13.1/mingw73_64/lib/Qt5Core.prl:
 C:/Qt/5.13.1/mingw73_64/lib/qtmain.prl:
 qmake: FORCE

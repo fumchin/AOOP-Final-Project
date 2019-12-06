@@ -17,9 +17,13 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::connectDB()
+{
+}
     Building building;
 void MainWindow::on_pushButton_clicked()
 {
+
     Data windata;
     //Q1
     building.run(ui->OptionComboBox->currentIndex());//選擇的樓層
@@ -29,5 +33,7 @@ void MainWindow::on_pushButton_clicked()
     ui->Submitdata_1->setText(QString::fromStdString(windata.submit1));
     ui->Correct_1->setText(QString::fromStdString(to_string(windata.correct1)));
     ui->Spend_time_1->setText(QString::fromStdString(to_string(windata.spendtime1)));
+    ui->PeopleNum->setText(QString::fromStdString(to_string(building.people[ui->OptionComboBox->currentIndex()]->Number)));
+    ui->Destination->setText(QString::fromStdString(to_string(building.people[ui->OptionComboBox->currentIndex()]->Destination)));
 
 }

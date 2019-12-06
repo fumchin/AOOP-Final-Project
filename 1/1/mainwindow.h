@@ -3,6 +3,9 @@
 
 #include <QMainWindow>
 #include <QTimer>
+#include <QDebug>
+#include <QSqlResult>
+#include <QSqlDatabase>
 
 namespace Ui {
 class MainWindow;
@@ -15,6 +18,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void connectDB();
 
 private slots:
     void on_pushButton_clicked();

@@ -1,6 +1,7 @@
 debug/add1.o
 debug/building.o
 debug/data.o
+debug/easycity2.o
 debug/fib.o
 debug/findfactorial.o
 debug/floor.o
@@ -9,7 +10,9 @@ debug/largefactorial.o
 debug/longestpair.o
 debug/main.o
 debug/mainwindow.o
+debug/mydatabase.o
 debug/mymath.o
+debug/people.o
 debug/prime.o
 debug/problemset.o
 debug/shygame.o

@@ -1,6 +1,7 @@
 release/add1.o
 release/building.o
 release/data.o
+release/easycity2.o
 release/fib.o
 release/findfactorial.o
 release/floor.o
@@ -9,7 +10,9 @@ release/largefactorial.o
 release/longestpair.o
 release/main.o
 release/mainwindow.o
+release/mydatabase.o
 release/mymath.o
+release/people.o
 release/prime.o
 release/problemset.o
 release/shygame.o
