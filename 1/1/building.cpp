@@ -33,7 +33,7 @@ Building::Building()
     database = QSqlDatabase::addDatabase("QMYSQL");
     database.setHostName("localhost");
     database.setUserName("root");
-    database.setPassword("nctuece");
+    database.setPassword("123456789");
     database.setPort(3306);
     bool ok = database.open();
     if(ok){
@@ -44,9 +44,10 @@ Building::Building()
     }
     //create schema
     QSqlQuery query;
-
+    query.exec("drop schema if exists Course6");
     query.exec("create schema if not exists Course6");
     query.exec("use Course6");
+    query.exec("drop if it exists peoplelist");
     query.exec("create table if not exists peoplelist (id char(8),Nowfloor int,Destination int,Number int,PRIMARY KEY(id))");
     query.exec("load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/data.csv' into table peoplelist fields terminated by ',' lines terminated by '\n' ignore 1 rows");
 
