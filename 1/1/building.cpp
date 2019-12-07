@@ -18,17 +18,7 @@
 using namespace std;
 Building::Building()
 {
-    //floor
-    floor[0] = new Floor(new Add1());
-    floor[1] = new Floor(new Prime());
-    floor[2] = new Floor(new LongestPair());
-    floor[3] = new Floor(new Shygame());
-    floor[4] = new Floor(new Fib());
-    floor[5] = new Floor(new FindFactorial());
-    floor[6] = new Floor();
-    floor[7] = new Floor(new LargeFactorial());
-    floor[8] = new Floor();
-    floor[9] = new Floor(new EasyCity2());
+
     //connect database
     QSqlDatabase database;
     database = QSqlDatabase::addDatabase("QMYSQL");
@@ -63,6 +53,17 @@ Building::Building()
         people[i] = new People;
         people[i]->setPeople(query);
     }
+    //floor
+    floor[0] = new Floor(new Add1());
+    floor[1] = new Floor(new Prime());
+    floor[2] = new Floor(new LongestPair());
+    floor[3] = new Floor(new Shygame());
+    floor[4] = new Floor(new Fib());
+    floor[5] = new Floor(new FindFactorial());
+    floor[6] = new Floor();
+    floor[7] = new Floor(new LargeFactorial());
+    floor[8] = new Floor();
+    floor[9] = new Floor(new EasyCity2());
 
 }
 void Building::run(int question)
