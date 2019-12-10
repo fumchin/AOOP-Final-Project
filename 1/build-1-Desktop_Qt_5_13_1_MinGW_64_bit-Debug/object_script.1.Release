@@ -1,4 +1,3 @@
-release/add1.o
 release/building.o
 release/data.o
 release/fib.o
@@ -9,7 +8,6 @@ release/longestpair.o
 release/main.o
 release/mainwindow.o
 release/mymath.o
-release/prime.o
 release/problemset.o
 release/shortestdistance.o
 release/shygame.o

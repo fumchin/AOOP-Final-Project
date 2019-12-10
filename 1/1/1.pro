@@ -25,7 +25,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
-        add1.cpp \
         building.cpp \
         data.cpp \
         fib.cpp \
@@ -36,13 +35,11 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
         mymath.cpp \
-        prime.cpp \
         problemset.cpp \
         shortestdistance.cpp \
         shygame.cpp
 
 HEADERS += \
-        add1.h \
         building.h \
         data.h \
         fib.h \
@@ -52,7 +49,6 @@ HEADERS += \
         longestpair.h \
         mainwindow.h \
         mymath.h \
-        prime.h \
         problemset.h \
         shortestdistance.h \
         shygame.h

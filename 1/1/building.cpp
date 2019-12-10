@@ -1,5 +1,4 @@
 #include "building.h"
-#include "add1.h"
 #include "longestpair.h"
 #include <string>
 #include <QTimer>
@@ -10,13 +9,13 @@
 using namespace std;
 Building::Building()
 {
-    floor[0] = new Floor(new Add1());
-    floor[1] = new Floor(new Prime());
-    floor[2] = new Floor(new LongestPair());
-    floor[3] = new Floor(new Shygame());
-    floor[4] = new Floor(new Fib());
-    floor[5] = new Floor(new FindFactorial());
-    floor[6] = new Floor(new ShortestDistance());
+//    floor[0] = new Floor(new Add1());
+//    floor[1] = new Floor(new Prime());
+    floor[0] = new Floor(new LongestPair());
+    floor[1] = new Floor(new Shygame());
+    floor[2] = new Floor(new Fib());
+    floor[3] = new Floor(new FindFactorial());
+    floor[4] = new Floor(new ShortestDistance());
 }
 void Building::run(int question)
 {

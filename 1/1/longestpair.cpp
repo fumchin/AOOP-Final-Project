@@ -4,9 +4,9 @@
 #include <string>
 #include <sstream>
 #include <math.h>
-#include <QDebug>
+#include <vector>
+#include <iomanip>
 using namespace std;
-#define maxSize 10000
 LongestPair::LongestPair()
 {
 
@@ -15,42 +15,47 @@ LongestPair::LongestPair()
 string LongestPair::solve(string s){
     stringstream ss;
     ss<<s;
-    double n;
-    double longest;
-    double max;
+    double x,y,z;
     int counter = 0;
-    double x[maxSize],y[maxSize],z[maxSize];
-
-    while(ss>>n){
-        //turn number into odd number
-        if (counter%3 == 0)
-            x[counter/3] = n;
-        else if (counter%3 == 1)
-            y[counter/3] = n;
-        else if (counter%3 == 2)
-            z[counter/3] = n;
+    vector<double> xVec, yVec, zVec;
+    while(ss>>x>>y>>z)
+    {
+        xVec.push_back(x);
+        yVec.push_back(y);
+        zVec.push_back(z);
         counter++;
     }
 
     cout << "counter: " << counter << endl;
-    for (int j=0; j< counter/3; j++)
+    for (int j=0; j< counter; j++)
     {
-        cout << x[j] << " " << y[j]  << " " << z[j] << endl;
+        cout << xVec[j] << " " << yVec[j]  << " " << zVec[j] << endl;
     }
 
-    max = sqrt(pow(x[1]-x[0],2)+pow(y[1]-y[0],2)+pow(z[1]-z[0],2));
-    for (int i=0; i< counter/3-1; i++)
+    double max = sqrt(pow(xVec[1]-xVec[0],2)+pow(yVec[1]-yVec[0],2)+pow(zVec[1]-zVec[0],2));
+    double min = sqrt(pow(xVec[1]-xVec[0],2)+pow(yVec[1]-yVec[0],2)+pow(zVec[1]-zVec[0],2));
+    for (int i=0; i<counter-1; i++)
     {
-        for (int j=i+1; j< counter/3; j++)
+        for (int j=i+1; j<counter; j++)
         {
-            if(sqrt(pow(x[j]-x[i],2)+pow(y[j]-y[i],2)+pow(z[j]-z[i],2)) > max)
-                max = sqrt( pow(x[j]-x[i],2)+pow(y[j]-y[i],2)+pow(z[j]-z[i],2) );
+            if(sqrt(pow(xVec[j]-xVec[i],2)+pow(yVec[j]-yVec[i],2)+pow(zVec[j]-zVec[i],2)) > max)
+                max = sqrt( pow(xVec[j]-xVec[i],2)+pow(yVec[j]-yVec[i],2)+pow(zVec[j]-zVec[i],2) );
+            if(sqrt(pow(xVec[j]-xVec[i],2)+pow(yVec[j]-yVec[i],2)+pow(zVec[j]-zVec[i],2)) < min)
+                min = sqrt( pow(xVec[j]-xVec[i],2)+pow(yVec[j]-yVec[i],2)+pow(zVec[j]-zVec[i],2) );
         }
     }
-    ostringstream strs;
+    ostringstream minStrs;
+    cout << "min before: " << min << " after ";
+    min = floor(min*100)/100;//set precision to 2 manually
+    minStrs << min;
+    cout << min << endl;
+    string result = minStrs.str();
+
+    ostringstream maxStrs;
+    cout << "max before: " << max << " after ";
     max = floor(max*100)/100;//set precision to 2 manually
-    strs << max;
+    maxStrs << max;
     cout << max << endl;
-    string result = strs.str();
+    result.append(" " + maxStrs.str());
     return result;
 }

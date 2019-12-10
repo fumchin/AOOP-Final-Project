@@ -14,17 +14,15 @@ string Judge::getData(int question){
     ifstream infile;
     string fileName;
 
-    if (question == 0 || question == 1)
-        fileName = to_string(question)+".txt";
-    else if (question == 2)
+    if (question == 0)
         fileName = "longest.txt";
-    else if (question == 3)
+    else if (question == 1)
         fileName = "shygame.txt";
-    else if (question == 4)
+    else if (question == 2)
         fileName = "myfibfib.txt";
-    else if (question == 5)
+    else if (question == 3)
         fileName = "findfactorial.txt";
-    else if (question == 6)
+    else if (question == 4)
         fileName = "shortestdistance.txt";
 
 
