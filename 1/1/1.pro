@@ -34,6 +34,7 @@ SOURCES += \
         longestpair.cpp \
         main.cpp \
         mainwindow.cpp \
+        minesweeper.cpp \
         mymath.cpp \
         problemset.cpp \
         shortestdistance.cpp \
@@ -48,6 +49,7 @@ HEADERS += \
         judge.h \
         longestpair.h \
         mainwindow.h \
+        minesweeper.h \
         mymath.h \
         problemset.h \
         shortestdistance.h \

@@ -7,6 +7,7 @@ release/judge.o
 release/longestpair.o
 release/main.o
 release/mainwindow.o
+release/minesweeper.o
 release/mymath.o
 release/problemset.o
 release/shortestdistance.o

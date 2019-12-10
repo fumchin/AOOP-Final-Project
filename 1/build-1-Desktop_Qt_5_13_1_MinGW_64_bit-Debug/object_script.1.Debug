@@ -7,6 +7,7 @@ debug/judge.o
 debug/longestpair.o
 debug/main.o
 debug/mainwindow.o
+debug/minesweeper.o
 debug/mymath.o
 debug/problemset.o
 debug/shortestdistance.o
