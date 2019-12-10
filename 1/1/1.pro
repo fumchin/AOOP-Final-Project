@@ -35,6 +35,7 @@ SOURCES += \
         judge.cpp \
         largefactorial.cpp \
         longestpair.cpp \
+        longestshorestdisstance.cpp \
         main.cpp \
         mainwindow.cpp \
         mydatabase.cpp \
@@ -55,6 +56,7 @@ HEADERS += \
         judge.h \
         largefactorial.h \
         longestpair.h \
+        longestshorestdisstance.h \
         mainwindow.h \
         mydatabase.h \
         mymath.h \

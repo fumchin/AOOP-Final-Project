@@ -28,6 +28,8 @@ string Judge::getData(int question){
         fileName = "bigfact.txt";
     else if(question == 9)
         fileName = "myDatabase1_EasyCity2.txt";
+    else if(question == 10)
+        fileName = "myDatabase2_LSDis.txt";
 
     infile.open(fileName);
     if(!infile){

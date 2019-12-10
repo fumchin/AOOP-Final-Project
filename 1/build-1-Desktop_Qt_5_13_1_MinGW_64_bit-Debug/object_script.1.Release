@@ -8,6 +8,7 @@ release/floor.o
 release/judge.o
 release/largefactorial.o
 release/longestpair.o
+release/longestshorestdisstance.o
 release/main.o
 release/mainwindow.o
 release/mydatabase.o

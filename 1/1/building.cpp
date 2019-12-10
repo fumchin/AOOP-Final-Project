@@ -13,6 +13,7 @@
 #include "largefactorial.h"
 #include "people.h"
 #include "easycity2.h"
+#include "longestshorestdisstance.h"
 #include <time.h>
 #include <QString>
 using namespace std;
@@ -64,6 +65,7 @@ Building::Building()
     floor[7] = new Floor(new LargeFactorial());
     floor[8] = new Floor();
     floor[9] = new Floor(new EasyCity2());
+    floor[10] = new Floor(new LongestShorestDisstance());
 
 }
 void Building::run(int question)

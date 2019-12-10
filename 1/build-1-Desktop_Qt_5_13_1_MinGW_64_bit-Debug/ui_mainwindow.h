@@ -90,6 +90,7 @@ public:
         OptionComboBox->addItem(QString());
         OptionComboBox->addItem(QString());
         OptionComboBox->addItem(QString());
+        OptionComboBox->addItem(QString());
         OptionComboBox->setObjectName(QString::fromUtf8("OptionComboBox"));
         OptionComboBox->setGeometry(QRect(170, 70, 69, 22));
         PeopleNum = new QLineEdit(centralWidget);
@@ -107,7 +108,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 791, 21));
+        menuBar->setGeometry(QRect(0, 0, 791, 17));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
@@ -139,6 +140,7 @@ public:
         OptionComboBox->setItemText(7, QCoreApplication::translate("MainWindow", "8", nullptr));
         OptionComboBox->setItemText(8, QCoreApplication::translate("MainWindow", "9", nullptr));
         OptionComboBox->setItemText(9, QCoreApplication::translate("MainWindow", "10", nullptr));
+        OptionComboBox->setItemText(10, QCoreApplication::translate("MainWindow", "11", nullptr));
 
         label_5->setText(QCoreApplication::translate("MainWindow", "PeopleNum", nullptr));
         label_6->setText(QCoreApplication::translate("MainWindow", "Destination", nullptr));
