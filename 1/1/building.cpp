@@ -14,6 +14,7 @@
 #include "people.h"
 #include "easycity2.h"
 #include "longestshorestdisstance.h"
+#include "judgewindow.h"
 #include <time.h>
 #include <QString>
 using namespace std;
@@ -25,7 +26,7 @@ Building::Building()
     database = QSqlDatabase::addDatabase("QMYSQL");
     database.setHostName("localhost");
     database.setUserName("root");
-    database.setPassword("123456789");
+    database.setPassword("nctuece");
     database.setPort(3306);
     bool ok = database.open();
     if(ok){
@@ -43,12 +44,17 @@ Building::Building()
     query.exec("create table if not exists peoplelist (id char(8),Nowfloor int,Destination int,Number int,PRIMARY KEY(id))");
     query.exec("load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/data.csv' into table peoplelist fields terminated by ',' lines terminated by '\n' ignore 1 rows");
 
+    //judge
+    JudgeWindow judge;
+    judge.show();
+    judge.setSeed(0);
+    int n=judge.getConditionNum(); //get People data according variable n
+
     //create people
-    srand((unsigned)time(nullptr));
-    QString n = QString::number(rand()%30 + 1);
-    n = "'%0"+n+"-%'";
+    //srand((unsigned)time(nullptr));
+    //QString n = QString::number(rand()%30 + 1);
     //cout<<n.toStdString()<<endl;
-    query.exec("select * from peoplelist where id like "+n);
+    query.exec("select * from peoplelist where id like '%0"+QString::number(n)+"-%'");
     for(int i=0;i<10;i++){
         query.next();
         people[i] = new People;
@@ -67,11 +73,12 @@ Building::Building()
     floor[9] = new Floor(new EasyCity2());
     floor[10] = new Floor(new LongestShorestDisstance());
 
+
 }
 void Building::run(int question)
 {
     //0.txt
-    string s = judge.getData(question);
+    string s = judge.getData(question,0);
     data.testdata1 = s;
 
     string s2 = floor[question]->p->solve(s);

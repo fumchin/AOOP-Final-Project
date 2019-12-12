@@ -6,6 +6,7 @@ release/fib.o
 release/findfactorial.o
 release/floor.o
 release/judge.o
+release/judgewindow.o
 release/largefactorial.o
 release/longestpair.o
 release/longestshorestdisstance.o
@@ -17,4 +18,5 @@ release/people.o
 release/prime.o
 release/problemset.o
 release/shygame.o
+release/moc_judgewindow.o
 release/moc_mainwindow.o

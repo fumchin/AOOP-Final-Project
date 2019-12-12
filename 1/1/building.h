@@ -11,6 +11,7 @@ using namespace std;
 #include "prime.h"
 #include "problemset.h"
 #include "people.h"
+#include "judgewindow.h"
 #include <string>
 
 
@@ -22,7 +23,7 @@ public:
     Data getdata(){return  data;}
         People *people[10];
 private:
-    Judge judge;
+    JudgeWindow judge;
     Data data;
     //Add1 add1;
     //Prime prime;

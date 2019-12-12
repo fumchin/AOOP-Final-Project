@@ -6,6 +6,7 @@
 #include <QDebug>
 #include <QSqlResult>
 #include <QSqlDatabase>
+#include "building.h"
 
 namespace Ui {
 class MainWindow;
@@ -25,6 +26,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    Building building;
 };
 
 #endif // MAINWINDOW_H

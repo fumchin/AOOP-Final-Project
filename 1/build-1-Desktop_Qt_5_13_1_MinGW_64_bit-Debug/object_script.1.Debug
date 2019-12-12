@@ -6,6 +6,7 @@ debug/fib.o
 debug/findfactorial.o
 debug/floor.o
 debug/judge.o
+debug/judgewindow.o
 debug/largefactorial.o
 debug/longestpair.o
 debug/longestshorestdisstance.o
@@ -17,4 +18,5 @@ debug/people.o
 debug/prime.o
 debug/problemset.o
 debug/shygame.o
+debug/moc_judgewindow.o
 debug/moc_mainwindow.o

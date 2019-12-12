@@ -33,6 +33,7 @@ SOURCES += \
         findfactorial.cpp \
         floor.cpp \
         judge.cpp \
+        judgewindow.cpp \
         largefactorial.cpp \
         longestpair.cpp \
         longestshorestdisstance.cpp \
@@ -54,6 +55,7 @@ HEADERS += \
         findfactorial.h \
         floor.h \
         judge.h \
+        judgewindow.h \
         largefactorial.h \
         longestpair.h \
         longestshorestdisstance.h \
@@ -66,6 +68,7 @@ HEADERS += \
         shygame.h
 
 FORMS += \
+        judgewindow.ui \
         mainwindow.ui
 
 # Default rules for deployment.

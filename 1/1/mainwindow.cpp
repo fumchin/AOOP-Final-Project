@@ -20,7 +20,7 @@ MainWindow::~MainWindow()
 void MainWindow::connectDB()
 {
 }
-    Building building;
+
 void MainWindow::on_pushButton_clicked()
 {
 
