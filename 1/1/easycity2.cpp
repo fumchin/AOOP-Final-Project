@@ -51,7 +51,7 @@ string EasyCity2::solve(string s){
                 result +="0.0000";
             }
             else{
-                result +=query.value(0).toString().toStdString();
+                result +=QString::number(query.value(0).toDouble(),'f',4).toStdString();
             }
         }
         else{
