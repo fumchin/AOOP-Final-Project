@@ -30,7 +30,7 @@ Building::Building()
     for(int i=0;i<10;i++){
 //        query.next();
         people[i] = new People;
-        people[i]->setPeople();
+        people[i]->setPeople(n);
     }
 //    for(int i=0;i<10;i++){
 //        people[i] = new People;

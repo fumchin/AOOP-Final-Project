@@ -13,6 +13,7 @@ using namespace std;
 #include "people.h"
 #include "judgewindow.h"
 #include <string>
+#include <QSqlQuery>
 
 
 class Building
@@ -21,13 +22,16 @@ public:
     Building();
     void run(int quetion);
     Data getdata(){return  data;}
-        People *people[10];
+    People *people[10];
 private:
+    //QSqlDatabase database;
     JudgeWindow judge;
     Data data;
     //Add1 add1;
     //Prime prime;
     Floor *floor[30];
+
+    //QSqlQuery query;
 
 };
 

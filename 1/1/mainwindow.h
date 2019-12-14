@@ -24,6 +24,8 @@ public:
 private slots:
     void on_pushButton_clicked();
 
+    void on_People_Infomation_clicked();
+
 private:
     Ui::MainWindow *ui;
     Building building;

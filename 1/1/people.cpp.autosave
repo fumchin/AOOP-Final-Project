@@ -19,7 +19,8 @@ People::People()
 
 }
 
-void People::setPeople(){
+void People::setPeople(int n){
+    query.exec("select n.* from (select * from peoplelist limit "+QString::number(n-1)+",1) as s,peoplelist as n where left(n.id,5)=left(s.id,5)");
     query.next();
     id = query.value(0).toString();
     Nowfloor = query.value(1).toInt();
