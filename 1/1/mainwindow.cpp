@@ -34,12 +34,10 @@ void MainWindow::on_pushButton_clicked()
     ui->Submitdata_1->setText(QString::fromStdString(windata.submit1));
     ui->Correct_1->setText(QString::fromStdString(to_string(windata.correct1)));
     ui->Spend_time_1->setText(QString::fromStdString(to_string(windata.spendtime1)));
-
-
 }
 
 void MainWindow::on_People_Infomation_clicked()
 {
-    ui->PeopleNum->setText(QString::fromStdString(to_string(building.people[ui->OptionComboBox->currentIndex()]->Number)));
-    ui->Destination->setText(QString::fromStdString(to_string(building.people[ui->OptionComboBox->currentIndex()]->Destination)));
+    ui->PeopleNum->setText(QString::fromStdString(to_string(building.people[ui->OptionComboBox->currentIndex()]->getPeopleNum())));
+    ui->Destination->setText(QString::fromStdString(to_string(building.people[ui->OptionComboBox->currentIndex()]->getPeopleDes())));
 }

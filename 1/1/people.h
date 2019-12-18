@@ -13,7 +13,9 @@ class People
 {
 public:
     People();
-    void setPeople(int n);
+    void setPeople(QSqlQuery &query);
+    int getPeopleNum();
+    int getPeopleDes();
 //private:
     QString id;
     int Nowfloor;

@@ -26,16 +26,19 @@ Building::Building()
     judge.setSeed(0);
     int n=judge.getConditionNum(); //get People data according variable n
     //create people
-//    query.exec("select n.* from (select * from peoplelist limit "+QString::number(n-1)+",1) as s,peoplelist as n where left(n.id,5)=left(s.id,5)");
+    query.exec("drop schema if exists Course6");
+    query.exec("create schema if not exists Course6");
+    query.exec("use Course6");
+    query.exec("drop table if exists peoplelist");
+    query.exec("create table if not exists peoplelist (id char(8),Nowfloor int,Destination int,Number int,PRIMARY KEY(id))");
+    query.exec("load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/data.csv' into table peoplelist fields terminated by ',' lines terminated by '\n' ignore 1 rows");
+
+    query.exec("select n.* from (select * from peoplelist limit "+QString::number(n-1)+",1) as s,peoplelist as n where left(n.id,5)=left(s.id,5)");
     for(int i=0;i<10;i++){
-//        query.next();
         people[i] = new People;
-        people[i]->setPeople();
+        //cout<<query.value(0).toInt()<<endl;
+        people[i]->setPeople(query);
     }
-//    for(int i=0;i<10;i++){
-//        people[i] = new People;
-//        people[i]->setPeople(n);
-//    }
     //floor
     floor[0] = new Floor(new Add1());
     floor[1] = new Floor(new Prime());
@@ -61,6 +64,7 @@ void Building::run(int question)
 
 
     data.submit1 = s2;
+    cout<<"sdfadfas"<<s2<<endl;
     bool correct = judge.submitData(s2);
     data.correct1 = correct;
     data.spendtime1 = judge.getSpendTime();
