@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <iostream>
-#include "building.h"
+//#include "building.h"
 #include "data.h"
 
 
@@ -17,10 +17,10 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::connectDB()
-{
+//void MainWindow::connectDB()
+//{
 
-}
+//}
 
 void MainWindow::on_pushButton_clicked()
 {

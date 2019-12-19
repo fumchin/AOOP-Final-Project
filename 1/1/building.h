@@ -22,14 +22,12 @@ public:
     Building();
     void run(int quetion);
     Data getdata(){return  data;}
-    People *people[10];
+    People *people[27];
 
 private:
     //QSqlDatabase database;
     JudgeWindow judge;
     Data data;
-    //Add1 add1;
-    //Prime prime;
     QSqlQuery query;
     Floor *floor[30];
 

@@ -26,15 +26,20 @@ Building::Building()
     judge.setSeed(0);
     int n=judge.getConditionNum(); //get People data according variable n
     //create people
-    query.exec("drop schema if exists Course6");
-    query.exec("create schema if not exists Course6");
-    query.exec("use Course6");
-    query.exec("drop table if exists peoplelist");
-    query.exec("create table if not exists peoplelist (id char(8),Nowfloor int,Destination int,Number int,PRIMARY KEY(id))");
-    query.exec("load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/data.csv' into table peoplelist fields terminated by ',' lines terminated by '\n' ignore 1 rows");
+    query.exec("drop database FINAL");
+    query.exec("create database if not exists FINAL");
+    query.exec("use FINAL");
+    query.exec("drop table if exists TestData");
+    query.exec("create table if not exists TestData (ID char(8),Floor int,Question text,Answer text,PRIMARY KEY(ID))");
+    query.exec("drop table if exists InitialCondition");
+    query.exec("create table if not exists InitialCondition (ID char(8),Nowfloor int,Destination int,Number int,PRIMARY KEY(ID))");
+    query.exec("load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/testdata.csv' into table TestData fields terminated by ',' enclosed by '\"' lines terminated by '\r\n' ignore 1 rows");
+    query.exec("load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/simple_initial_condition.csv' into table InitialCondition fields terminated by ',' enclosed by '\"' lines terminated by '\r\n' ignore 1 rows");
+    query.exec("select * from InitialCondition");
 
-    query.exec("select n.* from (select * from peoplelist limit "+QString::number(n-1)+",1) as s,peoplelist as n where left(n.id,5)=left(s.id,5)");
-    for(int i=0;i<10;i++){
+//   //query.exec("select n.* from (select * from peoplelist limit "+QString::number(n-1)+",1) as s,peoplelist as n where left(n.id,5)=left(s.id,5)");
+    query.exec("select * from InitialCondition");
+    for(int i=0;i<27;i++){
         people[i] = new People;
         //cout<<query.value(0).toInt()<<endl;
         people[i]->setPeople(query);

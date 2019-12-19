@@ -6,6 +6,7 @@
 #include <string>
 #include <QGridLayout>
 #include <QDebug>
+#include <building.h>
 using namespace std;
 
 JudgeWindow::JudgeWindow(QWidget *parent) :
@@ -13,11 +14,10 @@ JudgeWindow::JudgeWindow(QWidget *parent) :
     ui(new Ui::JudgeWindow)
 {
     ui->setupUi(this);
-    for(int i=0;i<27;i++){
-        for(int j=0;j<4;j++){
-            ui->gridLayout_2->addWidget(&showline[i][j],i,j);
-        }
-    }
+
+
+//    building.run(ui->OptionComboBox->currentIndex());//選擇的樓層
+//    windata = building.getdata();
     query.exec("drop database FINAL");
     query.exec("create database if not exists FINAL");
     query.exec("use FINAL");
@@ -26,8 +26,17 @@ JudgeWindow::JudgeWindow(QWidget *parent) :
     query.exec("drop table if exists InitialCondition");
     query.exec("create table if not exists InitialCondition (ID char(8),Nowfloor int,Destination int,Number int,PRIMARY KEY(ID))");
     query.exec("load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/testdata.csv' into table TestData fields terminated by ',' enclosed by '\"' lines terminated by '\r\n' ignore 1 rows");
-    query.exec("load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/initial_condition.csv' into table InitialCondition fields terminated by ',' enclosed by '\"' lines terminated by '\r\n' ignore 1 rows");
-
+    query.exec("load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/simple_initial_condition.csv' into table InitialCondition fields terminated by ',' enclosed by '\"' lines terminated by '\r\n' ignore 1 rows");
+    query.exec("select * from InitialCondition");
+    for(int i=0;i<27;i++){
+        for(int j=0;j<4;j++){
+            if(j==0){
+                query.next();
+                showline[i][j].setText(query.value(3).toString());
+            }
+            ui->gridLayout_2->addWidget(&showline[i][j],i,j);
+        }
+    }
 
 }
 

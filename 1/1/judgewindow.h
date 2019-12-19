@@ -9,7 +9,6 @@
 #include <QLineEdit>
 #include <QSqlQuery>
 using namespace std;
-
 namespace Ui {
 class JudgeWindow;
 }
@@ -37,6 +36,7 @@ private:
     QSqlQuery query;
     QElapsedTimer timer;
     string answer;
+
 };
 
 #endif // JUDGEWINDOW_H
