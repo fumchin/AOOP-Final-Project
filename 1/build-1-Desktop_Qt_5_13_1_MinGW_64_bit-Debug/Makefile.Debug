@@ -498,10 +498,8 @@ debug/data.o: ../1/data.cpp ../1/data.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\data.o ..\1\data.cpp
 
 debug/easycity2.o: ../1/easycity2.cpp ../1/easycity2.h \
-		../1/mydatabase.h \
-		../1/problemset.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtSql/QSqlDatabase \
-		C:/Qt/5.13.1/mingw73_64/include/QtSql/qsqldatabase.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtSql/QSqlQuery \
+		C:/Qt/5.13.1/mingw73_64/include/QtSql/qsqlquery.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtSql/qtsqlglobal.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/qglobal.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/qconfig-bootstrapped.h \
@@ -525,6 +523,7 @@ debug/easycity2.o: ../1/easycity2.cpp ../1/easycity2.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/qnumeric.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/qversiontagging.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtSql/qtsql-config.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtSql/qsqldatabase.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/qstring.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/qchar.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/qbytearray.h \
@@ -535,8 +534,9 @@ debug/easycity2.o: ../1/easycity2.cpp ../1/easycity2.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/qstringalgorithms.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/qstringview.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/qstringbuilder.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtSql/QSqlQuery \
-		C:/Qt/5.13.1/mingw73_64/include/QtSql/qsqlquery.h \
+		../1/mydatabase.h \
+		../1/problemset.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtSql/QSqlDatabase \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/QString \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/QVariant \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/qvariant.h \
@@ -725,8 +725,8 @@ debug/longestpair.o: ../1/longestpair.cpp ../1/longestpair.h \
 debug/longestshorestdisstance.o: ../1/longestshorestdisstance.cpp ../1/longestshorestdisstance.h \
 		../1/mydatabase.h \
 		../1/problemset.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtSql/QSqlDatabase \
-		C:/Qt/5.13.1/mingw73_64/include/QtSql/qsqldatabase.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtSql/QSqlQuery \
+		C:/Qt/5.13.1/mingw73_64/include/QtSql/qsqlquery.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtSql/qtsqlglobal.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/qglobal.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/qconfig-bootstrapped.h \
@@ -750,6 +750,7 @@ debug/longestshorestdisstance.o: ../1/longestshorestdisstance.cpp ../1/longestsh
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/qnumeric.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/qversiontagging.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtSql/qtsql-config.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtSql/qsqldatabase.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/qstring.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/qchar.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/qbytearray.h \
@@ -760,8 +761,7 @@ debug/longestshorestdisstance.o: ../1/longestshorestdisstance.cpp ../1/longestsh
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/qstringalgorithms.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/qstringview.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/qstringbuilder.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtSql/QSqlQuery \
-		C:/Qt/5.13.1/mingw73_64/include/QtSql/qsqlquery.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtSql/QSqlDatabase \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/QString \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/QVariant \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/qvariant.h \
@@ -1047,49 +1047,6 @@ debug/mainwindow.o: ../1/mainwindow.cpp ../1/mainwindow.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtSql/QSqlDatabase \
 		C:/Qt/5.13.1/mingw73_64/include/QtSql/qsqldatabase.h \
 		ui_mainwindow.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtCore/QVariant \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QApplication \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qapplication.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtCore/qcoreapplication.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtCore/qeventloop.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtGui/qguiapplication.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtGui/qinputmethod.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QComboBox \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qcombobox.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qabstractitemdelegate.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qstyleoption.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qabstractspinbox.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtGui/qvalidator.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtCore/qregularexpression.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qslider.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qabstractslider.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qstyle.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qtabbar.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qrubberband.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qframe.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtCore/qabstractitemmodel.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QLabel \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qlabel.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QLineEdit \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qlineedit.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtGui/qtextcursor.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtGui/qtextformat.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtGui/qpen.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtGui/qtextoption.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QMenuBar \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qmenubar.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qmenu.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qaction.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qactiongroup.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QPushButton \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QStatusBar \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qstatusbar.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QToolBar \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qtoolbar.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QWidget \
 		../1/building.h \
 		../1/judge.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/QString \

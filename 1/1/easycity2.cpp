@@ -11,13 +11,12 @@ using namespace std;
 
 EasyCity2::EasyCity2()
 {
-
+    query.exec("drop schem if exists CITYDATABASE");
+    query.exec("create schema if not exists CITYDATABASE");
+    query.exec("use CITYDATABASE");
 }
 
 string EasyCity2::solve(string s){
-    QSqlQuery query;
-    query.exec("drop schem if exists CITYDATABASE");
-    query.exec("create schema if not exists CITYDATABASE");
     query.exec("use CITYDATABASE");
     query.exec("drop table if exists CITYTABLE");
     query.exec("create table if not exists CITYTABLE (ID int,COUNTRY varchar(50),CITY varchar(60),LAT double,LON double,PRIMARY KEY(ID))");
