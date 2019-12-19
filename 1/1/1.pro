@@ -4,7 +4,8 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -25,6 +26,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        add1.cpp \
         building.cpp \
         data.cpp \
         fib.cpp \
@@ -36,11 +38,18 @@ SOURCES += \
         mainwindow.cpp \
         minesweeper.cpp \
         mymath.cpp \
+        people.cpp \
+        prime.cpp \
         problemset.cpp \
+        scheduler.cpp \
         shortestdistance.cpp \
-        shygame.cpp
+        shygame.cpp \
+        people.cpp \
+        prime.cpp \
+        scheduler.cpp
 
 HEADERS += \
+        add1.h \
         building.h \
         data.h \
         fib.h \
@@ -50,9 +59,12 @@ HEADERS += \
         longestpair.h \
         mainwindow.h \
         minesweeper.h \
-        mymath.h \
-        problemset.h \
         shortestdistance.h \
+        mymath.h \
+        people.h \
+        prime.h \
+        problemset.h \
+        scheduler.h \
         shygame.h
 
 FORMS += \
@@ -62,3 +74,22 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+HEADERS += \
+    add1.h \
+    building.h \
+    data.h \
+    fib.h \
+    findfactorial.h \
+    floor.h \
+    judge.h \
+    longestpair.h \
+    mainwindow.h \
+    minesweeper.h \
+    mymath.h \
+    people.h \
+    prime.h \
+    problemset.h \
+    scheduler.h \
+    shortestdistance.h \
+    shygame.h

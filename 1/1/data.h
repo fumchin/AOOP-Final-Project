@@ -12,6 +12,9 @@ public:
     string testdata1,testdata2;
     string submit1,submit2;
     bool correct1,correct2;
+
+    int score;
+    int nowfloor;
 };
 
 #endif // DATA_H

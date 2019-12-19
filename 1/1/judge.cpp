@@ -11,6 +11,7 @@ string Judge::getData(int question){
     srand((unsigned)time(NULL));
 
     int n;
+
     ifstream infile;
     string fileName;
 
@@ -18,6 +19,7 @@ string Judge::getData(int question){
         fileName = "longest.txt";
     else if (question == 1)
         fileName = "minesweeper.txt";
+
     else if (question == 3)
         fileName = "shygame.txt";
     else if (question == 4)
@@ -64,18 +66,10 @@ bool Judge::submitData(string ans){
     costtime = timer.nsecsElapsed();
     //ans is result from add1
     if(this->ans.compare(ans)==0){
+        score += 100;
         return true;
     }
     else{
         return false;
     }
 }
-
-
-//data member
-/*
-string ans;
-ifstream in;
-QElapsedTimer timer;
-qint64 costtime;
-*/

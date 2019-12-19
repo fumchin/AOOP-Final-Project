@@ -10,15 +10,17 @@ using namespace std;
 class Judge
 {
 public:
-    Judge() {}
+    Judge() {score=0;}
     string getData(int question);
     bool submitData(string ans);
     qint64 getSpendTime(){return costtime;}
+    int getScore(){return score;}
 private:
     string ans;
     ifstream in;
     QElapsedTimer timer;
     qint64 costtime;
+    int score;
 
 };
 
