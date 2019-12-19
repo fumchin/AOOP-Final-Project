@@ -11,7 +11,6 @@ string Judge::getData(int question){
     srand((unsigned)time(NULL));
 
     int n;
-
     ifstream infile;
     string fileName;
 
@@ -27,8 +26,13 @@ string Judge::getData(int question){
     else if (question == 6)
         fileName = "findfactorial.txt";
     else if (question == 8)
-        fileName = "shortestdistance.txt";
-
+        fileName = "shortestdistance.txt";   
+    else if(question == 14)
+        fileName = "bigfact.txt";
+    else if(question == 24)
+        fileName = "myDatabase1_EasyCity2.txt";
+    else if(question == 25)
+        fileName = "myDatabase2_LSDis.txt";
 
     infile.open(fileName);
     if(!infile){

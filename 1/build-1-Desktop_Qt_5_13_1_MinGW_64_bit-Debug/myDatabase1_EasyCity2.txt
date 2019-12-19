@@ -1,0 +1,10 @@
+2 sma nz aeiou 121.5 131.5 25.3 30.3 5
+Kee 7 136.7931
+3 lar axesnz ngaeiou 120.5 140.5 25 35 6
+Nan 1 NULL
+1 lar wx nu 120.5 121.5 25 26 6
+Tai 12 137.2632
+2 lar wx nu 120.5 121.5 25 26 3
+Kee 7 1.6512
+2 sma wx nugi 121.5 125.5 25.3 25.5 4
+Kee 7 0.0000
