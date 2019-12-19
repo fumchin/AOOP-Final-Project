@@ -90,6 +90,11 @@ public:
         OptionComboBox->addItem(QString());
         OptionComboBox->addItem(QString());
         OptionComboBox->addItem(QString());
+        OptionComboBox->addItem(QString());
+        OptionComboBox->addItem(QString());
+        OptionComboBox->addItem(QString());
+        OptionComboBox->addItem(QString());
+        OptionComboBox->addItem(QString());
         OptionComboBox->setObjectName(QString::fromUtf8("OptionComboBox"));
         OptionComboBox->setGeometry(QRect(330, 230, 69, 22));
         PeopleNum = new QLineEdit(centralWidget);
@@ -147,6 +152,11 @@ public:
         OptionComboBox->setItemText(3, QCoreApplication::translate("MainWindow", "4", nullptr));
         OptionComboBox->setItemText(4, QCoreApplication::translate("MainWindow", "5", nullptr));
         OptionComboBox->setItemText(5, QCoreApplication::translate("MainWindow", "6", nullptr));
+        OptionComboBox->setItemText(6, QCoreApplication::translate("MainWindow", "7", nullptr));
+        OptionComboBox->setItemText(7, QCoreApplication::translate("MainWindow", "8", nullptr));
+        OptionComboBox->setItemText(8, QCoreApplication::translate("MainWindow", "9", nullptr));
+        OptionComboBox->setItemText(9, QCoreApplication::translate("MainWindow", "10", nullptr));
+        OptionComboBox->setItemText(10, QCoreApplication::translate("MainWindow", "11", nullptr));
 
         label_5->setText(QCoreApplication::translate("MainWindow", "PeopleNum", nullptr));
         label_6->setText(QCoreApplication::translate("MainWindow", "Destination", nullptr));

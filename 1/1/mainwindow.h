@@ -3,6 +3,9 @@
 
 #include <QMainWindow>
 #include <QTimer>
+#include <QDebug>
+#include <QSqlResult>
+#include <QSqlDatabase>
 
 #include <QDebug>
 #include <QSqlResult>

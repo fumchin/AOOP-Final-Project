@@ -9,6 +9,9 @@
 #include "shortestdistance.h"
 #include "add1.h"
 #include "prime.h"
+#include "easycity2.h"
+#include "longestshorestdisstance.h"
+#include "largefactorial.h"
 #include <QApplication>
 #include <QSqlDatabase>
 #include <QSqlQuery>
@@ -23,6 +26,10 @@ Building::Building()
     floor[7] = new Floor(new FindFactorial());
     floor[8] = new Floor(new ShortestDistance());
     floor[9] = new Floor(new Add1());
+    floor[14] = new Floor(new LargeFactorial());
+    floor[24] = new Floor(new EasyCity2());
+    floor[25] = new Floor(new LongestShorestDisstance());
+
     //connect database
     QSqlDatabase database;
     database = QSqlDatabase::addDatabase("QMYSQL");
