@@ -14,10 +14,7 @@ release/mainwindow.o
 release/minesweeper.o
 release/mydatabase.o
 release/mymath.o
-release/people.o
-release/prime.o
 release/problemset.o
-release/scheduler.o
 release/shortestdistance.o
 release/shygame.o
 release/people.o

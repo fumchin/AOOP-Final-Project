@@ -14,10 +14,7 @@ debug/mainwindow.o
 debug/minesweeper.o
 debug/mydatabase.o
 debug/mymath.o
-debug/people.o
-debug/prime.o
 debug/problemset.o
-debug/scheduler.o
 debug/shortestdistance.o
 debug/shygame.o
 debug/people.o

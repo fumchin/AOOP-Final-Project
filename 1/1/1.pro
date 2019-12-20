@@ -42,10 +42,7 @@ SOURCES += \
         minesweeper.cpp \
         mydatabase.cpp \
         mymath.cpp \
-        people.cpp \
-        prime.cpp \
         problemset.cpp \
-        scheduler.cpp \
         shortestdistance.cpp \
         shygame.cpp \
         people.cpp \
@@ -82,22 +79,3 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
-
-HEADERS += \
-    add1.h \
-    building.h \
-    data.h \
-    fib.h \
-    findfactorial.h \
-    floor.h \
-    judge.h \
-    longestpair.h \
-    mainwindow.h \
-    minesweeper.h \
-    mymath.h \
-    people.h \
-    prime.h \
-    problemset.h \
-    scheduler.h \
-    shortestdistance.h \
-    shygame.h
