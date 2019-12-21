@@ -1,6 +1,8 @@
 #ifndef LONGESTSHORESTDISSTANCE_H
 #define LONGESTSHORESTDISSTANCE_H
 #include "mydatabase.h"
+
+#include <QSqlDatabase>
 #include <QSqlQuery>
 
 class LongestShorestDisstance : public MyDatabase

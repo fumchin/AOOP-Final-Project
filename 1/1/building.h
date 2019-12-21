@@ -8,7 +8,9 @@
 #include "mymath.h"
 #include "problemset.h"
 #include "people.h"
+#include "judgewindow.h"
 #include <string>
+#include <QSqlQuery>
 #include <qobject.h>
 #include <qtimer.h>
 #include <qelapsedtimer.h>
@@ -22,7 +24,7 @@ public:
 
     void run(int quetion);
     Data getdata(){return  data;}
-    People *people[10];
+    People *people[27];
     void startSimulation();
 
 public slots:
@@ -31,11 +33,13 @@ signals:
     void updateGUI();
 
 private:
-    Judge judge;
+    //QSqlDatabase database;
+    JudgeWindow judge;
     Data data;
     Floor *floor[30];
     QTimer *timer;
     Scheduler scheduler;
+    QSqlQuery query;
 };
 
 

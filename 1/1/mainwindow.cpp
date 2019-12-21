@@ -1,11 +1,25 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <iostream>
+//#include "building.h"
+#include "data.h"
+
+
+//MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),ui(new Ui::MainWindow)
+//{
+//    QMainWindow(parent),
+//    ui(new Ui::MainWindow)
+
+
+//    connect(&building,SIGNAL(updateGUI()),this, SLOT(slot_update_data()));
+//    ui->setupUi(this);
+//}
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),ui(new Ui::MainWindow)
 {
     connect(&building,SIGNAL(updateGUI()),this, SLOT(slot_update_data()));
     ui->setupUi(this);
 }
+
 
 MainWindow::~MainWindow()
 {
@@ -43,6 +57,7 @@ void MainWindow::slot_update_data()
         ui->finishLabel->setVisible(true);
     }
 }
+
 void MainWindow::on_pushButton_clicked()
 {
 
@@ -55,8 +70,12 @@ void MainWindow::on_pushButton_clicked()
     ui->Spend_time_1->setText(QString::fromStdString(to_string(data.spendtime1)));
     ui->PeopleNum->setText(QString::fromStdString(to_string(building.people[ui->OptionComboBox->currentIndex()]->Number)));
     ui->Destination->setText(QString::fromStdString(to_string(building.people[ui->OptionComboBox->currentIndex()]->Destination)));
-
 }
+//void MainWindow::on_People_Infomation_clicked()
+//{
+//    ui->PeopleNum->setText(QString::fromStdString(to_string(building.people[ui->OptionComboBox->currentIndex()]->getPeopleNum())));
+//    ui->Destination->setText(QString::fromStdString(to_string(building.people[ui->OptionComboBox->currentIndex()]->getPeopleDes())));
+//}
 
 void MainWindow::on_startSimBtn_clicked()
 {

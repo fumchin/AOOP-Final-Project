@@ -7,6 +7,7 @@ debug/findfactorial.o
 debug/floor.o
 debug/getsignature.o
 debug/judge.o
+debug/judgewindow.o
 debug/largefactorial.o
 debug/largestroot.o
 debug/longestpair.o
@@ -23,4 +24,5 @@ debug/people.o
 debug/prime.o
 debug/scheduler.o
 debug/moc_building.o
+debug/moc_judgewindow.o
 debug/moc_mainwindow.o

@@ -6,6 +6,7 @@
 #include <QDebug>
 #include <QSqlResult>
 #include <QSqlDatabase>
+#include "building.h"
 
 #include <QDebug>
 #include <QSqlResult>
@@ -34,11 +35,13 @@ private slots:
     void slot_update_data();
     void on_startSimBtn_clicked();
 
+
 private:
     Ui::MainWindow *ui;
     Data data;
     Building building;
     Scheduler scheduler;
+
 };
 
 #endif // MAINWINDOW_H

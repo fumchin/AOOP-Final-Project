@@ -7,6 +7,7 @@ release/findfactorial.o
 release/floor.o
 release/getsignature.o
 release/judge.o
+release/judgewindow.o
 release/largefactorial.o
 release/largestroot.o
 release/longestpair.o
@@ -23,4 +24,5 @@ release/people.o
 release/prime.o
 release/scheduler.o
 release/moc_building.o
+release/moc_judgewindow.o
 release/moc_mainwindow.o
