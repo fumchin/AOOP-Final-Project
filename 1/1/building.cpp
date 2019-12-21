@@ -33,7 +33,7 @@ Building::Building()
     query.exec("create table if not exists TestData (ID char(8),Floor int,Question text,Answer text,PRIMARY KEY(ID))");
     query.exec("drop table if exists InitialCondition");
     query.exec("create table if not exists InitialCondition (ID char(8),Nowfloor int,Destination int,Number int,PRIMARY KEY(ID))");
-    query.exec("load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/testdata.csv' into table TestData fields terminated by ',' enclosed by '\"' lines terminated by '\r\n' ignore 1 rows");
+    query.exec("load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/testdata_v3.csv' into table TestData fields terminated by ',' enclosed by '\"' lines terminated by '\r\n' ignore 1 rows");
     query.exec("load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/simple_initial_condition.csv' into table InitialCondition fields terminated by ',' enclosed by '\"' lines terminated by '\r\n' ignore 1 rows");
     query.exec("select * from InitialCondition");
 
@@ -45,17 +45,17 @@ Building::Building()
         people[i]->setPeople(query);
     }
     //floor
-    floor[0] = new Floor(new Add1());
+    floor[0] = new Floor(new LongestPair());
     floor[1] = new Floor(new Prime());
-    floor[2] = new Floor(new LongestPair());
     floor[3] = new Floor(new Shygame());
     floor[4] = new Floor(new Fib());
-    floor[5] = new Floor(new FindFactorial());
     floor[6] = new Floor();
-    floor[7] = new Floor(new LargeFactorial());
+    floor[7] = new Floor(new FindFactorial());
     floor[8] = new Floor();
-    floor[9] = new Floor(new EasyCity2());
-    floor[10] = new Floor(new LongestShorestDisstance());
+    floor[9] = new Floor(new Add1());
+    floor[15] = new Floor(new LargeFactorial());
+    floor[24] = new Floor(new EasyCity2());
+    floor[25] = new Floor(new LongestShorestDisstance());
 
 
 }
@@ -69,7 +69,6 @@ void Building::run(int question)
 
 
     data.submit1 = s2;
-    cout<<"sdfadfas"<<s2<<endl;
     bool correct = judge.submitData(s2);
     data.correct1 = correct;
     data.spendtime1 = judge.getSpendTime();

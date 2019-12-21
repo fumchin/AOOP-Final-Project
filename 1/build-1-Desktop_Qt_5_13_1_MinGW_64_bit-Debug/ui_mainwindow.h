@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.13.0
+** Created by: Qt User Interface Compiler version 5.13.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -41,6 +41,7 @@ public:
     QLineEdit *Destination;
     QLabel *label_5;
     QLabel *label_6;
+    QPushButton *People_Infomation;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -78,8 +79,27 @@ public:
         Correct_1->setGeometry(QRect(410, 170, 251, 20));
         pushButton = new QPushButton(centralWidget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(190, 220, 75, 23));
+        pushButton->setGeometry(QRect(190, 160, 75, 23));
         OptionComboBox = new QComboBox(centralWidget);
+        OptionComboBox->addItem(QString());
+        OptionComboBox->addItem(QString());
+        OptionComboBox->addItem(QString());
+        OptionComboBox->addItem(QString());
+        OptionComboBox->addItem(QString());
+        OptionComboBox->addItem(QString());
+        OptionComboBox->addItem(QString());
+        OptionComboBox->addItem(QString());
+        OptionComboBox->addItem(QString());
+        OptionComboBox->addItem(QString());
+        OptionComboBox->addItem(QString());
+        OptionComboBox->addItem(QString());
+        OptionComboBox->addItem(QString());
+        OptionComboBox->addItem(QString());
+        OptionComboBox->addItem(QString());
+        OptionComboBox->addItem(QString());
+        OptionComboBox->addItem(QString());
+        OptionComboBox->addItem(QString());
+        OptionComboBox->addItem(QString());
         OptionComboBox->addItem(QString());
         OptionComboBox->addItem(QString());
         OptionComboBox->addItem(QString());
@@ -105,6 +125,9 @@ public:
         label_6 = new QLabel(centralWidget);
         label_6->setObjectName(QString::fromUtf8("label_6"));
         label_6->setGeometry(QRect(330, 230, 61, 16));
+        People_Infomation = new QPushButton(centralWidget);
+        People_Infomation->setObjectName(QString::fromUtf8("People_Infomation"));
+        People_Infomation->setGeometry(QRect(190, 210, 75, 23));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
@@ -141,9 +164,29 @@ public:
         OptionComboBox->setItemText(8, QCoreApplication::translate("MainWindow", "9", nullptr));
         OptionComboBox->setItemText(9, QCoreApplication::translate("MainWindow", "10", nullptr));
         OptionComboBox->setItemText(10, QCoreApplication::translate("MainWindow", "11", nullptr));
+        OptionComboBox->setItemText(11, QCoreApplication::translate("MainWindow", "12", nullptr));
+        OptionComboBox->setItemText(12, QCoreApplication::translate("MainWindow", "13", nullptr));
+        OptionComboBox->setItemText(13, QCoreApplication::translate("MainWindow", "14", nullptr));
+        OptionComboBox->setItemText(14, QCoreApplication::translate("MainWindow", "15", nullptr));
+        OptionComboBox->setItemText(15, QCoreApplication::translate("MainWindow", "16", nullptr));
+        OptionComboBox->setItemText(16, QCoreApplication::translate("MainWindow", "17", nullptr));
+        OptionComboBox->setItemText(17, QCoreApplication::translate("MainWindow", "18", nullptr));
+        OptionComboBox->setItemText(18, QCoreApplication::translate("MainWindow", "19", nullptr));
+        OptionComboBox->setItemText(19, QCoreApplication::translate("MainWindow", "20", nullptr));
+        OptionComboBox->setItemText(20, QCoreApplication::translate("MainWindow", "21", nullptr));
+        OptionComboBox->setItemText(21, QCoreApplication::translate("MainWindow", "22", nullptr));
+        OptionComboBox->setItemText(22, QCoreApplication::translate("MainWindow", "23", nullptr));
+        OptionComboBox->setItemText(23, QCoreApplication::translate("MainWindow", "24", nullptr));
+        OptionComboBox->setItemText(24, QCoreApplication::translate("MainWindow", "25", nullptr));
+        OptionComboBox->setItemText(25, QCoreApplication::translate("MainWindow", "26", nullptr));
+        OptionComboBox->setItemText(26, QCoreApplication::translate("MainWindow", "27", nullptr));
+        OptionComboBox->setItemText(27, QCoreApplication::translate("MainWindow", "28", nullptr));
+        OptionComboBox->setItemText(28, QCoreApplication::translate("MainWindow", "29", nullptr));
+        OptionComboBox->setItemText(29, QCoreApplication::translate("MainWindow", "30", nullptr));
 
         label_5->setText(QCoreApplication::translate("MainWindow", "PeopleNum", nullptr));
         label_6->setText(QCoreApplication::translate("MainWindow", "Destination", nullptr));
+        People_Infomation->setText(QCoreApplication::translate("MainWindow", "People Infomation", nullptr));
     } // retranslateUi
 
 };

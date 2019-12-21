@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'judgewindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.13.0
+** Created by: Qt User Interface Compiler version 5.13.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -26,10 +26,10 @@ public:
     {
         if (JudgeWindow->objectName().isEmpty())
             JudgeWindow->setObjectName(QString::fromUtf8("JudgeWindow"));
-        JudgeWindow->resize(764, 638);
+        JudgeWindow->resize(964, 980);
         gridLayoutWidget = new QWidget(JudgeWindow);
         gridLayoutWidget->setObjectName(QString::fromUtf8("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(150, 350, 160, 80));
+        gridLayoutWidget->setGeometry(QRect(30, 30, 911, 931));
         gridLayout_2 = new QGridLayout(gridLayoutWidget);
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
         gridLayout_2->setContentsMargins(0, 0, 0, 0);

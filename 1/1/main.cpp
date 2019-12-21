@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
     database = QSqlDatabase::addDatabase("QMYSQL");
     database.setHostName("localhost");
     database.setUserName("root");
-    database.setPassword("nctuece");
+    database.setPassword("123456789");
     database.setPort(3306);
     bool ok = database.open();
     if(ok){

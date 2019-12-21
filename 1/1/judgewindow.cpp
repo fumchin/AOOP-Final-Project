@@ -51,8 +51,8 @@ string JudgeWindow::getData(int floor, int b){
 
     query.exec("select Question,Answer from testdata where floor = "+QString::number(floor+1)+" and ID like '%"+QString::number(num)+"'");
     query.next();
-    result+=query.value(0).toString().toStdString();
-    answer+=query.value(1).toString().toStdString();
+    result=query.value(0).toString().toStdString();
+    answer=query.value(1).toString().toStdString();
     cout<<result<<endl;
     cout<<answer<<endl;
     timer.start();
@@ -62,7 +62,6 @@ string JudgeWindow::getData(int floor, int b){
 bool JudgeWindow::submitData(string ans){
     //timer end
     costtime = timer.nsecsElapsed();
-    //ans is result from add1
 
     if(answer.compare(ans)==0){
         return true;
