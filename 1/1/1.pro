@@ -35,6 +35,7 @@ SOURCES += \
         floor.cpp \
         getsignature.cpp \
         judge.cpp \
+        judgewindow.cpp \
         largefactorial.cpp \
         largestroot.cpp \
         longestpair.cpp \
@@ -62,6 +63,7 @@ HEADERS += \
         floor.h \
         getsignature.h \
         judge.h \
+        judgewindow.h \
         largefactorial.h \
         largestroot.h \
         longestpair.h \
@@ -79,6 +81,7 @@ HEADERS += \
         treestructure.h
 
 FORMS += \
+        judgewindow.ui \
         mainwindow.ui
 
 # Default rules for deployment.

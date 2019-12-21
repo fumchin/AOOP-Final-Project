@@ -3,6 +3,8 @@
 #include <QSqlQuery>
 #include "mydatabase.h"
 #include <string>
+#include <QSqlQuery>
+
 
 class EasyCity2 : public MyDatabase
 {
