@@ -49,7 +49,8 @@ SOURCES += \
         shygame.cpp \
         people.cpp \
         prime.cpp \
-        scheduler.cpp
+        scheduler.cpp \
+        treestructure.cpp
 
 HEADERS += \
         add1.h \
@@ -74,7 +75,8 @@ HEADERS += \
         prime.h \
         problemset.h \
         scheduler.h \
-        shygame.h
+        shygame.h \
+        treestructure.h
 
 FORMS += \
         mainwindow.ui

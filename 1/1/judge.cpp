@@ -26,6 +26,8 @@ string Judge::getData(int question){
         fileName = "myfibfib.txt";
     else if (question == 5)
         fileName = "largestroot.txt";
+    else if (question == 6)
+        fileName = "treestructure.txt";
     else if (question == 7)
         fileName = "findfactorial.txt";
     else if (question == 8)

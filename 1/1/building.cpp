@@ -7,6 +7,7 @@
 #include "shygame.h"
 #include "fib.h"
 #include "largestroot.h"
+#include "treestructure.h"
 #include "findfactorial.h"
 #include "shortestdistance.h"
 #include "add1.h"
@@ -27,6 +28,7 @@ Building::Building()
     floor[3] = new Floor(new Shygame());
     floor[4] = new Floor(new Fib());
     floor[5] = new Floor(new LargestRoot());
+    floor[6] = new Floor(new TreeStructure());
     floor[7] = new Floor(new FindFactorial());
     floor[8] = new Floor(new ShortestDistance());
     floor[9] = new Floor(new Add1());
