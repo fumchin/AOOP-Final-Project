@@ -24,7 +24,9 @@ string Judge::getData(int question){
         fileName = "shygame.txt";
     else if (question == 4)
         fileName = "myfibfib.txt";
-    else if (question == 6)
+    else if (question == 5)
+        fileName = "largestroot.txt";
+    else if (question == 7)
         fileName = "findfactorial.txt";
     else if (question == 8)
         fileName = "shortestdistance.txt";   

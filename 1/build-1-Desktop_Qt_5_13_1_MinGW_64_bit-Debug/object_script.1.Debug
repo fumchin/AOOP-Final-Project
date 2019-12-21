@@ -8,6 +8,7 @@ debug/floor.o
 debug/getsignature.o
 debug/judge.o
 debug/largefactorial.o
+debug/largestroot.o
 debug/longestpair.o
 debug/longestshorestdisstance.o
 debug/main.o

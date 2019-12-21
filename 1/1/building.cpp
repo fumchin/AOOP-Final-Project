@@ -6,6 +6,7 @@
 #include "getsignature.h"
 #include "shygame.h"
 #include "fib.h"
+#include "largestroot.h"
 #include "findfactorial.h"
 #include "shortestdistance.h"
 #include "add1.h"
@@ -25,6 +26,7 @@ Building::Building()
     floor[2] = new Floor(new GetSignature());
     floor[3] = new Floor(new Shygame());
     floor[4] = new Floor(new Fib());
+    floor[5] = new Floor(new LargestRoot());
     floor[7] = new Floor(new FindFactorial());
     floor[8] = new Floor(new ShortestDistance());
     floor[9] = new Floor(new Add1());
