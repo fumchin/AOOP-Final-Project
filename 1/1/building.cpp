@@ -32,6 +32,7 @@ Building::Building()
     floor[7] = new Floor(new FindFactorial());
     floor[8] = new Floor(new ShortestDistance());
     floor[9] = new Floor(new Add1());
+    floor[10] = new Floor(new Prime());
     floor[14] = new Floor(new LargeFactorial());
     floor[24] = new Floor(new EasyCity2());
     floor[25] = new Floor(new LongestShorestDisstance());

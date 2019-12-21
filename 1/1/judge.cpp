@@ -34,6 +34,8 @@ string Judge::getData(int question){
         fileName = "shortestdistance.txt";   
     else if (question == 9)
         fileName = "add1.txt";
+    else if (question == 10)
+        fileName = "prime.txt";
     else if(question == 14)
         fileName = "bigfact.txt";
     else if(question == 24)
