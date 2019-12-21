@@ -27,6 +27,8 @@ string Judge::getData(int question){
         fileName = "findfactorial.txt";
     else if (question == 8)
         fileName = "shortestdistance.txt";   
+    else if (question == 9)
+        fileName = "add1.txt";
     else if(question == 14)
         fileName = "bigfact.txt";
     else if(question == 24)

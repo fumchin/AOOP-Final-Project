@@ -33,30 +33,24 @@ string LongestPair::solve(string s){
         cout << xVec[j] << " " << yVec[j]  << " " << zVec[j] << endl;
     }
 
-    double max = sqrt(pow(xVec[1]-xVec[0],2)+pow(yVec[1]-yVec[0],2)+pow(zVec[1]-zVec[0],2));
-    double min = sqrt(pow(xVec[1]-xVec[0],2)+pow(yVec[1]-yVec[0],2)+pow(zVec[1]-zVec[0],2));
+    double max, min;
+    max = min = sqrt( pow(xVec[1]-xVec[0],2)+pow(yVec[1]-yVec[0],2)+pow(zVec[1]-zVec[0],2) );
     for (int i=0; i<counter-1; i++)
     {
         for (int j=i+1; j<counter; j++)
         {
-            if(sqrt(pow(xVec[j]-xVec[i],2)+pow(yVec[j]-yVec[i],2)+pow(zVec[j]-zVec[i],2)) > max)
+            if(sqrt(pow( xVec[j]-xVec[i],2)+pow(yVec[j]-yVec[i],2)+pow(zVec[j]-zVec[i],2) ) > max)
                 max = sqrt( pow(xVec[j]-xVec[i],2)+pow(yVec[j]-yVec[i],2)+pow(zVec[j]-zVec[i],2) );
-            if(sqrt(pow(xVec[j]-xVec[i],2)+pow(yVec[j]-yVec[i],2)+pow(zVec[j]-zVec[i],2)) < min)
+            if(sqrt( pow(xVec[j]-xVec[i],2)+pow(yVec[j]-yVec[i],2)+pow(zVec[j]-zVec[i],2) ) < min)
                 min = sqrt( pow(xVec[j]-xVec[i],2)+pow(yVec[j]-yVec[i],2)+pow(zVec[j]-zVec[i],2) );
+                cout << endl;
         }
     }
-    ostringstream minStrs;
-    cout << "min before: " << min << " after ";
-    min = floor(min*100)/100;//set precision to 2 manually
-    minStrs << min;
-    cout << min << endl;
-    string result = minStrs.str();
 
-    ostringstream maxStrs;
-    cout << "max before: " << max << " after ";
-    max = floor(max*100)/100;//set precision to 2 manually
-    maxStrs << max;
-    cout << max << endl;
-    result.append(" " + maxStrs.str());
+    ostringstream Strs;
+    string result;
+    Strs << fixed << setprecision(2) << min << " " << max;
+    result.append(Strs.str());
+
     return result;
 }
