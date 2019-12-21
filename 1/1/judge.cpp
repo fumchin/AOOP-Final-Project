@@ -14,21 +14,27 @@ string Judge::getData(int question){
     ifstream infile;
     string fileName;
 
-    if (question == 0 || question == 1)
-        fileName = to_string(question)+".txt";
-    else if (question == 2)
+    if (question == 0)
         fileName = "longest.txt";
+    else if (question == 1)
+        fileName = "minesweeper.txt";
+    else if (question == 2)
+        fileName = "getsignature.txt";
     else if (question == 3)
         fileName = "shygame.txt";
     else if (question == 4)
         fileName = "myfibfib.txt";
-    else if (question == 5)
+    else if (question == 6)
         fileName = "findfactorial.txt";
-    else if(question == 7)
+    else if (question == 8)
+        fileName = "shortestdistance.txt";   
+    else if (question == 9)
+        fileName = "add1.txt";
+    else if(question == 14)
         fileName = "bigfact.txt";
-    else if(question == 9)
+    else if(question == 24)
         fileName = "myDatabase1_EasyCity2.txt";
-    else if(question == 10)
+    else if(question == 25)
         fileName = "myDatabase2_LSDis.txt";
 
     infile.open(fileName);
@@ -45,6 +51,8 @@ string Judge::getData(int question){
 
     //choose question
     n = 2*(rand()%(line_count/2))+1;
+
+
 
     //file rewind
     infile.clear();
@@ -67,11 +75,10 @@ bool Judge::submitData(string ans){
     costtime = timer.nsecsElapsed();
     //ans is result from add1
     if(this->ans.compare(ans)==0){
+        score += 100;
         return true;
     }
     else{
         return false;
     }
 }
-
-

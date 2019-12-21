@@ -4,6 +4,7 @@
 #
 #-------------------------------------------------
 
+
 QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -32,18 +33,23 @@ SOURCES += \
         fib.cpp \
         findfactorial.cpp \
         floor.cpp \
+        getsignature.cpp \
         judge.cpp \
         largefactorial.cpp \
+        largestroot.cpp \
         longestpair.cpp \
         longestshorestdisstance.cpp \
         main.cpp \
         mainwindow.cpp \
+        minesweeper.cpp \
         mydatabase.cpp \
         mymath.cpp \
+        problemset.cpp \
+        shortestdistance.cpp \
+        shygame.cpp \
         people.cpp \
         prime.cpp \
-        problemset.cpp \
-        shygame.cpp
+        scheduler.cpp
 
 HEADERS += \
         add1.h \
@@ -53,16 +59,21 @@ HEADERS += \
         fib.h \
         findfactorial.h \
         floor.h \
+        getsignature.h \
         judge.h \
         largefactorial.h \
+        largestroot.h \
         longestpair.h \
         longestshorestdisstance.h \
         mainwindow.h \
+        minesweeper.h \
+        shortestdistance.h \
         mydatabase.h \
         mymath.h \
         people.h \
         prime.h \
         problemset.h \
+        scheduler.h \
         shygame.h
 
 FORMS += \
