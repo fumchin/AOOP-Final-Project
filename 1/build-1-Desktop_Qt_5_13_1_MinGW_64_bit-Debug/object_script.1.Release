@@ -8,6 +8,7 @@ release/floor.o
 release/getsignature.o
 release/judge.o
 release/largefactorial.o
+release/largestroot.o
 release/longestpair.o
 release/longestshorestdisstance.o
 release/main.o

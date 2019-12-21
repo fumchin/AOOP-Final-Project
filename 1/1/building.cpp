@@ -20,6 +20,22 @@
 using namespace std;
 Building::Building()
 {
+
+    //connect database
+    QSqlDatabase database;
+    database = QSqlDatabase::addDatabase("QMYSQL");
+    database.setHostName("localhost");
+    database.setUserName("root");
+    database.setPassword("123456789");
+    database.setPort(3306);
+    bool ok = database.open();
+    if(ok){
+        qDebug()<<"Connected!!";
+    }
+    else{
+        qDebug()<<"fail to connect";
+    }
+    //create floor
     floor[0] = new Floor(new LongestPair());
     floor[1] = new Floor(new Minesweeper());
     floor[2] = new Floor(new GetSignature());
@@ -32,20 +48,7 @@ Building::Building()
     floor[24] = new Floor(new EasyCity2());
     floor[25] = new Floor(new LongestShorestDisstance());
 
-    //connect database
-    QSqlDatabase database;
-    database = QSqlDatabase::addDatabase("QMYSQL");
-    database.setHostName("localhost");
-    database.setUserName("root");
-    database.setPassword("nctuece");
-    database.setPort(3306);
-    bool ok = database.open();
-    if(ok){
-        qDebug()<<"Connected!!";
-    }
-    else{
-        qDebug()<<"fail to connect";
-    }
+
     //create schema
     QSqlQuery query;
     query.exec("create schema if not exists Course6");
