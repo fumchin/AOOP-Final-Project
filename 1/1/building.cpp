@@ -3,6 +3,7 @@
 #include "building.h"
 #include "longestpair.h"
 #include "minesweeper.h"
+#include "getsignature.h"
 #include "shygame.h"
 #include "fib.h"
 #include "findfactorial.h"
@@ -21,6 +22,7 @@ Building::Building()
 {
     floor[0] = new Floor(new LongestPair());
     floor[1] = new Floor(new Minesweeper());
+    floor[2] = new Floor(new GetSignature());
     floor[3] = new Floor(new Shygame());
     floor[4] = new Floor(new Fib());
     floor[7] = new Floor(new FindFactorial());

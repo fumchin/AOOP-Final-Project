@@ -18,7 +18,8 @@ string Judge::getData(int question){
         fileName = "longest.txt";
     else if (question == 1)
         fileName = "minesweeper.txt";
-
+    else if (question == 2)
+        fileName = "getsignature.txt";
     else if (question == 3)
         fileName = "shygame.txt";
     else if (question == 4)
@@ -50,6 +51,8 @@ string Judge::getData(int question){
 
     //choose question
     n = 2*(rand()%(line_count/2))+1;
+
+
 
     //file rewind
     infile.clear();

@@ -5,6 +5,7 @@ debug/easycity2.o
 debug/fib.o
 debug/findfactorial.o
 debug/floor.o
+debug/getsignature.o
 debug/judge.o
 debug/largefactorial.o
 debug/longestpair.o

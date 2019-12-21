@@ -33,8 +33,10 @@ SOURCES += \
         fib.cpp \
         findfactorial.cpp \
         floor.cpp \
+        getsignature.cpp \
         judge.cpp \
         largefactorial.cpp \
+        largestroot.cpp \
         longestpair.cpp \
         longestshorestdisstance.cpp \
         main.cpp \
@@ -57,8 +59,10 @@ HEADERS += \
         fib.h \
         findfactorial.h \
         floor.h \
+        getsignature.h \
         judge.h \
         largefactorial.h \
+        largestroot.h \
         longestpair.h \
         longestshorestdisstance.h \
         mainwindow.h \

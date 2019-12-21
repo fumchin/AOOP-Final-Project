@@ -40,8 +40,10 @@ string Minesweeper::solve(string s)
         for (int j=0; j!=mineMap[i].size(); j++)
         {
             if (mineMap[i][j]=='*')
-//                cout << '*';
+            {
+                cout << '*';
                 result += "*";
+            }
             else
             {
                 int lowerI = i-1<0? 0:i-1;
@@ -56,11 +58,11 @@ string Minesweeper::solve(string s)
                     for (int l=lowerJ; l<=higherJ; l++)
                         if (mineMap[k][l] == '*' && !(k==i&&l==j))
                             sum++;
-//                cout << sum;
+                cout << sum;
                 result += to_string(sum);
             }
         }
-//        cout << endl;
+        cout << endl;
         result += " ";
     }
 
