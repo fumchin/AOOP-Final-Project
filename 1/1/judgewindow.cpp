@@ -9,10 +9,9 @@
 #include <building.h>
 using namespace std;
 
-JudgeWindow::JudgeWindow(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::JudgeWindow)
+JudgeWindow::JudgeWindow(QWidget *parent) :QWidget(parent),ui(new Ui::JudgeWindow)
 {
+    //connect(&building,SIGNAL(updateGUI()),this, SLOT(slot_update_data()));
     ui->setupUi(this);
 
 
@@ -25,14 +24,17 @@ JudgeWindow::JudgeWindow(QWidget *parent) :
     query.exec("create table if not exists TestData (ID char(8),Floor int,Question text,Answer text,PRIMARY KEY(ID))");
     query.exec("drop table if exists InitialCondition");
     query.exec("create table if not exists InitialCondition (ID char(8),Nowfloor int,Destination int,Number int,PRIMARY KEY(ID))");
-    query.exec("load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/testdata.csv' into table TestData fields terminated by ',' enclosed by '\"' lines terminated by '\r\n' ignore 1 rows");
+    query.exec("load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/testdata_v3.csv' into table TestData fields terminated by ',' enclosed by '\"' lines terminated by '\r\n' ignore 1 rows");
     query.exec("load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/simple_initial_condition.csv' into table InitialCondition fields terminated by ',' enclosed by '\"' lines terminated by '\r\n' ignore 1 rows");
-    query.exec("select * from InitialCondition");
+    //query.exec("select * from InitialCondition");
     for(int i=0;i<27;i++){
         for(int j=0;j<4;j++){
             if(j==0){
                 query.next();
                 showline[i][j].setText(query.value(3).toString());
+            }
+            if(j==1){
+                showline[i][j].setText(QString::number(0));
             }
             ui->gridLayout_2->addWidget(&showline[i][j],i,j);
         }
@@ -62,7 +64,6 @@ string JudgeWindow::getData(int floor, int b){
 bool JudgeWindow::submitData(string ans){
     //timer end
     costtime = timer.nsecsElapsed();
-
     if(answer.compare(ans)==0){
         return true;
     }
@@ -73,6 +74,18 @@ bool JudgeWindow::submitData(string ans){
 
 int JudgeWindow::getConditionNum(){
     return rand()%300+1;
+}
+
+void JudgeWindow::getInitialCondition(People *people[]){
+    query.exec("use FINAL");
+    //query.exec("select n.* from (select * from peoplelist limit "+QString::number(n-1)+",1) as s,peoplelist as n where left(n.id,5)=left(s.id,5)");
+    query.exec("select * from InitialCondition");
+    for(int i=0;i<27;i++){
+        people[i] = new People;
+        people[i]->setPeople(query);
+
+    }
+
 }
 
 

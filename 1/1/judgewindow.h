@@ -8,6 +8,7 @@
 #include <QApplication>
 #include <QLineEdit>
 #include <QSqlQuery>
+#include "people.h"
 using namespace std;
 namespace Ui {
 class JudgeWindow;
@@ -27,6 +28,7 @@ public:
     int getConditionNum();//return 1-300
     int getDistance(){return distance;}
     void scheduleEnd();
+    void getInitialCondition(People *people[]);
     QLineEdit showline[27][4];
 
 private:

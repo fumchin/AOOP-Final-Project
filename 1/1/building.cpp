@@ -44,24 +44,8 @@ Building::Building()
     int n=judge.getConditionNum(); //get People data according variable n
 
     //create people
-    query.exec("drop database FINAL");
-    query.exec("create database if not exists FINAL");
-    query.exec("use FINAL");
-    query.exec("drop table if exists TestData");
-    query.exec("create table if not exists TestData (ID char(8),Floor int,Question text,Answer text,PRIMARY KEY(ID))");
-    query.exec("drop table if exists InitialCondition");
-    query.exec("create table if not exists InitialCondition (ID char(8),Nowfloor int,Destination int,Number int,PRIMARY KEY(ID))");
-    query.exec("load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/testdata_v3.csv' into table TestData fields terminated by ',' enclosed by '\"' lines terminated by '\r\n' ignore 1 rows");
-    query.exec("load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/simple_initial_condition.csv' into table InitialCondition fields terminated by ',' enclosed by '\"' lines terminated by '\r\n' ignore 1 rows");
-    query.exec("select * from InitialCondition");
-
-//   //query.exec("select n.* from (select * from peoplelist limit "+QString::number(n-1)+",1) as s,peoplelist as n where left(n.id,5)=left(s.id,5)");
-    query.exec("select * from InitialCondition");
-    for(int i=0;i<27;i++){
-        people[i] = new People;
-        //cout<<query.value(0).toInt()<<endl;
-        people[i]->setPeople(query);
-    }
+    judge.getInitialCondition(people);
+//      query.exec("select n.* from (select * from peoplelist limit "+QString::number(n-1)+",1) as s,peoplelist as n where left(n.id,5)=left(s.id,5)");
 
     //course7_1
     timer = new QTimer();
@@ -86,8 +70,10 @@ void Building::run(int question)
 
 void Building::startSimulation()
 {
+    timer->start(100);
+    timer->setSingleShot(true);
 
-    timer->start(1000);
+//    timer->start(1000);
 
 }
 
@@ -98,6 +84,7 @@ void Building::update()
         this->run(data.nowfloor);
     else
         timer->stop();
+    //timer->start(100);
     emit this->updateGUI();
 }
 

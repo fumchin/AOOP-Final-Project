@@ -5,15 +5,6 @@
 #include "data.h"
 
 
-//MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),ui(new Ui::MainWindow)
-//{
-//    QMainWindow(parent),
-//    ui(new Ui::MainWindow)
-
-
-//    connect(&building,SIGNAL(updateGUI()),this, SLOT(slot_update_data()));
-//    ui->setupUi(this);
-//}
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),ui(new Ui::MainWindow)
 {
     connect(&building,SIGNAL(updateGUI()),this, SLOT(slot_update_data()));
@@ -24,22 +15,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),ui(new Ui::MainWin
 MainWindow::~MainWindow()
 {
     delete ui;
-}
-void MainWindow::connectDB()
-{
-    QSqlDatabase database;
-    database = QSqlDatabase::addDatabase("QMYSQL");
-    database.setHostName("localhost");
-    database.setUserName("root");
-    database.setPassword("123456789");
-    database.setPort(3306);
-    bool ok = database.open();
-    if(ok){
-        qDebug()<<"Connected!!";
-    }
-    else{
-        qDebug()<<"fail to connect";
-    }
 }
 
 void MainWindow::slot_update_data()
@@ -71,11 +46,7 @@ void MainWindow::on_pushButton_clicked()
     ui->PeopleNum->setText(QString::fromStdString(to_string(building.people[ui->OptionComboBox->currentIndex()]->Number)));
     ui->Destination->setText(QString::fromStdString(to_string(building.people[ui->OptionComboBox->currentIndex()]->Destination)));
 }
-//void MainWindow::on_People_Infomation_clicked()
-//{
-//    ui->PeopleNum->setText(QString::fromStdString(to_string(building.people[ui->OptionComboBox->currentIndex()]->getPeopleNum())));
-//    ui->Destination->setText(QString::fromStdString(to_string(building.people[ui->OptionComboBox->currentIndex()]->getPeopleDes())));
-//}
+
 
 void MainWindow::on_startSimBtn_clicked()
 {
