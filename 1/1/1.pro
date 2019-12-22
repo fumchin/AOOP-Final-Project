@@ -28,6 +28,7 @@ CONFIG += c++11
 SOURCES += \
         add1.cpp \
         building.cpp \
+        commonsubstring.cpp \
         data.cpp \
         easycity2.cpp \
         fib.cpp \
@@ -59,6 +60,7 @@ SOURCES += \
 HEADERS += \
         add1.h \
         building.h \
+        commonsubstring.h \
         data.h \
         easycity2.h \
         fib.h \

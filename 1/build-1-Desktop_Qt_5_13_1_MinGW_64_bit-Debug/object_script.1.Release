@@ -1,5 +1,6 @@
 release/add1.o
 release/building.o
+release/commonsubstring.o
 release/data.o
 release/easycity2.o
 release/fib.o

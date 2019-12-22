@@ -1,5 +1,6 @@
 debug/add1.o
 debug/building.o
+debug/commonsubstring.o
 debug/data.o
 debug/easycity2.o
 debug/fib.o
