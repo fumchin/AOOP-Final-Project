@@ -53,8 +53,8 @@ string JudgeWindow::getData(int floor, int b){
     query.next();
     result=query.value(0).toString().toStdString();
     answer=query.value(1).toString().toStdString();
-    cout<<result<<endl;
-    cout<<answer<<endl;
+    cout<< "question: " << result<<endl;
+    cout<< "answer: " << answer<<endl;
     timer.start();
     return result;
 }

@@ -51,6 +51,7 @@ SOURCES += \
         people.cpp \
         prime.cpp \
         scheduler.cpp \
+        stringperiod.cpp \
         subtract1.cpp \
         treestructure.cpp
 
@@ -79,6 +80,7 @@ HEADERS += \
         problemset.h \
         scheduler.h \
         shygame.h \
+        stringperiod.h \
         subtract1.h \
         treestructure.h
 

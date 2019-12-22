@@ -13,6 +13,7 @@
 #include "add1.h"
 #include "prime.h"
 #include "subtract1.h"
+#include "stringperiod.h"
 #include "largefactorial.h"
 #include "easycity2.h"
 #include "longestshorestdisstance.h"
@@ -40,6 +41,7 @@ Building::Building()
     floor[9] = new Floor(new Add1());
     floor[10] = new Floor(new Prime());
     floor[13] = new Floor(new Subtract1());
+    floor[14] = new Floor(new StringPeriod());
     floor[15] = new Floor(new LargeFactorial());
     floor[24] = new Floor(new EasyCity2());
     floor[25] = new Floor(new LongestShorestDisstance());
