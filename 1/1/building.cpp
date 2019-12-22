@@ -15,6 +15,7 @@
 #include "subtract1.h"
 #include "stringperiod.h"
 #include "largefactorial.h"
+#include "hexadecimalsum.h"
 #include "easycity2.h"
 #include "longestshorestdisstance.h"
 #include <QApplication>
@@ -43,6 +44,7 @@ Building::Building()
     floor[13] = new Floor(new Subtract1());
     floor[14] = new Floor(new StringPeriod());
     floor[15] = new Floor(new LargeFactorial());
+    floor[16] = new Floor(new HexadecimalSum());
     floor[24] = new Floor(new EasyCity2());
     floor[25] = new Floor(new LongestShorestDisstance());
 

@@ -6,6 +6,7 @@ debug/fib.o
 debug/findfactorial.o
 debug/floor.o
 debug/getsignature.o
+debug/hexadecimalsum.o
 debug/judge.o
 debug/judgewindow.o
 debug/largefactorial.o
