@@ -23,6 +23,7 @@ release/shygame.o
 release/people.o
 release/prime.o
 release/scheduler.o
+release/subtract1.o
 release/treestructure.o
 release/moc_building.o
 release/moc_judgewindow.o

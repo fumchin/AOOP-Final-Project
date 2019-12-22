@@ -36,7 +36,7 @@ string Judge::getData(int question){
         fileName = "add1.txt";
     else if (question == 10)
         fileName = "prime.txt";
-    else if(question == 14)
+    else if(question == 15)
         fileName = "bigfact.txt";
     else if(question == 24)
         fileName = "myDatabase1_EasyCity2.txt";

@@ -12,9 +12,10 @@
 #include "shortestdistance.h"
 #include "add1.h"
 #include "prime.h"
+#include "subtract1.h"
+#include "largefactorial.h"
 #include "easycity2.h"
 #include "longestshorestdisstance.h"
-#include "largefactorial.h"
 #include <QApplication>
 #include <QSqlDatabase>
 #include <QSqlQuery>
@@ -38,7 +39,8 @@ Building::Building()
     floor[8] = new Floor(new ShortestDistance());
     floor[9] = new Floor(new Add1());
     floor[10] = new Floor(new Prime());
-    floor[14] = new Floor(new LargeFactorial());
+    floor[13] = new Floor(new Subtract1());
+    floor[15] = new Floor(new LargeFactorial());
     floor[24] = new Floor(new EasyCity2());
     floor[25] = new Floor(new LongestShorestDisstance());
 

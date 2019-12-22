@@ -23,6 +23,7 @@ debug/shygame.o
 debug/people.o
 debug/prime.o
 debug/scheduler.o
+debug/subtract1.o
 debug/treestructure.o
 debug/moc_building.o
 debug/moc_judgewindow.o
