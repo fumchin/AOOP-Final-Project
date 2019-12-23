@@ -19,6 +19,7 @@ debug/mainwindow.o
 debug/minesweeper.o
 debug/mydatabase.o
 debug/mymath.o
+debug/palindrome.o
 debug/problemset.o
 debug/shortestdistance.o
 debug/shygame.o

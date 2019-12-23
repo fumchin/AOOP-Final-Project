@@ -47,6 +47,7 @@ SOURCES += \
         minesweeper.cpp \
         mydatabase.cpp \
         mymath.cpp \
+        palindrome.cpp \
         problemset.cpp \
         shortestdistance.cpp \
         shygame.cpp \
@@ -76,6 +77,7 @@ HEADERS += \
         longestshorestdisstance.h \
         mainwindow.h \
         minesweeper.h \
+        palindrome.h \
         shortestdistance.h \
         mydatabase.h \
         mymath.h \

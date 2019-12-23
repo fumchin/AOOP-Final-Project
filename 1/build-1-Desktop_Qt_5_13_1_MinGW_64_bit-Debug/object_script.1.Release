@@ -19,6 +19,7 @@ release/mainwindow.o
 release/minesweeper.o
 release/mydatabase.o
 release/mymath.o
+release/palindrome.o
 release/problemset.o
 release/shortestdistance.o
 release/shygame.o
