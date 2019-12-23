@@ -7,6 +7,7 @@ release/fib.o
 release/findfactorial.o
 release/floor.o
 release/getsignature.o
+release/getsolution.o
 release/hexadecimalsum.o
 release/judge.o
 release/judgewindow.o

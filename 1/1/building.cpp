@@ -17,6 +17,7 @@
 #include "largefactorial.h"
 #include "hexadecimalsum.h"
 #include "commonsubstring.h"
+#include "getsolution.h"
 #include "palindrome.h"
 #include "easycity2.h"
 #include "longestshorestdisstance.h"
@@ -48,6 +49,7 @@ Building::Building()
     floor[15] = new Floor(new LargeFactorial());
     floor[16] = new Floor(new HexadecimalSum());
     floor[17] = new Floor(new CommonSubstring());
+    floor[18] = new Floor(new GetSolution());
     floor[19] = new Floor(new Palindrome());
     floor[24] = new Floor(new EasyCity2());
     floor[25] = new Floor(new LongestShorestDisstance());

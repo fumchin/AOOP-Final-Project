@@ -35,6 +35,7 @@ SOURCES += \
         findfactorial.cpp \
         floor.cpp \
         getsignature.cpp \
+        getsolution.cpp \
         hexadecimalsum.cpp \
         judge.cpp \
         judgewindow.cpp \
@@ -68,6 +69,7 @@ HEADERS += \
         findfactorial.h \
         floor.h \
         getsignature.h \
+        getsolution.h \
         hexadecimalsum.h \
         judge.h \
         judgewindow.h \
