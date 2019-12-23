@@ -237,10 +237,6 @@ release/moc_building.cpp: ../1/building.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/qstringbuilder.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/QElapsedTimer \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/qelapsedtimer.h \
-		../1/data.h \
-		../1/floor.h \
-		../1/problemset.h \
-		../1/mymath.h \
 		../1/people.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtSql/QSqlDatabase \
 		C:/Qt/5.13.1/mingw73_64/include/QtSql/qsqldatabase.h \
@@ -248,6 +244,10 @@ release/moc_building.cpp: ../1/building.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtSql/qtsql-config.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtSql/QSqlQuery \
 		C:/Qt/5.13.1/mingw73_64/include/QtSql/qsqlquery.h \
+		../1/data.h \
+		../1/floor.h \
+		../1/problemset.h \
+		../1/mymath.h \
 		../1/judgewindow.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QWidget \
 		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qwidget.h \
@@ -467,6 +467,9 @@ release/moc_judgewindow.cpp: ../1/judgewindow.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtSql/qtsqlglobal.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtSql/qtsql-config.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtSql/qsqldatabase.h \
+		../1/people.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtSql/QSqlDatabase \
+		C:/Qt/5.13.1/mingw73_64/include/QtCore/QString \
 		release/moc_predefs.h \
 		C:/Qt/5.13.1/mingw73_64/bin/moc.exe
 	C:\Qt\5.13.1\mingw73_64\bin\moc.exe $(DEFINES) --include C:/Users/fumchin/Desktop/third_semester/Aoop/project/AOOP-Final-Project/1/build-1-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/release/moc_predefs.h -IC:/Qt/5.13.1/mingw73_64/mkspecs/win32-g++ -IC:/Users/fumchin/Desktop/third_semester/Aoop/project/AOOP-Final-Project/1/1 -IC:/Qt/5.13.1/mingw73_64/include -IC:/Qt/5.13.1/mingw73_64/include/QtWidgets -IC:/Qt/5.13.1/mingw73_64/include/QtGui -IC:/Qt/5.13.1/mingw73_64/include/QtANGLE -IC:/Qt/5.13.1/mingw73_64/include/QtSql -IC:/Qt/5.13.1/mingw73_64/include/QtCore -I. -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_64/x86_64-w64-mingw32/include ..\1\judgewindow.h -o release\moc_judgewindow.cpp
@@ -593,13 +596,13 @@ release/moc_mainwindow.cpp: ../1/mainwindow.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/QString \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/QElapsedTimer \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/qelapsedtimer.h \
+		../1/people.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtSql/QSqlQuery \
+		C:/Qt/5.13.1/mingw73_64/include/QtSql/qsqlquery.h \
 		../1/data.h \
 		../1/floor.h \
 		../1/problemset.h \
 		../1/mymath.h \
-		../1/people.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtSql/QSqlQuery \
-		C:/Qt/5.13.1/mingw73_64/include/QtSql/qsqlquery.h \
 		../1/judgewindow.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QWidget \
 		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QApplication \
@@ -712,10 +715,6 @@ release/building.o: ../1/building.cpp C:/Qt/5.13.1/mingw73_64/include/QtCore/QTi
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/QString \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/QElapsedTimer \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/qelapsedtimer.h \
-		../1/data.h \
-		../1/floor.h \
-		../1/problemset.h \
-		../1/mymath.h \
 		../1/people.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtSql/QSqlDatabase \
 		C:/Qt/5.13.1/mingw73_64/include/QtSql/qsqldatabase.h \
@@ -723,6 +722,10 @@ release/building.o: ../1/building.cpp C:/Qt/5.13.1/mingw73_64/include/QtCore/QTi
 		C:/Qt/5.13.1/mingw73_64/include/QtSql/qtsql-config.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtSql/QSqlQuery \
 		C:/Qt/5.13.1/mingw73_64/include/QtSql/qsqlquery.h \
+		../1/data.h \
+		../1/floor.h \
+		../1/problemset.h \
+		../1/mymath.h \
 		../1/judgewindow.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QWidget \
 		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qwidget.h \
@@ -972,6 +975,13 @@ release/judge.o: ../1/judge.cpp ../1/judge.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/qstringbuilder.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/QElapsedTimer \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/qelapsedtimer.h \
+		../1/people.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtSql/QSqlDatabase \
+		C:/Qt/5.13.1/mingw73_64/include/QtSql/qsqldatabase.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtSql/qtsqlglobal.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtSql/qtsql-config.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtSql/QSqlQuery \
+		C:/Qt/5.13.1/mingw73_64/include/QtSql/qsqlquery.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/QTimer \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/qtimer.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/qbasictimer.h \
@@ -1122,23 +1132,22 @@ release/judgewindow.o: ../1/judgewindow.cpp ../1/judgewindow.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtSql/qtsqlglobal.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtSql/qtsql-config.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtSql/qsqldatabase.h \
+		../1/people.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtSql/QSqlDatabase \
+		C:/Qt/5.13.1/mingw73_64/include/QtCore/QString \
 		ui_judgewindow.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtCore/QVariant \
 		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QGridLayout \
 		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qgridlayout.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qlayout.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qlayoutitem.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qboxlayout.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtSql/QSqlDatabase \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/QDebug \
 		../1/building.h \
 		../1/judge.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtCore/QString \
 		../1/data.h \
 		../1/floor.h \
 		../1/problemset.h \
 		../1/mymath.h \
-		../1/people.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/qtimer.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/qbasictimer.h \
 		../1/scheduler.h
@@ -1358,13 +1367,13 @@ release/main.o: ../1/main.cpp ../1/mainwindow.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/QString \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/QElapsedTimer \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/qelapsedtimer.h \
+		../1/people.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtSql/QSqlQuery \
+		C:/Qt/5.13.1/mingw73_64/include/QtSql/qsqlquery.h \
 		../1/data.h \
 		../1/floor.h \
 		../1/problemset.h \
 		../1/mymath.h \
-		../1/people.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtSql/QSqlQuery \
-		C:/Qt/5.13.1/mingw73_64/include/QtSql/qsqlquery.h \
 		../1/judgewindow.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QWidget \
 		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QApplication \
@@ -1506,13 +1515,13 @@ release/mainwindow.o: ../1/mainwindow.cpp ../1/mainwindow.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/QString \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/QElapsedTimer \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/qelapsedtimer.h \
+		../1/people.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtSql/QSqlQuery \
+		C:/Qt/5.13.1/mingw73_64/include/QtSql/qsqlquery.h \
 		../1/data.h \
 		../1/floor.h \
 		../1/problemset.h \
 		../1/mymath.h \
-		../1/people.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtSql/QSqlQuery \
-		C:/Qt/5.13.1/mingw73_64/include/QtSql/qsqlquery.h \
 		../1/judgewindow.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QWidget \
 		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QApplication \
@@ -1530,35 +1539,7 @@ release/mainwindow.o: ../1/mainwindow.cpp ../1/mainwindow.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtGui/qpen.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtGui/qtextoption.h \
 		../1/scheduler.h \
-		ui_mainwindow.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtCore/QVariant \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QComboBox \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qcombobox.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qabstractitemdelegate.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qstyleoption.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qabstractspinbox.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtGui/qvalidator.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtCore/qregularexpression.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qslider.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qabstractslider.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qstyle.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qtabbar.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qrubberband.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtCore/qabstractitemmodel.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QLabel \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qlabel.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QMenuBar \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qmenubar.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qmenu.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qaction.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qactiongroup.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QPushButton \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QStatusBar \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qstatusbar.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QToolBar \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qtoolbar.h
+		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\mainwindow.o ..\1\mainwindow.cpp
 
 release/minesweeper.o: ../1/minesweeper.cpp ../1/minesweeper.h \
@@ -1711,7 +1692,46 @@ release/prime.o: ../1/prime.cpp ../1/prime.h \
 		../1/problemset.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\prime.o ..\1\prime.cpp
 
-release/scheduler.o: ../1/scheduler.cpp ../1/scheduler.h
+release/scheduler.o: ../1/scheduler.cpp ../1/scheduler.h \
+		../1/people.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtSql/QSqlDatabase \
+		C:/Qt/5.13.1/mingw73_64/include/QtSql/qsqldatabase.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtSql/qtsqlglobal.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtCore/qglobal.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtCore/qconfig-bootstrapped.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtCore/qconfig.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtCore/qtcore-config.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtCore/qsystemdetection.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtCore/qprocessordetection.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtCore/qcompilerdetection.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtCore/qtypeinfo.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtCore/qsysinfo.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtCore/qlogging.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtCore/qflags.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtCore/qatomic.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtCore/qbasicatomic.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtCore/qatomic_bootstrap.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtCore/qgenericatomic.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtCore/qatomic_cxx11.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtCore/qatomic_msvc.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtCore/qglobalstatic.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtCore/qmutex.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtCore/qnumeric.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtCore/qversiontagging.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtSql/qtsql-config.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtCore/qstring.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtCore/qchar.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtCore/qbytearray.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtCore/qrefcount.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtCore/qnamespace.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtCore/qarraydata.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtCore/qstringliteral.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtCore/qstringalgorithms.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtCore/qstringview.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtCore/qstringbuilder.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtSql/QSqlQuery \
+		C:/Qt/5.13.1/mingw73_64/include/QtSql/qsqlquery.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtCore/QString
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\scheduler.o ..\1\scheduler.cpp
 
 release/moc_building.o: release/moc_building.cpp 

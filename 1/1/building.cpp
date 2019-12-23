@@ -44,48 +44,49 @@ Building::Building()
     int n=judge.getConditionNum(); //get People data according variable n
 
     //create people
+    //query.exec("select n.* from (select * from peoplelist limit "+QString::number(n-1)+",1) as s,peoplelist as n where left(n.id,5)=left(s.id,5)");
     judge.getInitialCondition(people);
-//      query.exec("select n.* from (select * from peoplelist limit "+QString::number(n-1)+",1) as s,peoplelist as n where left(n.id,5)=left(s.id,5)");
+
+    //scheduler
+    scheduler.findPath(people);
+    data.nowfloor = 1;
 
     //course7_1
-    timer = new QTimer();
-    connect(timer, SIGNAL(timeout()), this, SLOT(update()));
+    timer1 = new QTimer();
+    connect(timer1, SIGNAL(timeout()), this, SLOT(update()));
 
 }
 void Building::run(int question)
 {
+    cout<<scheduler.getNowFloor().now<<"how many times"<<scheduler.getNowFloor().peopleNum<<endl;
+    for(int i=0;i<scheduler.getNowFloor().peopleNum;i++){
+        //test for not input question
+        string s = judge.getData(question,scheduler.getNowFloor().inOut);
+        data.testdata1 = s;
+        //string s2 = floor[question]->p->solve(s);
+        string s2 = "";
+        data.submit1 = s2;
+        bool correct = judge.submitData(s2);
+        data.correct1 = correct;
+        data.spendtime1 = judge.getSpendTime();
 
-    //0.txt
-    string s = judge.getData(question,0);
-
-    data.testdata1 = s;
-    string s2 = floor[question]->p->solve(s);
-
-    data.submit1 = s2;
-    bool correct = judge.submitData(s2);
-    data.correct1 = correct;
-    data.spendtime1 = judge.getSpendTime();
+    }
+    scheduler.getNewFloor();
+    data.distance += abs(scheduler.getNowFloor().now-data.nowfloor);
+    data.nowfloor = scheduler.getNowFloor().now;
+    judge.display(scheduler.getNowFloor().now);
 }
 
 
 void Building::startSimulation()
 {
-    timer->start(100);
-    timer->setSingleShot(true);
-
-//    timer->start(1000);
-
+    timer1->start(100);
+    timer1->setSingleShot(true);
 }
 
 void Building::update()
 {
-    data.nowfloor = scheduler.getNowFloor();
-    if (data.nowfloor != 0)
-        this->run(data.nowfloor);
-    else
-        timer->stop();
-    //timer->start(100);
+
+    timer1->start(100);
     emit this->updateGUI();
 }
-
-

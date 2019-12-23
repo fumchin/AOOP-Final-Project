@@ -29,8 +29,10 @@ public:
     int getDistance(){return distance;}
     void scheduleEnd();
     void getInitialCondition(People *people[]);
+    void display(int);
+//    int* getArr();
     QLineEdit showline[27][4];
-
+    int arr[27][4];
 private:
     Ui::JudgeWindow *ui;
     qint64 costtime;
@@ -38,6 +40,7 @@ private:
     QSqlQuery query;
     QElapsedTimer timer;
     string answer;
+
 
 };
 
