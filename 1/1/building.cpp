@@ -6,13 +6,22 @@
 #include "getsignature.h"
 #include "shygame.h"
 #include "fib.h"
+#include "largestroot.h"
+#include "treestructure.h"
 #include "findfactorial.h"
 #include "shortestdistance.h"
 #include "add1.h"
 #include "prime.h"
+#include "subtract1.h"
+#include "stringperiod.h"
+#include "largefactorial.h"
+#include "hexadecimalsum.h"
+#include "commonsubstring.h"
+#include "getsolution.h"
+#include "palindrome.h"
+#include "maze.h"
 #include "easycity2.h"
 #include "longestshorestdisstance.h"
-#include "largefactorial.h"
 #include <QApplication>
 #include <QSqlDatabase>
 #include <QSqlQuery>
@@ -25,16 +34,26 @@ Building::Building()
 {
 
     //create floor
-    floor[0] = new Floor(new LongestPair());        //good
-    floor[1] = new Floor(new Minesweeper());        //good
-    floor[2] = new Floor(new GetSignature());       //fail
-    floor[3] = new Floor(new Shygame());            //good
-    floor[4] = new Floor(new Fib());                //fail
-    floor[7] = new Floor(new FindFactorial());      //good
-    floor[8] = new Floor(new ShortestDistance());   //good
-    floor[9] = new Floor(new Add1());               //good
-    floor[15] = new Floor(new LargeFactorial());    //good
-    floor[24] = new Floor(new EasyCity2());         //good
+    floor[0] = new Floor(new LongestPair());
+    floor[1] = new Floor(new Minesweeper());
+    floor[2] = new Floor(new GetSignature());
+    floor[3] = new Floor(new Shygame());
+    floor[4] = new Floor(new Fib());
+    floor[5] = new Floor(new LargestRoot());
+    floor[6] = new Floor(new TreeStructure());
+    floor[7] = new Floor(new FindFactorial());
+    floor[8] = new Floor(new ShortestDistance());
+    floor[9] = new Floor(new Add1());
+    floor[10] = new Floor(new Prime());
+    floor[13] = new Floor(new Subtract1());
+    floor[14] = new Floor(new StringPeriod());
+    floor[15] = new Floor(new LargeFactorial());
+    floor[16] = new Floor(new HexadecimalSum());
+    floor[17] = new Floor(new CommonSubstring());
+    floor[18] = new Floor(new GetSolution());
+    floor[19] = new Floor(new Palindrome());
+    floor[20] = new Floor(new Maze());
+    floor[24] = new Floor(new EasyCity2());
     floor[25] = new Floor(new LongestShorestDisstance());
 
 
@@ -85,6 +104,7 @@ void Building::run(int nowfloor)
             }
             bool correct = judge.submitData(nowfloor,s2);
             data.correct1 = correct;
+            cout<<"correct?: "<<correct<<endl;
         }
 
 
