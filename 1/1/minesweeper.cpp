@@ -25,14 +25,14 @@ string Minesweeper::solve(string s)
         mineMap.push_back(tempVec);
         tempVec.clear();
     }
-    cout << M << " " << N << endl;
-    for (int i=0; i!=mineMap.size(); i++)
-    {
-        for (int j=0; j!=mineMap[i].size(); j++)
-            cout << mineMap[i][j] << " ";
-        cout << endl;
-    }
-    cout << endl;
+//    cout << M << " " << N << endl;
+//    for (int i=0; i!=mineMap.size(); i++)
+//    {
+//        for (int j=0; j!=mineMap[i].size(); j++)
+//            cout << mineMap[i][j] << " ";
+//        cout << endl;
+//    }
+//    cout << endl;
 
     string result;
     for (int i=0; i!=mineMap.size(); i++)
@@ -41,7 +41,7 @@ string Minesweeper::solve(string s)
         {
             if (mineMap[i][j]=='*')
             {
-                cout << '*';
+                //cout << '*';
                 result += "*";
             }
             else
@@ -58,11 +58,11 @@ string Minesweeper::solve(string s)
                     for (int l=lowerJ; l<=higherJ; l++)
                         if (mineMap[k][l] == '*' && !(k==i&&l==j))
                             sum++;
-                cout << sum;
+                //cout << sum;
                 result += to_string(sum);
             }
         }
-        cout << endl;
+        //cout << endl;
         result += " ";
     }
     result = result.substr(0, result.length() - 1);

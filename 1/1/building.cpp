@@ -68,7 +68,7 @@ void Building::run(int nowfloor)
         string s = judge.getData(nowfloor,scheduler.getNowFloor().inOut,times);
 
         data.testdata1 = s;
-        cout<<data.testdata1<<endl;
+        //cout<<data.testdata1<<endl;
         //give up
         string s2="";
         if(data.testdata1.compare("GIVEUP")==0){
@@ -85,6 +85,7 @@ void Building::run(int nowfloor)
             }
             bool correct = judge.submitData(nowfloor,s2);
             data.correct1 = correct;
+            cout<<"correct?: "<<data.correct1<<endl;
         }
 
 
