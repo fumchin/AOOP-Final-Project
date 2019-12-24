@@ -21,7 +21,7 @@ JudgeWindow::JudgeWindow(QWidget *parent) :QWidget(parent),ui(new Ui::JudgeWindo
     query.exec("create table if not exists TestData (ID char(8),Floor int,Question text,Answer text,PRIMARY KEY(ID))");
     query.exec("drop table if exists InitialCondition");
     query.exec("create table if not exists InitialCondition (ID char(8),Nowfloor int,Destination int,Number int,PRIMARY KEY(ID))");
-    query.exec("load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/testdata_v4.csv' into table TestData fields terminated by ',' enclosed by '\"' lines terminated by '\r\n' ignore 1 rows");
+    query.exec("load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/testdata_1223_2.csv' into table TestData fields terminated by ',' enclosed by '\"' lines terminated by '\r\n' ignore 1 rows");
     query.exec("load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/simple_initial_condition.csv' into table InitialCondition fields terminated by ',' enclosed by '\"' lines terminated by '\r\n' ignore 1 rows");
     //query.exec("load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/initial_condition.csv' into table InitialCondition fields terminated by ',' enclosed by '\"' lines terminated by '\r\n' ignore 1 rows");
     query.exec("select * from InitialCondition");
@@ -48,10 +48,10 @@ JudgeWindow::JudgeWindow(QWidget *parent) :QWidget(parent),ui(new Ui::JudgeWindo
     //show checkout box
     for(int i=0;i<27;i++){
         for(int j=0;j<1;j++){
-            if(i==0||i==1|i==3||i==7||i==8||i==9||i==15){
-                boxlist[i][j].setCheckState(Qt::Unchecked);
+            if(i==21||i==20||i==4||i==22||i==23||i==26||i==11||i==12||i==2||i==18 ){
+                boxlist[i][j].setCheckState(Qt::Checked);
             }
-            else boxlist[i][j].setCheckState(Qt::Checked);
+            else boxlist[i][j].setCheckState(Qt::Unchecked);
 
             ui->gridLayout_checkbox->addWidget(&boxlist[i][j],i,j);
         }
@@ -108,6 +108,7 @@ string JudgeWindow::getData(int floor, int b,int& datatimes){
     }
 
     display(floor);
+
     timer.start();
     return result;
 }
