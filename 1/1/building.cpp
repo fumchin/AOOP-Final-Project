@@ -25,16 +25,16 @@ Building::Building()
 {
 
     //create floor
-    floor[0] = new Floor(new LongestPair());
-    floor[1] = new Floor(new Minesweeper());
-    floor[2] = new Floor(new GetSignature());
-    floor[3] = new Floor(new Shygame());
-    floor[4] = new Floor(new Fib());
-    floor[7] = new Floor(new FindFactorial());
-    floor[8] = new Floor(new ShortestDistance());
-    floor[9] = new Floor(new Add1());
+    floor[0] = new Floor(new LongestPair());    //good
+    floor[1] = new Floor(new Minesweeper());    //good
+    floor[2] = new Floor(new GetSignature());   //fail
+    floor[3] = new Floor(new Shygame());        //good
+    floor[4] = new Floor(new Fib());            //fail
+    floor[7] = new Floor(new FindFactorial());  //fail
+    floor[8] = new Floor(new ShortestDistance());//good
+    floor[9] = new Floor(new Add1());           //fail
     floor[14] = new Floor(new LargeFactorial());
-    floor[24] = new Floor(new EasyCity2());
+    floor[24] = new Floor(new EasyCity2());     //good
     floor[25] = new Floor(new LongestShorestDisstance());
 
 
@@ -50,31 +50,53 @@ Building::Building()
     //scheduler
     scheduler.findPath(people);
     data.nowfloor = 1;
+    data.distance = 0;
+    data.elevatorpeople = 0;
 
     //course7_1
     timer1 = new QTimer();
     connect(timer1, SIGNAL(timeout()), this, SLOT(update()));
 
 }
-void Building::run(int question)
+void Building::run(int nowfloor)
 {
+
     cout<<scheduler.getNowFloor().now<<"how many times"<<scheduler.getNowFloor().peopleNum<<endl;
     for(int i=0;i<scheduler.getNowFloor().peopleNum;i++){
         //test for not input question
-        string s = judge.getData(question,scheduler.getNowFloor().inOut);
-        data.testdata1 = s;
-        //string s2 = floor[question]->p->solve(s);
-        string s2 = "";
-        data.submit1 = s2;
-        bool correct = judge.submitData(s2);
-        data.correct1 = correct;
-        data.spendtime1 = judge.getSpendTime();
+        int times;
+        string s = judge.getData(nowfloor,scheduler.getNowFloor().inOut,times);
 
+        data.testdata1 = s;
+        //give up
+        string s2="";
+        if(data.testdata1.compare("GIVEUP")==0){
+            s2 = "";
+            data.submit1 = s2;
+            //bool correct = judge.submitData(nowfloor,s2);
+            //data.correct1 = correct;
+        }
+        else{
+            //10 times each testdata
+            for(int i=0;i<times;i++){
+                s2 = floor[nowfloor]->p->solve(s);
+            }
+            data.submit1 = s2;
+            bool correct = judge.submitData(nowfloor,s2);
+            data.correct1 = correct;
+        }
+
+
+        data.spendtime1 = judge.getSpendTime();
+        if(scheduler.getNowFloor().inOut==1) data.elevatorpeople++;
+        else if(scheduler.getNowFloor().inOut==0) data.elevatorpeople--;
     }
+    data.score+=judge.getScore();
     scheduler.getNewFloor();
     data.distance += abs(scheduler.getNowFloor().now-data.nowfloor);
     data.nowfloor = scheduler.getNowFloor().now;
-    judge.display(scheduler.getNowFloor().now);
+    //judge.display(scheduler.getNowFloor().now);
+
 }
 
 

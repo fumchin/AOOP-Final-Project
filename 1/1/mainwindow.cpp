@@ -23,7 +23,7 @@ void MainWindow::slot_update_data()
 
     data = building.getdata();
 
-    cout << "now floor: " << data.nowfloor << endl;
+    //cout << "now floor: " << data.nowfloor << endl;
     if (data.nowfloor != 0)
     {
         //update information
@@ -40,7 +40,8 @@ void MainWindow::slot_update_data()
 void MainWindow::on_pushButton_clicked()
 {
 
-    building.run(data.nowfloor);//選擇的樓層
+    //building.run(data.nowfloor);//選擇的樓層
+    building.run(ui->OptionComboBox->currentIndex()+1);
     data = building.getdata();
 
     ui->Testdata_1->setText(QString::fromStdString(data.testdata1));
@@ -49,9 +50,10 @@ void MainWindow::on_pushButton_clicked()
     ui->Spend_time_1->setText(QString::fromStdString(to_string(data.spendtime1)));
     ui->PeopleNum->setText(QString::fromStdString(to_string(building.people[ui->OptionComboBox->currentIndex()]->Number)));
     ui->Destination->setText(QString::fromStdString(to_string(building.people[ui->OptionComboBox->currentIndex()]->Destination)));
-
+    ui->scoreLineEdit->setText(QString::number(data.score));
     //elevatoe info
     ui->NowElevator->display(data.nowfloor);
+    ui->PeopleInEle->display(data.elevatorpeople);
     ui->Distance->display(data.distance);
 }
 

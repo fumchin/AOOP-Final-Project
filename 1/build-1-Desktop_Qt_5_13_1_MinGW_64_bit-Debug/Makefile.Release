@@ -335,6 +335,10 @@ release/moc_building.cpp: ../1/building.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtGui/qtextformat.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtGui/qpen.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtGui/qtextoption.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QCheckBox \
+		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qcheckbox.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtGui/qicon.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/qtimer.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/qbasictimer.h \
 		../1/scheduler.h \
@@ -462,6 +466,10 @@ release/moc_judgewindow.cpp: ../1/judgewindow.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtGui/qtextformat.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtGui/qpen.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtGui/qtextoption.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QCheckBox \
+		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qcheckbox.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtGui/qicon.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtSql/QSqlQuery \
 		C:/Qt/5.13.1/mingw73_64/include/QtSql/qsqlquery.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtSql/qtsqlglobal.h \
@@ -619,6 +627,9 @@ release/moc_mainwindow.cpp: ../1/mainwindow.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtGui/qtextformat.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtGui/qpen.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtGui/qtextoption.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QCheckBox \
+		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qcheckbox.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qabstractbutton.h \
 		../1/scheduler.h \
 		release/moc_predefs.h \
 		C:/Qt/5.13.1/mingw73_64/bin/moc.exe
@@ -793,6 +804,10 @@ release/building.o: ../1/building.cpp C:/Qt/5.13.1/mingw73_64/include/QtCore/QTi
 		C:/Qt/5.13.1/mingw73_64/include/QtGui/qtextformat.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtGui/qpen.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtGui/qtextoption.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QCheckBox \
+		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qcheckbox.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtGui/qicon.h \
 		../1/scheduler.h \
 		../1/longestpair.h \
 		../1/minesweeper.h \
@@ -1127,6 +1142,10 @@ release/judgewindow.o: ../1/judgewindow.cpp ../1/judgewindow.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtGui/qtextformat.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtGui/qpen.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtGui/qtextoption.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QCheckBox \
+		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qcheckbox.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtGui/qicon.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtSql/QSqlQuery \
 		C:/Qt/5.13.1/mingw73_64/include/QtSql/qsqlquery.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtSql/qtsqlglobal.h \
@@ -1390,6 +1409,9 @@ release/main.o: ../1/main.cpp ../1/mainwindow.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtGui/qtextformat.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtGui/qpen.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtGui/qtextoption.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QCheckBox \
+		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qcheckbox.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qabstractbutton.h \
 		../1/scheduler.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main.o ..\1\main.cpp
 
@@ -1538,6 +1560,9 @@ release/mainwindow.o: ../1/mainwindow.cpp ../1/mainwindow.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtGui/qtextformat.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtGui/qpen.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtGui/qtextoption.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QCheckBox \
+		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qcheckbox.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qabstractbutton.h \
 		../1/scheduler.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\mainwindow.o ..\1\mainwindow.cpp

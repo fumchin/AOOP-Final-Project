@@ -7,6 +7,7 @@
 #include <QWidget>
 #include <QApplication>
 #include <QLineEdit>
+#include <QCheckBox>
 #include <QSqlQuery>
 #include "people.h"
 using namespace std;
@@ -21,8 +22,8 @@ class JudgeWindow : public QWidget
 public:
     explicit JudgeWindow(QWidget *parent = nullptr);
     ~JudgeWindow();
-    string getData(int floor,int b);//input 0-26
-    bool submitData(string ans);
+    string getData(int floor,int b,int& datatimes);//input 0-26
+    bool submitData(int floor,string ans);
     void setSeed(int seed){srand(seed);}
     qint64 getSpendTime(){return costtime;}
     int getConditionNum();//return 1-300
@@ -30,16 +31,21 @@ public:
     void scheduleEnd();
     void getInitialCondition(People *people[]);
     void display(int);
-//    int* getArr();
+    int getScore(){return score;}
+
     QLineEdit showline[27][4];
-    int arr[27][4];
+    QCheckBox boxlist[27][1];
 private:
+    int arr[27][4];
     Ui::JudgeWindow *ui;
     qint64 costtime;
     int distance;
     QSqlQuery query;
     QElapsedTimer timer;
     string answer;
+    int score;
+    int floordatatimes[27];
+    int floornextdata[27];
 
 
 };

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>964</width>
-    <height>980</height>
+    <width>1216</width>
+    <height>1068</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,10 +19,21 @@
      <x>30</x>
      <y>30</y>
      <width>911</width>
-     <height>931</height>
+     <height>941</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout_2"/>
+  </widget>
+  <widget class="QWidget" name="gridLayoutWidget_2">
+   <property name="geometry">
+    <rect>
+     <x>960</x>
+     <y>29</y>
+     <width>160</width>
+     <height>951</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_checkbox"/>
   </widget>
  </widget>
  <resources/>

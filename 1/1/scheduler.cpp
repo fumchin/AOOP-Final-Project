@@ -105,7 +105,7 @@ void Scheduler::findPath(People *people[]){
                 flag = true;
             }
         }
-        if(flag == false){
+        if(flag == false && FloorArray.back().inOut==0){    //全部沒人&&最後一組已經out則結束(insert 0)
             floorData *f = new floorData;
             f->now = 0;
             FloorArray.push_back(*f);

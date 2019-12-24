@@ -31,38 +31,63 @@ JudgeWindow::JudgeWindow(QWidget *parent) :QWidget(parent),ui(new Ui::JudgeWindo
                 showline[i][j].setText(QString::number(arr[i][j]));
             }
             else if(j==1){
+                arr[i][j] = 0;
                 showline[i][j].setText(QString::number(0));
             }
-            else if(j==3){
+            else if(j==2){
                 arr[i][j] = 1;
             }
-            else if(j==2){
+            else if(j==3){
                 arr[i][j] = 0;
             }
             ui->gridLayout_2->addWidget(&showline[i][j],i,j);
         }
     }
+    //show checkout box
+    for(int i=0;i<27;i++){
+        for(int j=0;j<1;j++){
+            //boxlist[i][j].setCheckState(Qt::Checked);
+            ui->gridLayout_checkbox->addWidget(&boxlist[i][j],i,j);
+        }
+    }
+    //floor datatimes
+    for(int i=0;i<27;i++){
+        floordatatimes[i] = 10;
+        floornextdata[i] = 0;
+     }
+
     for(int i=0;i<27;i++){
         for(int j=0;j<4;j++){
             cout<<arr[i][j]<<" ";
         }
         cout<<endl;
     }
+    score = 0;
 }
 
-string JudgeWindow::getData(int floor, int b){    
-
+string JudgeWindow::getData(int floor, int b,int& datatimes){
+    datatimes = floordatatimes[floor];
+    for(int i=0;i<27;i++){
+        boxlist[i][0].setDisabled(true);
+    }
     string result="";
-//    query.exec("use FINAL");
-//    query.exec("select count(Question) from testdata where floor="+QString::number(floor+1));
-//    query.next();
-//    cerr<<query.value(0).toInt()<<endl;
-//    int num = rand()%(query.value(0).toInt());
-
-//    query.exec("select Question,Answer from testdata where floor = "+QString::number(floor+1)+" and ID like '%"+QString::number(num)+"'");
-//    query.next();
-//    result=query.value(0).toString().toStdString();
-//    answer=query.value(1).toString().toStdString();
+    if(boxlist[floor-1][0].isChecked()){
+        result = "GIVEUP";
+        answer="";
+    }
+    else{
+        query.exec("use FINAL");
+        //query.exec("select count(Question) from testdata where floor="+QString::number(floor+1));
+        //query.next();
+        //cerr<<query.value(0).toInt()<<endl;
+        //    int num = rand()%(query.value(0).toInt());
+        int num = floornextdata[floor-1];
+        floornextdata[floor-1]++;     //in order
+        query.exec("select Question,Answer from testdata where floor = "+QString::number(floor)+" and ID like '%"+QString::number(num)+"'");
+        query.next();
+        result=query.value(0).toString().toStdString();
+        answer=query.value(1).toString().toStdString();
+    }
     cout<<result<<endl;
     cout<<answer<<endl;
 
@@ -73,21 +98,23 @@ string JudgeWindow::getData(int floor, int b){
         arr[floor-1][1]++;
     }
 
-
+    display(floor);
     timer.start();
     return result;
 }
 
-bool JudgeWindow::submitData(string ans){
+bool JudgeWindow::submitData(int floor,string ans){
     //timer end
     costtime = timer.nsecsElapsed();
-//    if(answer.compare(ans)==0){
-//        return true;
-//    }
-//    else{
-//        return false;
-//    }
-    return true;
+    costtime /= floordatatimes[floor-1];
+    arr[floor-1][2]+=costtime;
+    if(answer.compare(ans)==0){
+        score+=100;
+        return true;
+    }
+    else{
+        return false;
+    }
 }
 
 int JudgeWindow::getConditionNum(){
@@ -119,17 +146,17 @@ void JudgeWindow::display(int nowfloor){
                 //arr[i][j] = people[i]->getPeopleNum();
                 showline[i][j].setText(QString::number(arr[i][j]));
             }
-            if(j==1){   //arriving
+            else if(j==1){   //arriving
                 showline[i][j].setText(QString::number(arr[i][j]));
             }
-            if(j==2 && i==nowfloor-1){
-                arr[i][j]+=costtime;
+            else if(j==2 && i==nowfloor-1){
+                //arr[i][j]+=costtime;
                 showline[i][j].setText(QString::number(arr[i][j]));
             }
-            if(j==3 && i==nowfloor-1){
-                arr[i][j] = (arr[i][j] & submitData(answer));
-                showline[i][j].setText(QString::number(arr[i][j]));
-            }
+//            if(j==3 && i==nowfloor-1){
+//                arr[i][j] = (arr[i][j] & submitData(answer));
+//                showline[i][j].setText(QString::number(arr[i][j]));
+//            }
         }
     }
 }
