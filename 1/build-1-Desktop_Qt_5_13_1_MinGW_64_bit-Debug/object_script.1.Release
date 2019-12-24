@@ -17,6 +17,7 @@ release/longestpair.o
 release/longestshorestdisstance.o
 release/main.o
 release/mainwindow.o
+release/maze.o
 release/minesweeper.o
 release/mydatabase.o
 release/mymath.o

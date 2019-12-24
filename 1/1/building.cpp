@@ -19,6 +19,7 @@
 #include "commonsubstring.h"
 #include "getsolution.h"
 #include "palindrome.h"
+#include "maze.h"
 #include "easycity2.h"
 #include "longestshorestdisstance.h"
 #include <QApplication>
@@ -51,6 +52,7 @@ Building::Building()
     floor[17] = new Floor(new CommonSubstring());
     floor[18] = new Floor(new GetSolution());
     floor[19] = new Floor(new Palindrome());
+    floor[20] = new Floor(new Maze());
     floor[24] = new Floor(new EasyCity2());
     floor[25] = new Floor(new LongestShorestDisstance());
 

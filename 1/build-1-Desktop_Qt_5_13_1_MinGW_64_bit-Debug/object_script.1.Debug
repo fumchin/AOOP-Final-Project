@@ -17,6 +17,7 @@ debug/longestpair.o
 debug/longestshorestdisstance.o
 debug/main.o
 debug/mainwindow.o
+debug/maze.o
 debug/minesweeper.o
 debug/mydatabase.o
 debug/mymath.o
