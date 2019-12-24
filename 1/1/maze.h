@@ -4,10 +4,6 @@
 #include <stack>
 class Maze:public MyMath
 {
-    struct Point
-    {
-        int x; int y;
-    }startPos, endPos;
     class COORD
     {
     public:
@@ -16,7 +12,7 @@ class Maze:public MyMath
         COORD(int x = 0, int y = 0) { X = x, Y = y; }
         COORD(const COORD &coord) { X = coord.X; Y = coord.Y; }
     };
-
+    string result;
     vector<vector<char>> maze;
 public:
     Maze();

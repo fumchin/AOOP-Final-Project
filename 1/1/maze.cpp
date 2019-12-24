@@ -22,9 +22,6 @@ string Maze::solve(string s)
     int colNum, rowNum;
     ss>>colNum>>rowNum;
 
-//|-- j
-//|
-//i
     int start_x,start_y,end_x,end_y;
     for (int i=0; i<rowNum; i++)
     {
@@ -54,27 +51,46 @@ string Maze::solve(string s)
     for (int i=0; i<rowNum; i++)
     {
         for (int j=0; j<colNum; j++)
-            cout << maze[i][j] << " ";
+        {
+            if (i==start_x&&j==start_y)
+                cout << "S" << " ";
+            else if (i==end_x&&j==end_y)
+                cout << "E" << " ";
+            else
+                cout << maze[i][j] << " ";
+        }
         cout << endl;
     }
-    cout << "(" << end_x << "," << end_y << ")" << endl;
     COORD StartingPoint(start_x, start_y);
     COORD EndingPoint(end_x, end_y);
+    result = "";
     if (findPath(StartingPoint.X, StartingPoint.Y, EndingPoint, rowNum, colNum))
     {
+        maze[start_x][start_y] = 'S';
+        maze[end_x][end_y] = 'E';
         PrintDaMaze(rowNum, colNum);
+        for (int i=0; i<rowNum; i++)
+        {
+            for (int j=0; j<colNum; j++)
+            {
+                result += maze[i][j];
+                result.append(" ");
+            }
+        }
     }
     else
     {
         printf("Damn\n");
     }
-
-    return "";
+    result.erase(result.length()-1);
+    maze.clear();//to avoid bug, prepare for next input
+    return result;
 }
 
 bool Maze::findPath(int X, int Y, COORD EndingPoint, int MazeHeight, int MazeWidth)
 {
-    maze[Y][X] = SomeDude;
+    // Make the move (if it's wrong, we will backtrack later.
+    maze[X][Y] = SomeDude;
     // If you want progressive update, uncomment these lines...
     PrintDaMaze(MazeHeight, MazeWidth);
     //Sleep(50);
@@ -84,28 +100,28 @@ bool Maze::findPath(int X, int Y, COORD EndingPoint, int MazeHeight, int MazeWid
     {
         return true;
     }
-    // Make the move (if it's wrong, we will backtrack later.
 
     // Recursively search for our goal.
-    if (X > 0 && (maze[Y][X - 1] == Free || maze[Y][X - 1] == End) && findPath(X - 1, Y, EndingPoint, MazeHeight, MazeWidth))
-    {//left
-        return true;
-    }
-    if (X < MazeWidth && (maze[Y][X + 1] == Free || maze[Y][X + 1] == End) && findPath(X + 1, Y, EndingPoint, MazeHeight, MazeWidth))
+
+    if (Y < MazeWidth && maze[X][Y + 1] == Free && findPath(X, Y+1, EndingPoint, MazeHeight, MazeWidth))
     {//right
         return true;
     }
-    if (Y > 0 && (maze[Y - 1][X] == Free || maze[Y - 1][X] == End) && findPath(X, Y - 1, EndingPoint, MazeHeight, MazeWidth))
-    {//up
+    if (X < MazeHeight && maze[X + 1][Y] == Free && findPath(X+1, Y, EndingPoint, MazeHeight, MazeWidth))
+    {//down
         return true;
     }
-    if (Y < MazeHeight && (maze[Y + 1][X] == Free || maze[Y + 1][X] == End) && findPath(X, Y + 1, EndingPoint, MazeHeight, MazeWidth))
-    {//down
+    if (Y > 0 && maze[X][Y - 1] == Free && findPath(X , Y-1, EndingPoint, MazeHeight, MazeWidth))
+    {//left
+        return true;
+    }
+    if (X > 0 && maze[X - 1][Y] == Free && findPath(X - 1, Y, EndingPoint, MazeHeight, MazeWidth))
+    {//up
         return true;
     }
 
     // Otherwise we need to backtrack and find another solution.
-    maze[Y][X] = Free;
+    maze[X][Y] = Free;
 
     // If you want progressive update, uncomment these lines...
     PrintDaMaze(MazeHeight, MazeWidth);
