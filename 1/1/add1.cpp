@@ -19,6 +19,9 @@ string Add1::solve(string s){
         n++;
         result+=(to_string(n)+" ");
     }
-    result.erase(result.length()-1);
+    cout<<result<<endl;
+    result = result.substr(0, result.length() - 1);
+    //result.erase(result.length()-1);
+
     return result;
 }

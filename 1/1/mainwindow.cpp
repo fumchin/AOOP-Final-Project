@@ -40,8 +40,8 @@ void MainWindow::slot_update_data()
 void MainWindow::on_pushButton_clicked()
 {
 
-    //building.run(data.nowfloor);//選擇的樓層
-    building.run(ui->OptionComboBox->currentIndex()+1);
+    building.run(data.nowfloor);//選擇的樓層
+    //building.run(ui->OptionComboBox->currentIndex()+1);
     data = building.getdata();
 
     ui->Testdata_1->setText(QString::fromStdString(data.testdata1));

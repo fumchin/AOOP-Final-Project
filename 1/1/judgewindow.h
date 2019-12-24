@@ -31,19 +31,19 @@ public:
     void scheduleEnd();
     void getInitialCondition(People *people[]);
     void display(int);
-    int getScore(){return score;}
+    long long int getScore(){return score;}
 
     QLineEdit showline[27][4];
     QCheckBox boxlist[27][1];
 private:
-    int arr[27][4];
+    long long int arr[27][4];
     Ui::JudgeWindow *ui;
     qint64 costtime;
     int distance;
     QSqlQuery query;
     QElapsedTimer timer;
     string answer;
-    int score;
+    long long int score;
     int floordatatimes[27];
     int floornextdata[27];
 

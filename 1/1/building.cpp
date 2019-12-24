@@ -25,16 +25,16 @@ Building::Building()
 {
 
     //create floor
-    floor[0] = new Floor(new LongestPair());    //good
-    floor[1] = new Floor(new Minesweeper());    //good
-    floor[2] = new Floor(new GetSignature());   //fail
-    floor[3] = new Floor(new Shygame());        //good
-    floor[4] = new Floor(new Fib());            //fail
-    floor[7] = new Floor(new FindFactorial());  //fail
-    floor[8] = new Floor(new ShortestDistance());//good
-    floor[9] = new Floor(new Add1());           //fail
-    floor[14] = new Floor(new LargeFactorial());
-    floor[24] = new Floor(new EasyCity2());     //good
+    floor[0] = new Floor(new LongestPair());        //good
+    floor[1] = new Floor(new Minesweeper());        //good
+    floor[2] = new Floor(new GetSignature());       //fail
+    floor[3] = new Floor(new Shygame());            //good
+    floor[4] = new Floor(new Fib());                //fail
+    floor[7] = new Floor(new FindFactorial());      //good
+    floor[8] = new Floor(new ShortestDistance());   //good
+    floor[9] = new Floor(new Add1());               //good
+    floor[15] = new Floor(new LargeFactorial());    //good
+    floor[24] = new Floor(new EasyCity2());         //good
     floor[25] = new Floor(new LongestShorestDisstance());
 
 
@@ -61,30 +61,32 @@ Building::Building()
 void Building::run(int nowfloor)
 {
 
-    cout<<scheduler.getNowFloor().now<<"how many times"<<scheduler.getNowFloor().peopleNum<<endl;
+    //cout<<scheduler.getNowFloor().now<<"how many times"<<scheduler.getNowFloor().peopleNum<<endl;
     for(int i=0;i<scheduler.getNowFloor().peopleNum;i++){
         //test for not input question
         int times;
         string s = judge.getData(nowfloor,scheduler.getNowFloor().inOut,times);
 
         data.testdata1 = s;
+        cout<<data.testdata1<<endl;
         //give up
         string s2="";
         if(data.testdata1.compare("GIVEUP")==0){
             s2 = "";
             data.submit1 = s2;
-            //bool correct = judge.submitData(nowfloor,s2);
-            //data.correct1 = correct;
+            //s2 = floor[nowfloor]->p->solve(s);
+            //data.spendtime1=0;
         }
         else{
             //10 times each testdata
             for(int i=0;i<times;i++){
-                s2 = floor[nowfloor]->p->solve(s);
+                s2 = floor[nowfloor-1]->p->solve(s);
+                data.submit1 = s2;
             }
-            data.submit1 = s2;
             bool correct = judge.submitData(nowfloor,s2);
             data.correct1 = correct;
         }
+
 
 
         data.spendtime1 = judge.getSpendTime();
@@ -95,20 +97,20 @@ void Building::run(int nowfloor)
     scheduler.getNewFloor();
     data.distance += abs(scheduler.getNowFloor().now-data.nowfloor);
     data.nowfloor = scheduler.getNowFloor().now;
-    //judge.display(scheduler.getNowFloor().now);
+    judge.display(scheduler.getNowFloor().now);
 
 }
 
 
 void Building::startSimulation()
 {
-    timer1->start(100);
+    timer1->start(200);
     timer1->setSingleShot(true);
 }
 
 void Building::update()
 {
 
-    timer1->start(100);
+    timer1->start(200);
     emit this->updateGUI();
 }

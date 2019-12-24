@@ -65,8 +65,8 @@ string Minesweeper::solve(string s)
         cout << endl;
         result += " ";
     }
-
-    result.erase(result.length()-1);
+    result = result.substr(0, result.length() - 1);
+    //result.erase(result.length()-1);
 
     return result;
 }

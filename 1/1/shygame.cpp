@@ -38,7 +38,7 @@ void printQueue(QUEUE* queue){
         p=p->next;
     }
     cout<<endl;
-    free(p);
+    delete (p);
 }
 
 void dequeue(QUEUE* queue,int n){
@@ -61,7 +61,7 @@ void dequeue(QUEUE* queue,int n){
             del_p = del_p->next;
             p->next = del_p->next;
             if(del_p == queue->tail) queue->tail = p;
-            free(del_p);
+            delete (del_p);
             queue->head = p->next;
             queue->node_count--;
         }
@@ -95,9 +95,10 @@ string Shygame::solve(string s){
         dequeue(queue,n);
         result.append(to_string(queue->head->data)+' ');
         //printQueue(queue);
-        free(queue);
+        delete (queue);
     }
-    result.erase(result.length()-1);
+    result = result.substr(0, result.length() - 1);
+    //result.erase(result.length()-1);
 
     return result;
 }
