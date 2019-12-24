@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -23,6 +24,12 @@ public:
     QGridLayout *gridLayout_2;
     QWidget *gridLayoutWidget_2;
     QGridLayout *gridLayout_checkbox;
+    QLabel *label;
+    QLabel *label_2;
+    QLabel *label_3;
+    QLabel *label_4;
+    QWidget *gridLayoutWidget_3;
+    QGridLayout *gridLayout_label;
 
     void setupUi(QWidget *JudgeWindow)
     {
@@ -31,16 +38,34 @@ public:
         JudgeWindow->resize(1216, 1068);
         gridLayoutWidget = new QWidget(JudgeWindow);
         gridLayoutWidget->setObjectName(QString::fromUtf8("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(30, 30, 911, 941));
+        gridLayoutWidget->setGeometry(QRect(30, 30, 911, 911));
         gridLayout_2 = new QGridLayout(gridLayoutWidget);
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
         gridLayout_2->setContentsMargins(0, 0, 0, 0);
         gridLayoutWidget_2 = new QWidget(JudgeWindow);
         gridLayoutWidget_2->setObjectName(QString::fromUtf8("gridLayoutWidget_2"));
-        gridLayoutWidget_2->setGeometry(QRect(960, 29, 160, 951));
+        gridLayoutWidget_2->setGeometry(QRect(960, 29, 31, 931));
         gridLayout_checkbox = new QGridLayout(gridLayoutWidget_2);
         gridLayout_checkbox->setObjectName(QString::fromUtf8("gridLayout_checkbox"));
         gridLayout_checkbox->setContentsMargins(0, 0, 0, 0);
+        label = new QLabel(JudgeWindow);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setGeometry(QRect(80, 10, 191, 20));
+        label_2 = new QLabel(JudgeWindow);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setGeometry(QRect(290, 10, 211, 20));
+        label_3 = new QLabel(JudgeWindow);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+        label_3->setGeometry(QRect(550, 10, 181, 20));
+        label_4 = new QLabel(JudgeWindow);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+        label_4->setGeometry(QRect(780, 10, 181, 20));
+        gridLayoutWidget_3 = new QWidget(JudgeWindow);
+        gridLayoutWidget_3->setObjectName(QString::fromUtf8("gridLayoutWidget_3"));
+        gridLayoutWidget_3->setGeometry(QRect(1010, 30, 31, 911));
+        gridLayout_label = new QGridLayout(gridLayoutWidget_3);
+        gridLayout_label->setObjectName(QString::fromUtf8("gridLayout_label"));
+        gridLayout_label->setContentsMargins(0, 0, 0, 0);
 
         retranslateUi(JudgeWindow);
 
@@ -50,6 +75,10 @@ public:
     void retranslateUi(QWidget *JudgeWindow)
     {
         JudgeWindow->setWindowTitle(QCoreApplication::translate("JudgeWindow", "Form", nullptr));
+        label->setText(QCoreApplication::translate("JudgeWindow", "Wait To Leave", nullptr));
+        label_2->setText(QCoreApplication::translate("JudgeWindow", "Arrive people", nullptr));
+        label_3->setText(QCoreApplication::translate("JudgeWindow", "TotalCost", nullptr));
+        label_4->setText(QCoreApplication::translate("JudgeWindow", "WinOrLost", nullptr));
     } // retranslateUi
 
 };

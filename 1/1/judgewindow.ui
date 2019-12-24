@@ -19,7 +19,7 @@
      <x>30</x>
      <y>30</y>
      <width>911</width>
-     <height>941</height>
+     <height>911</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout_2"/>
@@ -29,11 +29,74 @@
     <rect>
      <x>960</x>
      <y>29</y>
-     <width>160</width>
-     <height>951</height>
+     <width>31</width>
+     <height>931</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout_checkbox"/>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>10</y>
+     <width>191</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Wait To Leave</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>10</y>
+     <width>211</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Arrive people</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>10</y>
+     <width>181</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TotalCost</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>780</x>
+     <y>10</y>
+     <width>181</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>WinOrLost</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="gridLayoutWidget_3">
+   <property name="geometry">
+    <rect>
+     <x>1010</x>
+     <y>30</y>
+     <width>31</width>
+     <height>911</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_label"/>
   </widget>
  </widget>
  <resources/>

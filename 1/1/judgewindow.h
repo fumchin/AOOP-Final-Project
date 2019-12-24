@@ -9,6 +9,7 @@
 #include <QLineEdit>
 #include <QCheckBox>
 #include <QSqlQuery>
+#include <QLabel>
 #include "people.h"
 using namespace std;
 namespace Ui {
@@ -35,6 +36,7 @@ public:
 
     QLineEdit showline[27][4];
     QCheckBox boxlist[27][1];
+    QLabel floorLabel[27][1];
 private:
     long long int arr[27][4];
     Ui::JudgeWindow *ui;

@@ -54,6 +54,8 @@ JudgeWindow::JudgeWindow(QWidget *parent) :QWidget(parent),ui(new Ui::JudgeWindo
             else boxlist[i][j].setCheckState(Qt::Unchecked);
 
             ui->gridLayout_checkbox->addWidget(&boxlist[i][j],i,j);
+            floorLabel[i][j].setText(QString::number(i+1));
+            ui->gridLayout_label->addWidget(&floorLabel[i][j],i,j);
         }
     }
     //floor datatimes

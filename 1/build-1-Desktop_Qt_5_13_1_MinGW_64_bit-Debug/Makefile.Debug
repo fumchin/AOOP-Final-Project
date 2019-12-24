@@ -371,6 +371,8 @@ debug/moc_building.cpp: ../1/building.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qcheckbox.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qabstractbutton.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtGui/qicon.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QLabel \
+		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qlabel.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/qtimer.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/qbasictimer.h \
 		../1/scheduler.h \
@@ -507,6 +509,8 @@ debug/moc_judgewindow.cpp: ../1/judgewindow.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtSql/qtsqlglobal.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtSql/qtsql-config.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtSql/qsqldatabase.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QLabel \
+		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qlabel.h \
 		../1/people.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtSql/QSqlDatabase \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/QString \
@@ -662,6 +666,8 @@ debug/moc_mainwindow.cpp: ../1/mainwindow.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QCheckBox \
 		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qcheckbox.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QLabel \
+		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qlabel.h \
 		../1/scheduler.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.13.1/mingw73_64/bin/moc.exe
@@ -840,6 +846,8 @@ debug/building.o: ../1/building.cpp C:/Qt/5.13.1/mingw73_64/include/QtCore/QTime
 		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qcheckbox.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qabstractbutton.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtGui/qicon.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QLabel \
+		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qlabel.h \
 		../1/scheduler.h \
 		../1/longestpair.h \
 		../1/minesweeper.h \
@@ -1207,11 +1215,12 @@ debug/judgewindow.o: ../1/judgewindow.cpp ../1/judgewindow.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtSql/qtsqlglobal.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtSql/qtsql-config.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtSql/qsqldatabase.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QLabel \
+		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qlabel.h \
 		../1/people.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtSql/QSqlDatabase \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/QString \
 		ui_judgewindow.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtCore/QVariant \
 		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QGridLayout \
 		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qgridlayout.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qlayout.h \
@@ -1469,6 +1478,8 @@ debug/main.o: ../1/main.cpp ../1/mainwindow.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QCheckBox \
 		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qcheckbox.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QLabel \
+		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qlabel.h \
 		../1/scheduler.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o ..\1\main.cpp
 
@@ -1620,37 +1631,10 @@ debug/mainwindow.o: ../1/mainwindow.cpp ../1/mainwindow.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QCheckBox \
 		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qcheckbox.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qabstractbutton.h \
-		../1/scheduler.h \
-		ui_mainwindow.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtCore/QVariant \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QComboBox \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qcombobox.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qabstractitemdelegate.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qstyleoption.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qabstractspinbox.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtGui/qvalidator.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtCore/qregularexpression.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qslider.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qabstractslider.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qstyle.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qtabbar.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qrubberband.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtCore/qabstractitemmodel.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QLCDNumber \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qlcdnumber.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QLabel \
 		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qlabel.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QMenuBar \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qmenubar.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qmenu.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qaction.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qactiongroup.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QPushButton \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QStatusBar \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qstatusbar.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QToolBar \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qtoolbar.h
+		../1/scheduler.h \
+		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\mainwindow.o ..\1\mainwindow.cpp
 
 debug/maze.o: ../1/maze.cpp ../1/maze.h \
