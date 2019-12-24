@@ -5,9 +5,10 @@
 #include <vector>
 #include <math.h>
 using namespace std;
-char brick = '2';
-char path = '0';
-enum spotClass {deadEnd=0,continuing=1,intersection=2,end=5};//status of spot
+const char Wall = '2';
+const char Free = '0';
+const char End = 'E';
+const char SomeDude = '1';
 Maze::Maze()
 {
 
@@ -24,6 +25,7 @@ string Maze::solve(string s)
 //|-- j
 //|
 //i
+    int start_x,start_y,end_x,end_y;
     for (int i=0; i<rowNum; i++)
     {
         vector<char> row;
@@ -34,13 +36,15 @@ string Maze::solve(string s)
             row.push_back(ele);
             if (ele == 'S')
             {
-                startPos.x = i;
-                startPos.y = j;
+                start_x=i;
+                start_y=j;
+                row[j] = '0';
             }
             else if (ele == 'E')
             {
-                endPos.x = i;
-                endPos.y = j;
+                end_x=i;
+                end_y=j;
+                row[j] = '0';
             }
         }
         maze.push_back(row);
@@ -53,175 +57,70 @@ string Maze::solve(string s)
             cout << maze[i][j] << " ";
         cout << endl;
     }
-
-    x=startPos.x;
-    y=startPos.y;
-
-    int status = getStatus();
-    while (status != spotClass::end && !(status == deadEnd && alternativeStack.size() == 0))
+    cout << "(" << end_x << "," << end_y << ")" << endl;
+    COORD StartingPoint(start_x, start_y);
+    COORD EndingPoint(end_x, end_y);
+    if (findPath(StartingPoint.X, StartingPoint.Y, EndingPoint, rowNum, colNum))
     {
-        if (status == continuing)//continuing
-        {
-            visitedStack.push(make_point(x,y));
-            if (up==path)
-                x--;
-            else if(down==path)
-                x++;
-            else if(left==path)
-                y--;
-            else if(right==path)
-                y++;
-            cout << "(" << x << "," << y << ")" << endl;
-            status = getStatus();
-        }
-        else if(status > continuing && status < spotClass::end)//intersection
-        {
-            visitedStack.push(make_point(-1,-1));
-            visitedStack.push(make_point(x,y));
-            int firstFound = 0;
-            //順序: 上下右左
-            int tempX = x;//確保要push到alternativeStack的值不會被影響
-            int tempY = y;
-            if (up==path)
-            {
-                firstFound = 1;
-                x--;
-            }
-            if(down==path)
-            {
-                if (firstFound == 0)
-                {
-                    firstFound = 1;
-                    x++;
-                }else//alternative
-                {
-                    int temp = tempX;
-                    temp++;
-                    alternativeStack.push(make_point(temp,tempY));
-                }
-            }
-            if(right==path)
-            {
-                if (firstFound == 0)
-                {
-                    firstFound = 1;
-                    y++;
-
-                }else
-                {
-                    int temp = tempY;
-                    temp++;
-                    alternativeStack.push(make_point(tempX,temp));
-                }
-            }
-            if(left==path)
-            {
-                if (firstFound == 0)
-                {
-                    firstFound = 1;
-                    y--;
-                }else//alternative
-                {
-                    int temp = tempY;
-                    temp--;
-                    alternativeStack.push(make_point(tempX,temp));
-                }
-            }
-            cout << "(" << x << "," << y << ")" << endl;
-            status = getStatus();
-        }
-        else if (status == deadEnd && alternativeStack.size() != 0)
-        {
-            int popX, popY;
-            while (!(visitedStack.top().x == -1 && visitedStack.top().y == -1))
-            {
-                popX = visitedStack.top().x;
-                popY = visitedStack.top().y;
-                visitedStack.pop();
-                printf("(%d,%d)\n", popX+1, popY+1);
-            }
-            visitedStack.push(make_point(popX,popY));
-            //go to alterative
-            if (sqrt(pow(popX-alternativeStack.top().x,2)+pow(popY-alternativeStack.top().y,2)) == 1)
-            {
-                popX = alternativeStack.top().x;
-                popY = alternativeStack.top().y;
-                alternativeStack.pop();
-            }
-            x = popX;
-            y = popY;
-            cout << "(" << x << "," << y << ")" << endl;
-            status = getStatus();
-            printf("*");
-        }
-
+        PrintDaMaze(rowNum, colNum);
     }
-
-    if (status == spotClass::end)
-//        printf("(%d,%d)\t<- maze end \n",x,y);
-        cout << "\t<- maze end" << endl;
-    else if (status == deadEnd)
-        printf("(%d,%d)\t<- dead end\n",x,y);
+    else
+    {
+        printf("Damn\n");
+    }
 
     return "";
 }
 
-int Maze::getStatus()
+bool Maze::findPath(int X, int Y, COORD EndingPoint, int MazeHeight, int MazeWidth)
 {
-    if (x==endPos.x && y==endPos.y)
-        return 5;
-    up = down = left = right = path;
-    int whiteNum = 4;
-    if (visitedStack.size() != 0)
+    maze[Y][X] = SomeDude;
+    // If you want progressive update, uncomment these lines...
+    PrintDaMaze(MazeHeight, MazeWidth);
+    //Sleep(50);
+
+    // Check if we have reached our goal.
+    if (X == EndingPoint.X && Y == EndingPoint.Y)
     {
-        if ( maze[x-1][y] == '2' || (x-1 == visitedStack.top().x && y == visitedStack.top().y))
-        {
-            up = brick;
-            whiteNum--;
-        }
-        if ( maze[x+1][y] == '2' || (x+1 == visitedStack.top().x && y == visitedStack.top().y))
-        {
-            down = brick;
-            whiteNum--;
-        }
-        if ( maze[x][y-1] == '2' || (x == visitedStack.top().x && y-1 == visitedStack.top().y))
-        {
-            left = brick;
-            whiteNum--;
-        }
-        if ( maze[x][y+1] == '2' || (x == visitedStack.top().x && y+1 == visitedStack.top().y))
-        {
-            right = brick;
-            whiteNum--;
-        }
+        return true;
     }
-    else
-    {
-        if ( maze[x-1][y] == '2' )
-        {
-            up = brick;
-            whiteNum--;
-        }
-        if ( maze[x+1][y] == '2' )
-        {
-            down = brick;
-            whiteNum--;
-        }
-        if ( maze[x][y-1] == '2' )
-        {
-            left = brick;
-            whiteNum--;
-        }
-        if ( maze[x][y+1] == '2' )
-        {
-            right = brick;
-            whiteNum--;
-        }
+    // Make the move (if it's wrong, we will backtrack later.
+
+    // Recursively search for our goal.
+    if (X > 0 && (maze[Y][X - 1] == Free || maze[Y][X - 1] == End) && findPath(X - 1, Y, EndingPoint, MazeHeight, MazeWidth))
+    {//left
+        return true;
     }
-    return whiteNum;
+    if (X < MazeWidth && (maze[Y][X + 1] == Free || maze[Y][X + 1] == End) && findPath(X + 1, Y, EndingPoint, MazeHeight, MazeWidth))
+    {//right
+        return true;
+    }
+    if (Y > 0 && (maze[Y - 1][X] == Free || maze[Y - 1][X] == End) && findPath(X, Y - 1, EndingPoint, MazeHeight, MazeWidth))
+    {//up
+        return true;
+    }
+    if (Y < MazeHeight && (maze[Y + 1][X] == Free || maze[Y + 1][X] == End) && findPath(X, Y + 1, EndingPoint, MazeHeight, MazeWidth))
+    {//down
+        return true;
+    }
+
+    // Otherwise we need to backtrack and find another solution.
+    maze[Y][X] = Free;
+
+    // If you want progressive update, uncomment these lines...
+    PrintDaMaze(MazeHeight, MazeWidth);
+//    Sleep(50);
+    return false;
 }
 
-Maze::Point Maze::make_point(int X, int Y) {
-    Point mypoint = {X, Y};
-    return mypoint;
+void Maze::PrintDaMaze(int MazeHeight, int MazeWidth)
+{
+    cout << endl;
+    for (int i=0; i<MazeHeight; i++)
+    {
+        for (int j=0; j<MazeWidth; j++)
+            cout << maze[i][j];
+        cout << endl;
+    }
+    cout << endl;
 }

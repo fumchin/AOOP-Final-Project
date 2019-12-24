@@ -8,15 +8,21 @@ class Maze:public MyMath
     {
         int x; int y;
     }startPos, endPos;
-    int x,y;
-    char up,down,left,right;
+    class COORD
+    {
+    public:
+        int X;
+        int Y;
+        COORD(int x = 0, int y = 0) { X = x, Y = y; }
+        COORD(const COORD &coord) { X = coord.X; Y = coord.Y; }
+    };
+
     vector<vector<char>> maze;
-    stack<Point> visitedStack, alternativeStack;
 public:
     Maze();
     string solve(string s);
-    int getStatus();
-    Point make_point(int x, int y);
+    bool findPath(int X, int Y, COORD EndingPoint, int MazeHeight, int MazeWidth);
+    void PrintDaMaze(int MazeHeight, int MazeWidth);
 };
 
 #endif // MAZE_H
