@@ -13,18 +13,19 @@ string HexadecimalSum::solve(string s)
     stringstream ss;
     ss<<s;
     string hexStr, result;
+    int maxSize = 0;
     while (ss>>hexStr)
     {
         list<char> tmplist;
         for (unsigned int i=0; i<hexStr.length(); i++)
             tmplist.push_front(hexStr[i]);
+        maxSize = tmplist.size() > maxSize? tmplist.size():maxSize;
         listDeque.push_back(tmplist);
     }
-    sort(listDeque.begin(), listDeque.end(), this->compare);
 
     for (int i=0; i<listDeque.size(); i++)
     {
-        while (listDeque[i].size() != listDeque.front().size())
+        while (listDeque[i].size() != maxSize)
         {
             listDeque[i].push_back('0');
         }
@@ -42,7 +43,8 @@ string HexadecimalSum::solve(string s)
         carry = sum/16;
         sum = carry;
     }
-    result = getChar(sum%16) + result;
+    if (sum%16 != 0)
+        result = getChar(sum%16) + result;
 //    while (sum!=0)
 //    {
 //        result = getChar(sum%16) + result;

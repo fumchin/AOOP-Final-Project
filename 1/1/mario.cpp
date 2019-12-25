@@ -16,8 +16,10 @@ string Mario::solve(string s)
     int N;
     ss>>N;
     string result = "";
-    vector<bool> coinType(1001,false);
+    vector<bool> coinsStatus(1001,false);
     int coin;
+    ss>>coin;
+    coinsStatus[coin] = true;
     while (ss>>coin)
     {
     }
