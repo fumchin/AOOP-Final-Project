@@ -50,7 +50,7 @@ JudgeWindow::JudgeWindow(QWidget *parent) :QWidget(parent),ui(new Ui::JudgeWindo
     //=========================================想giveup哪一題===================================================
     for(int i=0;i<27;i++){
         for(int j=0;j<1;j++){
-            if(i==21||i==22||i==23||i==26||i==12||i==25||i==24||i==4||i==3 ){ //check for giveup
+            if(i==21||i==22||i==23||i==26||i==12||i==25||i==24||i==4||i==3||i==2 ){ //check for giveup
                 boxlist[i][j].setCheckState(Qt::Checked);
             }
             else boxlist[i][j].setCheckState(Qt::Unchecked);

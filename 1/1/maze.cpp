@@ -49,7 +49,6 @@ string Maze::solve(string s)
     }
 
 //    cout << endl;
-
 //    for (int i=0; i<rowNum; i++)
 //    {
 //        for (int j=0; j<colNum; j++)
@@ -139,22 +138,23 @@ string Maze::solve(string s)
             result.append(" ");
         }
     }
-
     result.erase(result.length()-1);
     maze.clear();//to avoid bug, prepare for next input
     return result;
 }
 
 
-//void Maze::PrintDaMaze(int MazeHeight, int MazeWidth)
-//{
-//    cout << endl;
-//    for (int i=0; i<MazeHeight; i++)
-//    {
-//        for (int j=0; j<MazeWidth; j++)
-//            cout << maze[i][j];
-//        cout << endl;
-//    }
-//    cout << endl;
-//}
+
+void Maze::PrintDaMaze(int MazeHeight, int MazeWidth)
+{
+    cout << endl;
+    for (int i=0; i<MazeHeight; i++)
+    {
+        for (int j=0; j<MazeWidth; j++)
+            cout << maze[i][j];
+        cout << endl;
+    }
+    cout << endl;
+}
+
 
