@@ -98,6 +98,59 @@
    </property>
    <layout class="QGridLayout" name="gridLayout_label"/>
   </widget>
+  <widget class="QPushButton" name="export_to_database">
+   <property name="geometry">
+    <rect>
+     <x>1060</x>
+     <y>650</y>
+     <width>121</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>export</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="name1">
+   <property name="geometry">
+    <rect>
+     <x>1080</x>
+     <y>80</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="id1">
+   <property name="geometry">
+    <rect>
+     <x>1080</x>
+     <y>120</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="name2">
+   <property name="geometry">
+    <rect>
+     <x>1080</x>
+     <y>170</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="id2">
+   <property name="geometry">
+    <rect>
+     <x>1080</x>
+     <y>220</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

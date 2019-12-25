@@ -100,15 +100,13 @@ void Building::run(int nowfloor)
             //10 times each testdata
             for(int i=0;i<times;i++){
                 s2 = floor[nowfloor-1]->p->solve(s);
-                data.submit1 = s2;
             }
+            data.submit1 = s2;
             bool correct = judge.submitData(nowfloor,s2);
             data.correct1 = correct;
 
             cout<<"correct?: "<<data.correct1<<endl;
         }
-
-
 
         data.spendtime1 = judge.getSpendTime();
         if(scheduler.getNowFloor().inOut==1) data.elevatorpeople++;
@@ -117,6 +115,7 @@ void Building::run(int nowfloor)
     data.score+=judge.getScore();
     scheduler.getNewFloor();
     data.distance += abs(scheduler.getNowFloor().now-data.nowfloor);
+    judge.getDistance(data.distance);
     data.nowfloor = scheduler.getNowFloor().now;
     judge.display(scheduler.getNowFloor().now);
 

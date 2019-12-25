@@ -9,9 +9,9 @@ class Fib : public MyMath
 public:
     Fib();
     string solve(string s);
-    void fib_last_digit(int*,int);
-    int find_last_digit(int*,int);
-    int shift(int);
+    void fib_last_digit(int*,long long int);
+    int find_last_digit(int*,long long int);
+    int shift(long long int);
 };
 
 #endif // FIB_H
