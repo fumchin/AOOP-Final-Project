@@ -51,6 +51,7 @@ void MainWindow::on_pushButton_clicked()
     ui->PeopleNum->setText(QString::fromStdString(to_string(building.people[ui->OptionComboBox->currentIndex()]->Number)));
     ui->Destination->setText(QString::fromStdString(to_string(building.people[ui->OptionComboBox->currentIndex()]->Destination)));
     ui->scoreLineEdit->setText(QString::number(data.score));
+
     //elevatoe info
     ui->NowElevator->display(data.nowfloor);
     ui->PeopleInEle->display(data.elevatorpeople);

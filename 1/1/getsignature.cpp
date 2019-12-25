@@ -31,6 +31,7 @@ string GetSignature::solve(string s)
     deque<struct assignment> firstDeque;
     firstDeque.push_back(*tmpStruct);
     streakVec.push_back(firstDeque);
+
     while (ss>>sour>>dest)
     {
         int vectorSize = streakVec.size();

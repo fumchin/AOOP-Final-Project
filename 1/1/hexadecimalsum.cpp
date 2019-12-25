@@ -2,7 +2,6 @@
 #include <iostream>
 #include <string>
 #include <sstream>
-#include <algorithm>
 HexadecimalSum::HexadecimalSum()
 {
 
@@ -13,48 +12,36 @@ string HexadecimalSum::solve(string s)
     stringstream ss;
     ss<<s;
     string hexStr, result;
+    int maxSize = 0;
     while (ss>>hexStr)
     {
-        list<char> tmplist;
-        for (unsigned int i=0; i<hexStr.length(); i++)
-            tmplist.push_front(hexStr[i]);
-        listDeque.push_back(tmplist);
+        maxSize = hexStr.size() > maxSize? hexStr.size():maxSize;
+        stringDeque.push_back(hexStr);
     }
-    sort(listDeque.begin(), listDeque.end(), this->compare);
 
-    for (int i=0; i<listDeque.size(); i++)
-    {
-        while (listDeque[i].size() != listDeque.front().size())
-        {
-            listDeque[i].push_back('0');
-        }
-    }
+    for (int i=0; i<stringDeque.size(); i++)
+        while (stringDeque[i].size() != maxSize)
+            stringDeque[i] = '0' + stringDeque[i];
 
     int sum = 0, carry = 0;
-    while (!listDeque.front().empty())
+    for (int j=maxSize-1; j>=0; j--)
     {
-        for (int i=0; i<listDeque.size(); i++)
-        {
-            sum += getValue(listDeque[i].front());
-            listDeque[i].pop_front();
-        }
+        for (int i=0; i<stringDeque.size(); i++)
+            sum += getValue(stringDeque[i][j]);
         result = getChar(sum%16) + result;
         carry = sum/16;
         sum = carry;
     }
-    result = getChar(sum%16) + result;
+    if (sum%16 != 0)
+        result = getChar(sum%16) + result;
 //    while (sum!=0)
 //    {
 //        result = getChar(sum%16) + result;
 //        carry = sum/16;
 //        sum = carry;
 //    }
+    stringDeque.clear();
     return result;
-}
-
-bool HexadecimalSum::compare(list<char> list1, list<char> list2)
-{
-     return list1.size()>list2.size();
 }
 
 int HexadecimalSum::getValue(char c)

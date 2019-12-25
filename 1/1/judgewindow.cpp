@@ -47,10 +47,10 @@ JudgeWindow::JudgeWindow(QWidget *parent) :QWidget(parent),ui(new Ui::JudgeWindo
             ui->gridLayout_2->addWidget(&showline[i][j],i,j);
         }
     }
-    //set up and show checkout box
+    //=========================================想giveup哪一題===================================================
     for(int i=0;i<27;i++){
         for(int j=0;j<1;j++){
-            if(i==21||i==22||i==23||i==26||i==11||i==12||i==2||i==25||i==24||i==4||i==3 ){ //check for giveup
+            if(i==21||i==22||i==23||i==26||i==12||i==25||i==24||i==4||i==3 ){ //check for giveup
                 boxlist[i][j].setCheckState(Qt::Checked);
             }
             else boxlist[i][j].setCheckState(Qt::Unchecked);
@@ -60,7 +60,8 @@ JudgeWindow::JudgeWindow(QWidget *parent) :QWidget(parent),ui(new Ui::JudgeWindo
             ui->gridLayout_label->addWidget(&floorLabel[i][j],i,j);
         }
     }
-    //check box for testing(可在此測試某一題)
+    //========================================================================================================
+    //========================================可在此測試某一題(除了該題外全部guveup)===========================
 //    for(int i=0;i<27;i++){
 //        for(int j=0;j<1;j++){
 //            if(i==0){
@@ -73,6 +74,8 @@ JudgeWindow::JudgeWindow(QWidget *parent) :QWidget(parent),ui(new Ui::JudgeWindo
 //            ui->gridLayout_label->addWidget(&floorLabel[i][j],i,j);
 //        }
 //    }
+    //===========================================================================================================
+
     //floor datatimes(每筆testdata測試10次)、floornextdata(每題執行到哪裡)
     for(int i=0;i<27;i++){
         floordatatimes[i] = 10;
