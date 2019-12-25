@@ -4,6 +4,7 @@
 #include <sstream>
 #include <vector>
 #include <math.h>
+#include <stack>
 using namespace std;
 const char Wall = '2';
 const char Free = '0';
@@ -21,11 +22,8 @@ string Maze::solve(string s)
     ss<<s;
     int colNum, rowNum;
     ss>>colNum>>rowNum;
-
-//|-- j
-//|
-//i
-    int start_x,start_y,end_x,end_y;
+    COORD StartingPoint(-1,-1);
+    COORD EndingPoint(-1,-1);
     for (int i=0; i<rowNum; i++)
     {
         vector<char> row;
@@ -36,82 +34,117 @@ string Maze::solve(string s)
             row.push_back(ele);
             if (ele == 'S')
             {
-                start_x=i;
-                start_y=j;
-                row[j] = '0';
+                StartingPoint.X = i;
+                StartingPoint.Y = j;
+//                row[j] = '0';
             }
             else if (ele == 'E')
             {
-                end_x=i;
-                end_y=j;
-                row[j] = '0';
+                EndingPoint.X = i;
+                EndingPoint.Y = j;
+//                row[j] = '0';
             }
         }
         maze.push_back(row);
     }
 
 //    cout << endl;
+
+//    for (int i=0; i<rowNum; i++)
+//    {
+//        for (int j=0; j<colNum; j++)
+//        {
+//            if (i==StartingPoint.X&&j==StartingPoint.Y)
+//                cout << "S" << " ";
+//            else if (i==EndingPoint.X&&j==EndingPoint.Y)
+//                cout << "E" << " ";
+//            else
+//                cout << maze[i][j] << " ";
+//        }
+//        cout << endl;
+//    }
+
+    result = "";
+    int x=StartingPoint.X;
+    int y=StartingPoint.Y;
+    stack<COORD> alternativeStack, trajactoryStack;
+    while (!(x==EndingPoint.X && y==EndingPoint.Y))
+    {
+//        PrintDaMaze(rowNum, colNum);
+        int choice=0;
+        //push to stack in reverse order
+        if (x > 0 && (maze[x - 1][y] == Free || maze[x - 1][y] == End))
+        {//top
+            alternativeStack.push(COORD(x-1,y));
+            trajactoryStack.push(COORD(x-1,y));
+            choice++;
+        }
+        if (y > 0 && (maze[x][y - 1] == Free || maze[x][y - 1] == End))
+        {//left
+            alternativeStack.push(COORD(x,y-1));
+            trajactoryStack.push(COORD(x,y-1));
+            choice++;
+        }
+        if (x < rowNum && (maze[x + 1][y] == Free || maze[x + 1][y] == End))
+        {//down
+            alternativeStack.push(COORD(x+1,y));
+            trajactoryStack.push(COORD(x+1,y));
+            choice++;
+        }
+        if (y < colNum && (maze[x][y + 1] == Free || maze[x][y + 1] == End))
+        {//right
+            alternativeStack.push(COORD(x,y+1));
+            trajactoryStack.push(COORD(x,y+1));
+            choice++;
+        }
+
+        if (choice!=0)
+        {
+            x=alternativeStack.top().X;
+            y=alternativeStack.top().Y;
+            alternativeStack.pop();
+            trajactoryStack.pop();
+            trajactoryStack.push(COORD(x,y));
+            maze[x][y] = '1';
+        }
+        else if (!alternativeStack.empty())
+        {//backtrack
+            maze[x][y] = '0';
+            x=alternativeStack.top().X;
+            y=alternativeStack.top().Y;
+            alternativeStack.pop();
+            trajactoryStack.pop();
+            while (!(trajactoryStack.top().X==x && trajactoryStack.top().Y==y))
+            {
+                maze[trajactoryStack.top().X][trajactoryStack.top().Y] = Free;
+                //PrintDaMaze(rowNum, colNum);
+                trajactoryStack.pop();
+            }
+            maze[x][y]  = '1';
+        }
+        else
+        {
+            cout << "error!" << endl;
+            break;
+        }
+    }
+//    PrintDaMaze(rowNum, colNum);
+    maze[EndingPoint.X][EndingPoint.Y] = 'E';
+//    PrintDaMaze(rowNum, colNum);
     for (int i=0; i<rowNum; i++)
     {
-//        for (int j=0; j<colNum; j++)
-//            cout << maze[i][j] << " ";
-//        cout << endl;
+        for (int j=0; j<colNum; j++)
+        {
+            result += maze[i][j];
+            result.append(" ");
+        }
     }
-//    cout << "(" << end_x << "," /*<<*/ end_y << ")" << endl;
-    COORD StartingPoint(start_x, start_y);
-    COORD EndingPoint(end_x, end_y);
-//    if (findPath(StartingPoint.X, StartingPoint.Y, EndingPoint, rowNum, colNum))
-//    {
-//        PrintDaMaze(rowNum, colNum);
-//    }
-//    else
-//    {
-//        printf("Damn\n");
-//    }
 
-    return "";
+    result.erase(result.length()-1);
+    maze.clear();//to avoid bug, prepare for next input
+    return result;
 }
 
-bool Maze::findPath(int X, int Y, COORD EndingPoint, int MazeHeight, int MazeWidth)
-{
-    maze[Y][X] = SomeDude;
-    // If you want progressive update, uncomment these lines...
-    //PrintDaMaze(MazeHeight, MazeWidth);
-    //Sleep(50);
-
-    // Check if we have reached our goal.
-    if (X == EndingPoint.X && Y == EndingPoint.Y)
-    {
-        return true;
-    }
-    // Make the move (if it's wrong, we will backtrack later.
-
-    // Recursively search for our goal.
-    if (X > 0 && (maze[Y][X - 1] == Free || maze[Y][X - 1] == End) && findPath(X - 1, Y, EndingPoint, MazeHeight, MazeWidth))
-    {//left
-        return true;
-    }
-    if (X < MazeWidth && (maze[Y][X + 1] == Free || maze[Y][X + 1] == End) && findPath(X + 1, Y, EndingPoint, MazeHeight, MazeWidth))
-    {//right
-        return true;
-    }
-    if (Y > 0 && (maze[Y - 1][X] == Free || maze[Y - 1][X] == End) && findPath(X, Y - 1, EndingPoint, MazeHeight, MazeWidth))
-    {//up
-        return true;
-    }
-    if (Y < MazeHeight && (maze[Y + 1][X] == Free || maze[Y + 1][X] == End) && findPath(X, Y + 1, EndingPoint, MazeHeight, MazeWidth))
-    {//down
-        return true;
-    }
-
-    // Otherwise we need to backtrack and find another solution.
-    maze[Y][X] = Free;
-
-    // If you want progressive update, uncomment these lines...
-//    PrintDaMaze(MazeHeight, MazeWidth);
-//    Sleep(50);
-    return false;
-}
 
 //void Maze::PrintDaMaze(int MazeHeight, int MazeWidth)
 //{
@@ -124,3 +157,4 @@ bool Maze::findPath(int X, int Y, COORD EndingPoint, int MazeHeight, int MazeWid
 //    }
 //    cout << endl;
 //}
+

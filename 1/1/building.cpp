@@ -12,6 +12,7 @@
 #include "shortestdistance.h"
 #include "add1.h"
 #include "prime.h"
+#include "mario.h"
 #include "subtract1.h"
 #include "stringperiod.h"
 #include "largefactorial.h"
@@ -45,6 +46,7 @@ Building::Building()
     floor[8] = new Floor(new ShortestDistance());
     floor[9] = new Floor(new Add1());
     floor[10] = new Floor(new Prime());
+    floor[11] = new Floor(new Mario());
     floor[13] = new Floor(new Subtract1());
     floor[14] = new Floor(new StringPeriod());
     floor[15] = new Floor(new LargeFactorial());
@@ -59,7 +61,7 @@ Building::Building()
 
     //JudgeWindow judge;
     judge.show();
-    judge.setSeed(0);
+    judge.setSeed(3);
     int n=judge.getConditionNum(); //get People data according variable n
 
     //create people
@@ -80,28 +82,25 @@ Building::Building()
 void Building::run(int nowfloor)
 {
 
-    //cout<<scheduler.getNowFloor().now<<"how many times"<<scheduler.getNowFloor().peopleNum<<endl;
     for(int i=0;i<scheduler.getNowFloor().peopleNum;i++){
         //test for not input question
         int times;
         string s = judge.getData(nowfloor,scheduler.getNowFloor().inOut,times);
 
         data.testdata1 = s;
-        //cout<<data.testdata1<<endl;
         //give up
         string s2="";
         if(data.testdata1.compare("GIVEUP")==0){
             s2 = "";
             data.submit1 = s2;
-            //s2 = floor[nowfloor]->p->solve(s);
-            //data.spendtime1=0;
         }
         else{
-            //10 times each testdata
+            //10 times each testdata (時間會不斷累積)
             for(int i=0;i<times;i++){
                 s2 = floor[nowfloor-1]->p->solve(s);
             }
             data.submit1 = s2;
+            //送去submitdata算分數跟平均時間
             bool correct = judge.submitData(nowfloor,s2);
             data.correct1 = correct;
 
@@ -109,9 +108,11 @@ void Building::run(int nowfloor)
         }
 
         data.spendtime1 = judge.getSpendTime();
+        //計算此時電梯裡面有幾人
         if(scheduler.getNowFloor().inOut==1) data.elevatorpeople++;
         else if(scheduler.getNowFloor().inOut==0) data.elevatorpeople--;
     }
+    //將資料傳給data
     data.score+=judge.getScore();
     scheduler.getNewFloor();
     data.distance += abs(scheduler.getNowFloor().now-data.nowfloor);
@@ -124,13 +125,12 @@ void Building::run(int nowfloor)
 
 void Building::startSimulation()
 {
-    timer1->start(200);
+    timer1->start(100);
     timer1->setSingleShot(true);
 }
 
 void Building::update()
 {
-
-    timer1->start(200);
+    timer1->start(100);
     emit this->updateGUI();
 }
