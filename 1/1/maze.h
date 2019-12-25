@@ -4,20 +4,17 @@
 #include <stack>
 class Maze:public MyMath
 {
-    class COORD
+    struct COORD
     {
-    public:
         int X;
         int Y;
-        COORD(int x = 0, int y = 0) { X = x, Y = y; }
-        COORD(const COORD &coord) { X = coord.X; Y = coord.Y; }
+        COORD(int x, int y){X=x; Y=y;}
     };
     string result;
     vector<vector<char>> maze;
 public:
     Maze();
     string solve(string s);
-    bool findPath(int X, int Y, COORD EndingPoint, int MazeHeight, int MazeWidth);
     void PrintDaMaze(int MazeHeight, int MazeWidth);
 };
 
