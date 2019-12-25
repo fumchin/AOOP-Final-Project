@@ -8,12 +8,13 @@
 #include <QDebug>
 #include <building.h>
 #include <math.h>
+#include <QString>
 using namespace std;
 
 JudgeWindow::JudgeWindow(QWidget *parent) :QWidget(parent),ui(new Ui::JudgeWindow)
 {
     ui->setupUi(this);
-
+    //read initial data
     query.exec("drop database FINAL");
     query.exec("create database if not exists FINAL");
     query.exec("use FINAL");
@@ -21,10 +22,11 @@ JudgeWindow::JudgeWindow(QWidget *parent) :QWidget(parent),ui(new Ui::JudgeWindo
     query.exec("create table if not exists TestData (ID char(8),Floor int,Question text,Answer text,PRIMARY KEY(ID))");
     query.exec("drop table if exists InitialCondition");
     query.exec("create table if not exists InitialCondition (ID char(8),Nowfloor int,Destination int,Number int,PRIMARY KEY(ID))");
-    query.exec("load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/testdata_1223_2.csv' into table TestData fields terminated by ',' enclosed by '\"' lines terminated by '\r\n' ignore 1 rows");
+    query.exec("load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/testdata_1225.csv' into table TestData fields terminated by ',' enclosed by '\"' lines terminated by '\r\n' ignore 1 rows");
     query.exec("load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/simple_initial_condition.csv' into table InitialCondition fields terminated by ',' enclosed by '\"' lines terminated by '\r\n' ignore 1 rows");
     //query.exec("load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/initial_condition.csv' into table InitialCondition fields terminated by ',' enclosed by '\"' lines terminated by '\r\n' ignore 1 rows");
     query.exec("select * from InitialCondition");
+    //set up initial array for disply result
     for(int i=0;i<27;i++){
         for(int j=0;j<4;j++){
             if(j==0){
@@ -45,10 +47,10 @@ JudgeWindow::JudgeWindow(QWidget *parent) :QWidget(parent),ui(new Ui::JudgeWindo
             ui->gridLayout_2->addWidget(&showline[i][j],i,j);
         }
     }
-    //show checkout box
+    //set up and show checkout box
     for(int i=0;i<27;i++){
         for(int j=0;j<1;j++){
-            if(i==21||i==20||i==4||i==22||i==23||i==26||i==11||i==12||i==2||i==18 ){
+            if(i==21||i==22||i==23||i==26||i==11||i==12||i==2||i==25||i==24||i==4||i==3 ){ //check for giveup
                 boxlist[i][j].setCheckState(Qt::Checked);
             }
             else boxlist[i][j].setCheckState(Qt::Unchecked);
@@ -58,12 +60,30 @@ JudgeWindow::JudgeWindow(QWidget *parent) :QWidget(parent),ui(new Ui::JudgeWindo
             ui->gridLayout_label->addWidget(&floorLabel[i][j],i,j);
         }
     }
-    //floor datatimes
+    //check box for testing(可在此測試某一題)
+//    for(int i=0;i<27;i++){
+//        for(int j=0;j<1;j++){
+//            if(i==0){
+//                boxlist[i][j].setCheckState(Qt::Unchecked);
+//            }
+//            else boxlist[i][j].setCheckState(Qt::Checked);
+
+//            ui->gridLayout_checkbox->addWidget(&boxlist[i][j],i,j);
+//            floorLabel[i][j].setText(QString::number(i+1));
+//            ui->gridLayout_label->addWidget(&floorLabel[i][j],i,j);
+//        }
+//    }
+    //floor datatimes(每筆testdata測試10次)、floornextdata(每題執行到哪裡)
     for(int i=0;i<27;i++){
         floordatatimes[i] = 10;
         floornextdata[i] = 0;
+        pass[i] = 0;
      }
-
+    //set name label
+    ui->name1->setText("陳舫慶");
+    ui->id1->setText("0611069");
+    ui->name2->setText("曾力揚");
+    ui->id2->setText("0611097");
     for(int i=0;i<27;i++){
         for(int j=0;j<4;j++){
             cout<<arr[i][j]<<" ";
@@ -73,67 +93,79 @@ JudgeWindow::JudgeWindow(QWidget *parent) :QWidget(parent),ui(new Ui::JudgeWindo
     score = 0;
 }
 
+//取每層樓人的條件
+void JudgeWindow::getInitialCondition(People *people[]){
+    query.exec("use FINAL");
+    //query.exec("select n.* from (select * from peoplelist limit "+QString::number(n-1)+",1) as s,peoplelist as n where left(n.id,5)=left(s.id,5)");
+    query.exec("select * from InitialCondition");
+    for(int i=0;i<27;i++){
+        people[i] = new People;
+        people[i]->setPeople(query);
+    }
+}
+
+//取題目
 string JudgeWindow::getData(int floor, int b,int& datatimes){
+    //一筆測資跑幾遍 回傳給datatimes
     datatimes = floordatatimes[floor];
+    //disable checkbox
     for(int i=0;i<27;i++){
         boxlist[i][0].setDisabled(true);
     }
+
+    //看該floor的測資跑到第幾筆了
+    int num = floornextdata[floor-1];
+    cout<<floor<<": "<<num<<endl;
+    floornextdata[floor-1]++;     //in order
     string result="";
+
+    //give up 則output giveup
     if(boxlist[floor-1][0].isChecked()){
         result = "GIVEUP";
         answer="";
     }
+    //要執行的取data(按照floornextdata的順序)
     else{
         query.exec("use FINAL");
         //query.exec("select count(Question) from testdata where floor="+QString::number(floor+1));
         //query.next();
         //cerr<<query.value(0).toInt()<<endl;
         //    int num = rand()%(query.value(0).toInt());
-        int num = floornextdata[floor-1];
-
-        cout<<floor<<": "<<num<<endl;
-        floornextdata[floor-1]++;     //in order
         query.exec("select Question,Answer from testdata where floor = "+QString::number(floor)+" and ID like '%0"+QString::number(num)+"'");
         query.next();
         result=query.value(0).toString().toStdString();
         answer=query.value(1).toString().toStdString();
-        //cout<<"data: "<<result<<endl;
     }
-    //cout<<result<<endl;
-    //cout<<answer<<endl;
-
+    //進電梯，該樓層waiting-1
     if(b==1){
         arr[floor-1][0]--;
     }
+    //出電梯，該樓層arrive+1
     else if(b == 0){
         arr[floor-1][1]++;
     }
-
-    display(floor);
-
+    //開始計時
     timer.start();
     return result;
 }
 
 bool JudgeWindow::submitData(int floor,string ans){
-    //timer end
+    //timer end，計算花費的時間並更新
     costtime = timer.nsecsElapsed();
     costtime /= floordatatimes[floor-1];
+    arr[floor-1][2]+=costtime;
 
-    //arr[floor-1][2]+=costtime;
+    //比較答案，計算分數，並更新judgewindoe介面(display)
     if(answer.compare(ans)==0){
-
-        score = 10000000000+pow(2,floornextdata[floor-1]);
+        score = 10000000000+pow(2,floornextdata[floor-1]-1);
+        cout<<"score(floor"<<floor<<": "<<score<<endl;
         arr[floor-1][3]+=score;
-        arr[floor-1][2]+=costtime;
+        pass[floor-1]++;
+        display(floor);
         return true;
     }
-//    else if(ans.compare("")==0){    //give up
-//        arr[floor-1][2] = 0;
-//        return false;
-//    }
     else{
-        arr[floor-1][2]+=costtime;
+        //錯了嗚嗚
         return false;
     }
 }
@@ -142,57 +174,63 @@ int JudgeWindow::getConditionNum(){
     return rand()%300+1;
 }
 
-void JudgeWindow::getInitialCondition(People *people[]){
-    query.exec("use FINAL");
-    //query.exec("select n.* from (select * from peoplelist limit "+QString::number(n-1)+",1) as s,peoplelist as n where left(n.id,5)=left(s.id,5)");
-    query.exec("select * from InitialCondition");
-    for(int i=0;i<27;i++){
-        people[i] = new People;
-        people[i]->setPeople(query);
-
-    }
-
-}
-
-
 JudgeWindow::~JudgeWindow()
 {
     delete ui;
 }
 
+//update judgewindow
 void JudgeWindow::display(int nowfloor){
     for(int i=0;i<27;i++){
         for(int j=0;j<4;j++){
             if(j==0){   //waiting
-                //arr[i][j] = people[i]->getPeopleNum();
                 showline[i][j].setText(QString::number(arr[i][j]));
             }
             else if(j==1){   //arriving
                 showline[i][j].setText(QString::number(arr[i][j]));
             }
             else if(j==2 && i==nowfloor-1){
-
-                //costtime = 0;
                 showline[i][j].setText(QString::number(arr[i][j]));
 
             }
             if(j==3 && i==nowfloor-1){
-//                arr[i][j] = (arr[i][j] & submitData(answer));
                 showline[i][j].setText(QString::number(arr[i][j]));
             }
         }
     }
 }
 
-//int* JudgeWindow::getArr(){
-//    return  this->arr;
-//}
+//export
+void JudgeWindow::on_export_to_database_clicked()
+{
+//    QSqlDatabase database;
+//    database = QSqlDatabase::addDatabase("QMYSQL");
+//    database.setHostName("localhost");
+//    database.setUserName("root");
+//    database.setPassword("123456789");
+//    database.setPort(3306);
+//    bool ok = database.open();
+//    if(ok){
+//        qDebug()<<"Connected!!";
+//    }
+//    else{
+//        qDebug()<<"fail to connect";
+//    }
 
-//string getData(int floor,int b);//input 0-26
-//bool submitData(string ans);
-//void setSeed(int seed){srand(seed);}
-//qint64 getSpendTime(){return costtime;}
-//int getConditionNum();//return 1-300
-//int getDistance(){return distance;}
-//void scheduleEnd();
-//QLineEdit showline[27][4];
+    query.exec("drop database aoopstudentuse");
+    query.exec("create database aoopstudentuse");
+    query.exec("use aoopstudentuse");
+    query.exec("drop table floorscore");
+    query.exec("create table floorscore (stud_id1 char(7),stud_name1 varchar(5),stud_id2 char(7),stud_name2 varchar(5),floor int, timespent bigint, pass int,totalques int, totalscore bigint)");
+    query.exec("drop table totalpath");
+    query.exec("create table totalpath (stud_id1 char(7),stud_name1 varchar(5),stud_id2 char(7),stud_name2 varchar(5),pathlen int)");
+
+    QString name1=ui->name1->text(),name2=ui->name2->text(),id1=ui->id1->text(),id2=ui->id2->text();
+
+    QString totalStep = QString::number(distance);
+    //query.exec("select * from floorscore");
+    query.exec("insert into totalpath (stud_id1,stud_name1,stud_id2,stud_name2,pathlen) values ('"+id1+"','"+name1+"','"+id2+"','"+name2+"',"+totalStep+")");
+    for(int i=0;i<27;i++){
+        query.exec("insert into floorscore(stud_id1,stud_name1,stud_id2,stud_name2,floor,timespent,pass,totalques,totalscore) values ('"+id1+"','"+name1+"','"+id2+"','"+name2+"',"+QString::number(i+1)+","+QString::number(arr[i][2])+","+QString::number(pass[i])+","+QString::number(floornextdata[i])+","+QString::number(arr[i][3])+")");
+    }
+}

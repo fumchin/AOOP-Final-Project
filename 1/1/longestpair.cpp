@@ -27,11 +27,11 @@ string LongestPair::solve(string s){
         counter++;
     }
 
-    cout << "counter: " << counter << endl;
-    for (int j=0; j< counter; j++)
-    {
-        cout << xVec[j] << " " << yVec[j]  << " " << zVec[j] << endl;
-    }
+//    cout << "counter: " << counter << endl;
+//    for (int j=0; j< counter; j++)
+//    {
+//        cout << xVec[j] << " " << yVec[j]  << " " << zVec[j] << endl;
+//    }
 
     double max, min;
     max = min = sqrt( pow(xVec[1]-xVec[0],2)+pow(yVec[1]-yVec[0],2)+pow(zVec[1]-zVec[0],2) );
@@ -43,7 +43,7 @@ string LongestPair::solve(string s){
                 max = sqrt( pow(xVec[j]-xVec[i],2)+pow(yVec[j]-yVec[i],2)+pow(zVec[j]-zVec[i],2) );
             if(sqrt( pow(xVec[j]-xVec[i],2)+pow(yVec[j]-yVec[i],2)+pow(zVec[j]-zVec[i],2) ) < min)
                 min = sqrt( pow(xVec[j]-xVec[i],2)+pow(yVec[j]-yVec[i],2)+pow(zVec[j]-zVec[i],2) );
-                cout << endl;
+                //cout << endl;
         }
     }
 

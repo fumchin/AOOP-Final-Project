@@ -33,11 +33,11 @@ void printQueue(QUEUE* queue){
     p = queue->head;
     int count=0;
     while(count != queue->node_count){
-        cout<<p->data<<"->";
+//        cout<<p->data<<"->";
         count++;
         p=p->next;
     }
-    cout<<endl;
+//    cout<<endl;
     delete (p);
 }
 

@@ -13,6 +13,8 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -30,6 +32,11 @@ public:
     QLabel *label_4;
     QWidget *gridLayoutWidget_3;
     QGridLayout *gridLayout_label;
+    QPushButton *export_to_database;
+    QLineEdit *name1;
+    QLineEdit *id1;
+    QLineEdit *name2;
+    QLineEdit *id2;
 
     void setupUi(QWidget *JudgeWindow)
     {
@@ -66,6 +73,21 @@ public:
         gridLayout_label = new QGridLayout(gridLayoutWidget_3);
         gridLayout_label->setObjectName(QString::fromUtf8("gridLayout_label"));
         gridLayout_label->setContentsMargins(0, 0, 0, 0);
+        export_to_database = new QPushButton(JudgeWindow);
+        export_to_database->setObjectName(QString::fromUtf8("export_to_database"));
+        export_to_database->setGeometry(QRect(1060, 650, 121, 41));
+        name1 = new QLineEdit(JudgeWindow);
+        name1->setObjectName(QString::fromUtf8("name1"));
+        name1->setGeometry(QRect(1080, 80, 113, 20));
+        id1 = new QLineEdit(JudgeWindow);
+        id1->setObjectName(QString::fromUtf8("id1"));
+        id1->setGeometry(QRect(1080, 120, 113, 20));
+        name2 = new QLineEdit(JudgeWindow);
+        name2->setObjectName(QString::fromUtf8("name2"));
+        name2->setGeometry(QRect(1080, 170, 113, 20));
+        id2 = new QLineEdit(JudgeWindow);
+        id2->setObjectName(QString::fromUtf8("id2"));
+        id2->setGeometry(QRect(1080, 220, 113, 20));
 
         retranslateUi(JudgeWindow);
 
@@ -79,6 +101,7 @@ public:
         label_2->setText(QCoreApplication::translate("JudgeWindow", "Arrive people", nullptr));
         label_3->setText(QCoreApplication::translate("JudgeWindow", "TotalCost", nullptr));
         label_4->setText(QCoreApplication::translate("JudgeWindow", "WinOrLost", nullptr));
+        export_to_database->setText(QCoreApplication::translate("JudgeWindow", "export", nullptr));
     } // retranslateUi
 
 };

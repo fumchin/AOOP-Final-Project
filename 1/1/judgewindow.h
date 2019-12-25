@@ -28,7 +28,7 @@ public:
     void setSeed(int seed){srand(seed);}
     qint64 getSpendTime(){return costtime;}
     int getConditionNum();//return 1-300
-    int getDistance(){return distance;}
+    void getDistance(int d){distance = d;}
     void scheduleEnd();
     void getInitialCondition(People *people[]);
     void display(int);
@@ -37,6 +37,9 @@ public:
     QLineEdit showline[27][4];
     QCheckBox boxlist[27][1];
     QLabel floorLabel[27][1];
+private slots:
+    void on_export_to_database_clicked();
+
 private:
     long long int arr[27][4];
     Ui::JudgeWindow *ui;
@@ -48,6 +51,7 @@ private:
     long long int score;
     int floordatatimes[27];
     int floornextdata[27];
+    int pass[27];
 
 
 };

@@ -50,24 +50,24 @@ string Maze::solve(string s)
         maze.push_back(row);
     }
 
-    cout << endl;
+//    cout << endl;
     for (int i=0; i<rowNum; i++)
     {
-        for (int j=0; j<colNum; j++)
-            cout << maze[i][j] << " ";
-        cout << endl;
+//        for (int j=0; j<colNum; j++)
+//            cout << maze[i][j] << " ";
+//        cout << endl;
     }
-    cout << "(" << end_x << "," << end_y << ")" << endl;
+//    cout << "(" << end_x << "," /*<<*/ end_y << ")" << endl;
     COORD StartingPoint(start_x, start_y);
     COORD EndingPoint(end_x, end_y);
-    if (findPath(StartingPoint.X, StartingPoint.Y, EndingPoint, rowNum, colNum))
-    {
-        PrintDaMaze(rowNum, colNum);
-    }
-    else
-    {
-        printf("Damn\n");
-    }
+//    if (findPath(StartingPoint.X, StartingPoint.Y, EndingPoint, rowNum, colNum))
+//    {
+//        PrintDaMaze(rowNum, colNum);
+//    }
+//    else
+//    {
+//        printf("Damn\n");
+//    }
 
     return "";
 }
@@ -76,7 +76,7 @@ bool Maze::findPath(int X, int Y, COORD EndingPoint, int MazeHeight, int MazeWid
 {
     maze[Y][X] = SomeDude;
     // If you want progressive update, uncomment these lines...
-    PrintDaMaze(MazeHeight, MazeWidth);
+    //PrintDaMaze(MazeHeight, MazeWidth);
     //Sleep(50);
 
     // Check if we have reached our goal.
@@ -108,19 +108,19 @@ bool Maze::findPath(int X, int Y, COORD EndingPoint, int MazeHeight, int MazeWid
     maze[Y][X] = Free;
 
     // If you want progressive update, uncomment these lines...
-    PrintDaMaze(MazeHeight, MazeWidth);
+//    PrintDaMaze(MazeHeight, MazeWidth);
 //    Sleep(50);
     return false;
 }
 
-void Maze::PrintDaMaze(int MazeHeight, int MazeWidth)
-{
-    cout << endl;
-    for (int i=0; i<MazeHeight; i++)
-    {
-        for (int j=0; j<MazeWidth; j++)
-            cout << maze[i][j];
-        cout << endl;
-    }
-    cout << endl;
-}
+//void Maze::PrintDaMaze(int MazeHeight, int MazeWidth)
+//{
+//    cout << endl;
+//    for (int i=0; i<MazeHeight; i++)
+//    {
+//        for (int j=0; j<MazeWidth; j++)
+//            cout << maze[i][j];
+//        cout << endl;
+//    }
+//    cout << endl;
+//}
