@@ -52,6 +52,7 @@ private:
     int floordatatimes[27];
     int floornextdata[27];
     int pass[27];
+    QSqlDatabase database2;
 
 
 };

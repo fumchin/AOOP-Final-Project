@@ -48,32 +48,32 @@ JudgeWindow::JudgeWindow(QWidget *parent) :QWidget(parent),ui(new Ui::JudgeWindo
         }
     }
     //=========================================想giveup哪一題===================================================
-    for(int i=0;i<27;i++){
-        for(int j=0;j<1;j++){
-            if(i==21||i==22||i==23||i==26||i==12||i==25||i==24||i==4||i==3||i==2 ){ //check for giveup
-                boxlist[i][j].setCheckState(Qt::Checked);
-            }
-            else boxlist[i][j].setCheckState(Qt::Unchecked);
-
-            ui->gridLayout_checkbox->addWidget(&boxlist[i][j],i,j);
-            floorLabel[i][j].setText(QString::number(i+1));
-            ui->gridLayout_label->addWidget(&floorLabel[i][j],i,j);
-        }
-    }
-    //========================================================================================================
-    //========================================可在此測試某一題(除了該題外全部guveup)===========================
 //    for(int i=0;i<27;i++){
 //        for(int j=0;j<1;j++){
-//            if(i==2){
-//                boxlist[i][j].setCheckState(Qt::Unchecked);
+//            if(i==21||i==22||i==23||i==26||i==12||i==25||i==24||i==4||i==2||i==20 ){ //check for giveup
+//                boxlist[i][j].setCheckState(Qt::Checked);
 //            }
-//            else boxlist[i][j].setCheckState(Qt::Checked);
+//            else boxlist[i][j].setCheckState(Qt::Unchecked);
 
 //            ui->gridLayout_checkbox->addWidget(&boxlist[i][j],i,j);
 //            floorLabel[i][j].setText(QString::number(i+1));
 //            ui->gridLayout_label->addWidget(&floorLabel[i][j],i,j);
 //        }
 //    }
+    //========================================================================================================
+    //========================================可在此測試某一題(除了該題外全部guveup)===========================
+    for(int i=0;i<27;i++){
+        for(int j=0;j<1;j++){
+            if(i==3||i==4){
+                boxlist[i][j].setCheckState(Qt::Unchecked);
+            }
+            else boxlist[i][j].setCheckState(Qt::Checked);
+
+            ui->gridLayout_checkbox->addWidget(&boxlist[i][j],i,j);
+            floorLabel[i][j].setText(QString::number(i+1));
+            ui->gridLayout_label->addWidget(&floorLabel[i][j],i,j);
+        }
+    }
     //===========================================================================================================
 
     //floor datatimes(每筆testdata測試10次)、floornextdata(每題執行到哪裡)
@@ -83,10 +83,14 @@ JudgeWindow::JudgeWindow(QWidget *parent) :QWidget(parent),ui(new Ui::JudgeWindo
         pass[i] = 0;
      }
     //set name label
-    ui->name1->setText("陳舫慶");
-    ui->id1->setText("0611069");
-    ui->name2->setText("曾力揚");
-    ui->id2->setText("0611097");
+//    ui->name1->setText("陳舫慶");
+//    ui->id1->setText("0611069");
+//    ui->name2->setText("曾力揚");
+//    ui->id2->setText("0611097");
+    ui->name1->setText("嗨嗨嗨");
+    ui->id1->setText("1234568");
+    ui->name2->setText("嘿嘿嘿");
+    ui->id2->setText("1234567");
     for(int i=0;i<27;i++){
         for(int j=0;j<4;j++){
             cout<<arr[i][j]<<" ";
@@ -206,34 +210,26 @@ void JudgeWindow::display(int nowfloor){
 //export
 void JudgeWindow::on_export_to_database_clicked()
 {
-//    QSqlDatabase database;
-//    database = QSqlDatabase::addDatabase("QMYSQL");
-//    database.setHostName("localhost");
-//    database.setUserName("root");
-//    database.setPassword("123456789");
-//    database.setPort(3306);
-//    bool ok = database.open();
-//    if(ok){
-//        qDebug()<<"Connected!!";
-//    }
-//    else{
-//        qDebug()<<"fail to connect";
-//    }
+    QSqlDatabase::removeDatabase("QMYSQL");
+    database2 = QSqlDatabase::addDatabase("QMYSQL");
+    database2.setHostName("140.113.146.120");
+    database2.setUserName("aoopstudent");
+    database2.setPassword("tsaimother");
+    database2.setPort(3306);
+    bool ok = database2.open();
+    if(ok){
+        qDebug()<<"Connected!!";
+    }
+    else{
+        qDebug()<<"fail to connect";
+    }
 
-    query.exec("drop database aoopstudentuse");
-    query.exec("create database aoopstudentuse");
-    query.exec("use aoopstudentuse");
-    query.exec("drop table floorscore");
-    query.exec("create table floorscore (stud_id1 char(7),stud_name1 varchar(5),stud_id2 char(7),stud_name2 varchar(5),floor int, timespent bigint, pass int,totalques int, totalscore bigint)");
-    query.exec("drop table totalpath");
-    query.exec("create table totalpath (stud_id1 char(7),stud_name1 varchar(5),stud_id2 char(7),stud_name2 varchar(5),pathlen int)");
-
+    QSqlQuery query(database2);
     QString name1=ui->name1->text(),name2=ui->name2->text(),id1=ui->id1->text(),id2=ui->id2->text();
-
     QString totalStep = QString::number(distance);
-    //query.exec("select * from floorscore");
-    query.exec("insert into totalpath (stud_id1,stud_name1,stud_id2,stud_name2,pathlen) values ('"+id1+"','"+name1+"','"+id2+"','"+name2+"',"+totalStep+")");
+    //query.exec("select * from totalpath");
+    query.exec("insert into aoopstudentuse.totalpath (stud_id1,stud_name1,stud_id2,stud_name2,pathlen) values ('"+id1+"','"+name1+"','"+id2+"','"+name2+"',"+totalStep+")");
     for(int i=0;i<27;i++){
-        query.exec("insert into floorscore(stud_id1,stud_name1,stud_id2,stud_name2,floor,timespent,pass,totalques,totalscore) values ('"+id1+"','"+name1+"','"+id2+"','"+name2+"',"+QString::number(i+1)+","+QString::number(arr[i][2])+","+QString::number(pass[i])+","+QString::number(floornextdata[i])+","+QString::number(arr[i][3])+")");
+        query.exec("insert into aoopstudentuse.floorscore(stud_id1,stud_name1,stud_id2,stud_name2,floor,timespent,pass,totalques,totalscore) values ('"+id1+"','"+name1+"','"+id2+"','"+name2+"',"+QString::number(i+1)+","+QString::number(arr[i][2])+","+QString::number(pass[i])+","+QString::number(floornextdata[i])+","+QString::number(arr[i][3])+")");
     }
 }

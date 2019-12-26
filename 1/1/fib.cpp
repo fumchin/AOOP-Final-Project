@@ -49,8 +49,10 @@ string Fib::solve(string s){
     int f[60];
     fib_last_digit(f,60);
     long long int temp;   //temp = fib(n)%60
+    //long long int temp[2]={0};
     while(ss>>n){
 //        cout<<n<<endl;
+     //   fast_fib(n,ans);
         temp = shift(n);
         ans = find_last_digit(f,temp);
         result.append(to_string(ans)+' ');
