@@ -5,6 +5,7 @@
 #include <deque>
 #include <vector>
 #include <iterator>
+#include <algorithm>
 using namespace std;
 GetSignature::GetSignature()
 {
@@ -15,54 +16,87 @@ string GetSignature::solve(string s)
 {
     stringstream ss;
     ss<<s;
-    struct assignment
-    {
-        int source, desination;
-    };
-    deque<struct assignment> streak;
-    vector<deque<struct assignment>> streakVec;
-    int celeNum;
-    ss>>celeNum;
+
+//    deque<struct assignment> streak;
+    vector<deque<struct assignment>> dequeVec;//store every streak of assignments
+    int celebrityNum;
+    ss>>celebrityNum;
+
     int sour, dest;
     ss>>sour>>dest;
-    assignment *tmpStruct = new assignment;
-    tmpStruct->source = sour;
-    tmpStruct->desination = dest;
+
     deque<struct assignment> firstDeque;
-    firstDeque.push_back(*tmpStruct);
-    streakVec.push_back(firstDeque);
+    firstDeque.push_back(assignment(sour, dest));
+    dequeVec.push_back(firstDeque);
 
     while (ss>>sour>>dest)
     {
-        int vectorSize = streakVec.size();
-        for (unsigned int i=0; i<vectorSize; i++)
+        bool inserted = false;
+
+        unsigned int numOfStreak = dequeVec.size();
+        for (unsigned int i=0; i<numOfStreak; i++)
         {
-            bool inserted = false;
-            tmpStruct = new assignment;
-            tmpStruct->source = sour;
-            tmpStruct->desination = dest;
-//            for (unsigned int j=0; j<streakVec[i].size(); j++)
-            for (deque<assignment>::iterator it=streakVec[i].begin(); it!=streakVec[i].end(); it++)
+            if (sour == (dequeVec[i].end()-1)->desination)
             {
-                if (tmpStruct->desination == it->source)
+                dequeVec[i].push_back(assignment(sour,dest));
+                inserted = true;
+            }
+            else
+            {
+                for (deque<assignment>::iterator it=dequeVec[i].begin(); it!=dequeVec[i].end(); it++)
                 {
-                    streakVec[i].insert(it, *tmpStruct);
-                    inserted = true;
+                    if (dest == it->source )
+                    {
+                        if (it == dequeVec[i].begin())//insert in the beginning
+                        {
+                            dequeVec[i].insert(it, assignment(sour,dest));
+                            inserted = true;
+                            break;
+                        }
+                        else if (dest != (it-1)->desination)//沒有同樣的人指向destination
+                        {
+                            dequeVec[i].insert(it, assignment(sour,dest));
+                            inserted = true;
+                            break;
+                        }
+                        else//有同樣的人指向destination
+                        {
+                            deque<struct assignment> newDeque;
+                            copy(dequeVec[i].begin(), it-1, newDeque.begin());
+                            newDeque.push_back(assignment(sour,dest));
+                            newDeque.push_back(*it);
+                            dequeVec.push_back(newDeque);
+                            inserted = true;
+                            break;
+                        }
+                    }
                 }
             }
-            if (tmpStruct->source == streakVec[i].end()->desination)
-            {
-                streakVec[i].push_back(*tmpStruct);
-                inserted = true;
-            }
-            if (inserted == false)
-            {
-                deque<struct assignment> tmpDeque;
-                tmpDeque.push_back(*tmpStruct);
-                streakVec.push_back(tmpDeque);
-                inserted = true;
-            }
+
+        }
+        if (inserted == false)
+        {
+            deque<struct assignment> newDeque;
+            newDeque.push_back(assignment(sour,dest));
+            dequeVec.push_back(newDeque);
+            inserted = true;
         }
     }
-    return "test";
+
+    int maxLength=0;
+    int smallestStarter=-1;
+    for (unsigned int i=0; i<dequeVec.size(); i++)
+    {
+        if (dequeVec[i].size()>maxLength)
+        {
+            maxLength = dequeVec[i].size();
+            smallestStarter = dequeVec[i].front().source;
+        }
+        else if (dequeVec[i].size() == maxLength)
+        {
+            if (dequeVec[i].front().source < smallestStarter)
+                smallestStarter = dequeVec[i].front().source;
+        }
+    }
+    return to_string(smallestStarter);
 }
