@@ -77,8 +77,12 @@ string GetSolution::gauss(vector< vector<double> > A)
         }
     }
     for (int i=0; i<n; i++)
+    {
+        cout << x[i] << " ";
+        if (x[i] == -0)
+            x[i] = 0;
         Strs << fixed << setprecision(2) << x[i] << " ";
-
+    }
     result.append(Strs.str());
     result.erase(result.length()-1);
     return result;
