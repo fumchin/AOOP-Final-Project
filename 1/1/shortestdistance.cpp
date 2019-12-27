@@ -24,7 +24,7 @@ string ShortestDistance::solve(string s){
         justStart = false;
         ss >> n;
         N = n;
-        cout << "N: " << N << endl << endl;
+        //cout << "N: " << N << endl << endl;
         while (counter != 2*N && ss>>x>>y)
         {
             counter ++;
@@ -140,16 +140,16 @@ string ShortestDistance::solve(string s){
             }
             pointVect.clear();
 
-            cout << totalMinDistance << " " << totalMinDistance2 << " "<< totalMinDistance3 << endl;
+//            cout << totalMinDistance << " " << totalMinDistance2 << " "<< totalMinDistance3 << endl;
             double Min = totalMinDistance<totalMinDistance2? totalMinDistance : totalMinDistance2;
             Min = totalMinDistance3 < Min ? totalMinDistance3 : Min;
             Min = rounding(Min, 2);
-            cout << Min << endl;
+//            cout << Min << endl;
             ostringstream strs;
             strs << Min;
             result.append(strs.str());
             result.append(" ");
-            cout << "enter reset block" << endl;
+//            cout << "enter reset block" << endl;
             counter = 0;
             justStart = true;
             N = -1;
