@@ -65,61 +65,72 @@ Building::Building()
     int n=judge.getConditionNum(); //get People data according variable n
 
     //create people
-    query.exec("drop database FINAL");
-    query.exec("create database if not exists FINAL");
-    query.exec("use FINAL");
-    query.exec("drop table if exists TestData");
-    query.exec("create table if not exists TestData (ID char(8),Floor int,Question text,Answer text,PRIMARY KEY(ID))");
-    query.exec("drop table if exists InitialCondition");
-    query.exec("create table if not exists InitialCondition (ID char(8),Nowfloor int,Destination int,Number int,PRIMARY KEY(ID))");
-    query.exec("load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/testdata_1222_2.csv' into table TestData fields terminated by ',' enclosed by '\"' lines terminated by '\r\n' ignore 1 rows");
-    query.exec("load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/simple_initial_condition.csv' into table InitialCondition fields terminated by ',' enclosed by '\"' lines terminated by '\r\n' ignore 1 rows");
-    query.exec("select * from InitialCondition");
+    //query.exec("select n.* from (select * from peoplelist limit "+QString::number(n-1)+",1) as s,peoplelist as n where left(n.id,5)=left(s.id,5)");
+    judge.getInitialCondition(people);
 
-//   //query.exec("select n.* from (select * from peoplelist limit "+QString::number(n-1)+",1) as s,peoplelist as n where left(n.id,5)=left(s.id,5)");
-    query.exec("select * from InitialCondition");
-    for(int i=0;i<27;i++){
-        people[i] = new People;
-        //cout<<query.value(0).toInt()<<endl;
-        people[i]->setPeople(query);
-    }
+    //scheduler
+    scheduler.findPath(people);
+    data.nowfloor = 1;
+    data.distance = 0;
+    data.elevatorpeople = 0;
 
     //course7_1
-    timer = new QTimer();
-    connect(timer, SIGNAL(timeout()), this, SLOT(update()));
+    timer1 = new QTimer();
+    connect(timer1, SIGNAL(timeout()), this, SLOT(update()));
 
 }
-void Building::run(int question)
+void Building::run(int nowfloor)
 {
 
-    //0.txt
-    string s = judge.getData(question,0);
+    for(int i=0;i<scheduler.getNowFloor().peopleNum;i++){
+        //test for not input question
+        int times;
+        string s = judge.getData(nowfloor,scheduler.getNowFloor().inOut,times);
 
-    data.testdata1 = s;
-    string s2 = floor[question]->p->solve(s);
+        data.testdata1 = s;
+        //give up
+        string s2="";
+        if(data.testdata1.compare("GIVEUP")==0){
+            s2 = "";
+            data.submit1 = s2;
+        }
+        else{
+            //10 times each testdata (時間會不斷累積)
+            for(int i=0;i<times;i++){
+                s2 = floor[nowfloor-1]->p->solve(s);
+            }
+            data.submit1 = s2;
+            //送去submitdata算分數跟平均時間
+            bool correct = judge.submitData(nowfloor,s2);
+            data.correct1 = correct;
 
-    data.submit1 = s2;
-    bool correct = judge.submitData(s2);
-    data.correct1 = correct;
-    data.spendtime1 = judge.getSpendTime();
+            cout<<"correct?: "<<data.correct1<<endl;
+        }
+
+        data.spendtime1 = judge.getSpendTime();
+        //計算此時電梯裡面有幾人
+        if(scheduler.getNowFloor().inOut==1) data.elevatorpeople++;
+        else if(scheduler.getNowFloor().inOut==0) data.elevatorpeople--;
+    }
+    //將資料傳給data
+    data.score+=judge.getScore();
+    scheduler.getNewFloor();
+    data.distance += abs(scheduler.getNowFloor().now-data.nowfloor);
+    judge.getDistance(data.distance);
+    data.nowfloor = scheduler.getNowFloor().now;
+    judge.display(scheduler.getNowFloor().now);
+
 }
 
 
 void Building::startSimulation()
 {
-
-    timer->start(1000);
-
+    timer1->start(100);
+    timer1->setSingleShot(true);
 }
 
 void Building::update()
 {
-    data.nowfloor = scheduler.getNowFloor();
-    if (data.nowfloor != 0)
-        this->run(data.nowfloor);
-    else
-        timer->stop();
+    timer1->start(100);
     emit this->updateGUI();
 }
-
-

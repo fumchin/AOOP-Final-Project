@@ -5,6 +5,7 @@
 #include <QString>
 #include <QElapsedTimer>
 #include <fstream>
+#include "people.h"
 using namespace std;
 
 class Judge
@@ -15,6 +16,7 @@ public:
     bool submitData(string ans);
     qint64 getSpendTime(){return costtime;}
     int getScore(){return score;}
+
 private:
     string ans;
     ifstream in;

@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
+#include <QtWidgets/QLCDNumber>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
@@ -45,6 +46,12 @@ public:
     QLabel *finishLabel;
     QLabel *label_8;
     QLineEdit *scoreLineEdit;
+    QLCDNumber *NowElevator;
+    QLCDNumber *PeopleInEle;
+    QLCDNumber *Distance;
+    QLabel *label_5;
+    QLabel *label_6;
+    QLabel *label_10;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -140,6 +147,24 @@ public:
         scoreLineEdit = new QLineEdit(centralWidget);
         scoreLineEdit->setObjectName(QString::fromUtf8("scoreLineEdit"));
         scoreLineEdit->setGeometry(QRect(410, 190, 251, 20));
+        NowElevator = new QLCDNumber(centralWidget);
+        NowElevator->setObjectName(QString::fromUtf8("NowElevator"));
+        NowElevator->setGeometry(QRect(250, 330, 64, 23));
+        PeopleInEle = new QLCDNumber(centralWidget);
+        PeopleInEle->setObjectName(QString::fromUtf8("PeopleInEle"));
+        PeopleInEle->setGeometry(QRect(250, 360, 64, 23));
+        Distance = new QLCDNumber(centralWidget);
+        Distance->setObjectName(QString::fromUtf8("Distance"));
+        Distance->setGeometry(QRect(250, 390, 64, 23));
+        label_5 = new QLabel(centralWidget);
+        label_5->setObjectName(QString::fromUtf8("label_5"));
+        label_5->setGeometry(QRect(90, 330, 141, 20));
+        label_6 = new QLabel(centralWidget);
+        label_6->setObjectName(QString::fromUtf8("label_6"));
+        label_6->setGeometry(QRect(90, 360, 151, 20));
+        label_10 = new QLabel(centralWidget);
+        label_10->setObjectName(QString::fromUtf8("label_10"));
+        label_10->setGeometry(QRect(90, 390, 141, 20));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
@@ -201,6 +226,9 @@ public:
         startSimBtn->setText(QCoreApplication::translate("MainWindow", "Start Simulation", nullptr));
         finishLabel->setText(QCoreApplication::translate("MainWindow", "Finish!", nullptr));
         label_8->setText(QCoreApplication::translate("MainWindow", "Score", nullptr));
+        label_5->setText(QCoreApplication::translate("MainWindow", "Now Elevator", nullptr));
+        label_6->setText(QCoreApplication::translate("MainWindow", "People in Elevator", nullptr));
+        label_10->setText(QCoreApplication::translate("MainWindow", "Distance", nullptr));
     } // retranslateUi
 
 };

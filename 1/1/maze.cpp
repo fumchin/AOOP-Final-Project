@@ -145,6 +145,7 @@ string Maze::solve(string s)
 }
 
 
+
 void Maze::PrintDaMaze(int MazeHeight, int MazeWidth)
 {
     cout << endl;
@@ -156,4 +157,5 @@ void Maze::PrintDaMaze(int MazeHeight, int MazeWidth)
     }
     cout << endl;
 }
+
 

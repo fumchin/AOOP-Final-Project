@@ -21,8 +21,7 @@ string LongestShorestDisstance::solve(string s){
     query.exec("drop table if exists CITYTABLE");
     query.exec("create table if not exists CITYTABLE (ID int,COUNTRY varchar(50),CITY varchar(60),LAT double,LON double,PRIMARY KEY(ID))");
 
-
-    query.exec("load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/city.csv' into table citytable fields terminated by ',' enclosed by '\"' lines terminated by '\r\n' ignore 1 rows");
+    query.exec("load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/city_forFinal4.csv' into table citytable fields terminated by ',' enclosed by '\"' lines terminated by '\r\n' ignore 1 rows");
 
     stringstream ss;
     ss<<s;
