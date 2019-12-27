@@ -7,7 +7,7 @@
 *****************************************************************************/
 
 #include <memory>
-#include "../../1/mainwindow.h"
+#include "../../../../AOOP Final Project Fumchin/AOOP-Final-Project/1/1/mainwindow.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)

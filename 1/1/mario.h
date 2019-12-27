@@ -1,7 +1,6 @@
 #ifndef MARIO_H
 #define MARIO_H
 #include "mymath.h"
-
 class Mario:public MyMath
 {
 public:
