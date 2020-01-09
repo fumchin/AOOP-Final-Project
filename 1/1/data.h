@@ -15,6 +15,8 @@ public:
 
     int score;
     int nowfloor;
+    int distance;
+    int elevatorpeople; //capacity: 10
 };
 
 #endif // DATA_H

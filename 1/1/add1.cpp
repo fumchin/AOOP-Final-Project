@@ -2,7 +2,6 @@
 #include <iostream>
 #include <string>
 #include <sstream>
-#include <vector>
 using namespace std;
 
 Add1::Add1()
@@ -16,8 +15,11 @@ string Add1::solve(string s){
     int n;
     string result="";
     while(ss>>n){
-        result.append(to_string(n+1)+' ');
+        n++;
+        result+=(to_string(n)+" ");
     }
-    result.erase(result.length()-1);
+    result = result.substr(0, result.length() - 1);
+    //result.erase(result.length()-1);
+
     return result;
 }

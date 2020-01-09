@@ -28,12 +28,15 @@ CONFIG += c++11
 SOURCES += \
         add1.cpp \
         building.cpp \
+        commonsubstring.cpp \
         data.cpp \
         easycity2.cpp \
         fib.cpp \
         findfactorial.cpp \
         floor.cpp \
         getsignature.cpp \
+        getsolution.cpp \
+        hexadecimalsum.cpp \
         judge.cpp \
         judgewindow.cpp \
         largefactorial.cpp \
@@ -42,25 +45,34 @@ SOURCES += \
         longestshorestdisstance.cpp \
         main.cpp \
         mainwindow.cpp \
+        mario.cpp \
+        maze.cpp \
         minesweeper.cpp \
         mydatabase.cpp \
         mymath.cpp \
+        palindrome.cpp \
         problemset.cpp \
         shortestdistance.cpp \
         shygame.cpp \
         people.cpp \
         prime.cpp \
-        scheduler.cpp
+        scheduler.cpp \
+        stringperiod.cpp \
+        subtract1.cpp \
+        treestructure.cpp
 
 HEADERS += \
         add1.h \
         building.h \
+        commonsubstring.h \
         data.h \
         easycity2.h \
         fib.h \
         findfactorial.h \
         floor.h \
         getsignature.h \
+        getsolution.h \
+        hexadecimalsum.h \
         judge.h \
         judgewindow.h \
         largefactorial.h \
@@ -68,7 +80,10 @@ HEADERS += \
         longestpair.h \
         longestshorestdisstance.h \
         mainwindow.h \
+        mario.h \
+        maze.h \
         minesweeper.h \
+        palindrome.h \
         shortestdistance.h \
         mydatabase.h \
         mymath.h \
@@ -76,7 +91,10 @@ HEADERS += \
         prime.h \
         problemset.h \
         scheduler.h \
-        shygame.h
+        shygame.h \
+        stringperiod.h \
+        subtract1.h \
+        treestructure.h
 
 FORMS += \
         judgewindow.ui \

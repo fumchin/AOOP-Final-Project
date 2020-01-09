@@ -26,6 +26,7 @@ public:
     Data getdata(){return  data;}
     People *people[27];
     void startSimulation();
+    void timerStop(){timer1->stop();}
 
 public slots:
     void update();
@@ -37,7 +38,7 @@ private:
     JudgeWindow judge;
     Data data;
     Floor *floor[30];
-    QTimer *timer;
+    QTimer *timer1;
     Scheduler scheduler;
     QSqlQuery query;
 };
