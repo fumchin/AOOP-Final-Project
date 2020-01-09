@@ -9,7 +9,7 @@
     並與其他人在本層樓進出解題正確所得的加權分數相加而成。   
     d. 時間 (TotalCost) : 同一筆testdata(同一人)重複執行十次的時間除10，並與其他人在本層樓進出解題所花的時間相加而成。  
   (3) about floor program (以question 為基準 -> question + 1 == floor)  
-    a. 尚缺少 : 12,21,22,23,26 (floor : 13,22,23,24,27)  
+    a. 尚缺少 : 21,22,23,26 (floor : 22,23,24,27)  
     b. 測試有問題 : 2,24,25 (floor : 3(部分),25(部分),26(全都跑不出來))，無法正確作答 
     c. time cost問題 : 4,20 (floor : 5,21)，time cost 太大，但解法正確
   (4)about checkbox  
