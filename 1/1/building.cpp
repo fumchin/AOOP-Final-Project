@@ -63,7 +63,7 @@ Building::Building()
 
     //JudgeWindow judge;
     judge.show();
-    judge.setSeed(0);
+    judge.setSeed(1);
     int n=judge.getConditionNum(); //get People data according variable n
 
     //create people
