@@ -84,14 +84,14 @@ JudgeWindow::JudgeWindow(QWidget *parent) :QWidget(parent),ui(new Ui::JudgeWindo
         pass[i] = 0;
      }
     //set name label
-//    ui->name1->setText("陳舫慶");
-//    ui->id1->setText("0611069");
-//    ui->name2->setText("曾力揚");
-//    ui->id2->setText("0611097");
-    ui->name1->setText("嗨嗨嗨");
-    ui->id1->setText("1234568");
-    ui->name2->setText("嘿嘿嘿");
-    ui->id2->setText("1234567");
+    ui->name1->setText("陳舫慶");
+    ui->id1->setText("0611069");
+    ui->name2->setText("曾力揚");
+    ui->id2->setText("0611097");
+//    ui->name1->setText("嗨嗨嗨");
+//    ui->id1->setText("1234568");
+//    ui->name2->setText("嘿嘿嘿");
+//    ui->id2->setText("1234567");
     for(int i=0;i<27;i++){
         for(int j=0;j<4;j++){
             cout<<arr[i][j]<<" ";
