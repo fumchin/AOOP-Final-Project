@@ -1,8 +1,6 @@
 #include "mario.h"
 #include <iostream>
-#include <string>
 #include <sstream>
-#include <vector>
 using namespace std;
 Mario::Mario()
 {
@@ -15,13 +13,20 @@ string Mario::solve(string s)
     ss<<s;
     int N;
     ss>>N;
-    string result = "";
-    vector<bool> coinsStatus(1001,false);
+
     int coin;
-    ss>>coin;
-    coinsStatus[coin] = true;
+    int last = 0, sum = 0, count = 0;
     while (ss>>coin)
     {
+        if (sum >= coin)
+            sum = sum - last + coin;
+        else
+        {
+            sum += coin;
+            ++count;
+        }
+
+        last = coin;
     }
-    return result;
+    return to_string(count);
 }
