@@ -32,10 +32,6 @@ int Fib::shift(long long int n){
         f0 = f1;
         f1 = result;
     }
-//    long  long int result;
-//    double estim = 0.4472135955 * pow(1.618033988745, n+1);
-//    result =  ( abs(ceil(estim)-estim) < abs(estim-floor(estim)) )? ceil(estim) : floor(estim);
-//    result%=60;
     return  result;
 }
 
