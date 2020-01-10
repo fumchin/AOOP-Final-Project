@@ -48,33 +48,33 @@ JudgeWindow::JudgeWindow(QWidget *parent) :QWidget(parent),ui(new Ui::JudgeWindo
         }
     }
     //=========================================想giveup哪一題===================================================
-    for(int i=0;i<27;i++){
-        for(int j=0;j<1;j++){
-
-            if(i==21||i==22||i==23||i==26||i==25||i==24||i==4||i==2||i==20 ){ //check for giveup
-                boxlist[i][j].setCheckState(Qt::Checked);
-            }
-            else boxlist[i][j].setCheckState(Qt::Unchecked);
-
-            ui->gridLayout_checkbox->addWidget(&boxlist[i][j],i,j);
-            floorLabel[i][j].setText(QString::number(i+1));
-            ui->gridLayout_label->addWidget(&floorLabel[i][j],i,j);
-        }
-    }
-    //========================================================================================================
-    //========================================可在此測試某一題(除了該題外全部guveup)===========================
 //    for(int i=0;i<27;i++){
 //        for(int j=0;j<1;j++){
-//            if(i==12){
-//                boxlist[i][j].setCheckState(Qt::Unchecked);
+
+//            if(i==21||i==22||i==23||i==26||i==25||i==24||i==4||i==2||i==20 ){ //check for giveup
+//                boxlist[i][j].setCheckState(Qt::Checked);
 //            }
-//            else boxlist[i][j].setCheckState(Qt::Checked);
+//            else boxlist[i][j].setCheckState(Qt::Unchecked);
 
 //            ui->gridLayout_checkbox->addWidget(&boxlist[i][j],i,j);
 //            floorLabel[i][j].setText(QString::number(i+1));
 //            ui->gridLayout_label->addWidget(&floorLabel[i][j],i,j);
 //        }
 //    }
+    //========================================================================================================
+    //========================================可在此測試某一題(除了該題外全部guveup)===========================
+    for(int i=0;i<27;i++){
+        for(int j=0;j<1;j++){
+            if(i==21){
+                boxlist[i][j].setCheckState(Qt::Unchecked);
+            }
+            else boxlist[i][j].setCheckState(Qt::Checked);
+
+            ui->gridLayout_checkbox->addWidget(&boxlist[i][j],i,j);
+            floorLabel[i][j].setText(QString::number(i+1));
+            ui->gridLayout_label->addWidget(&floorLabel[i][j],i,j);
+        }
+    }
     //===========================================================================================================
 
     //floor datatimes(每筆testdata測試10次)、floornextdata(每題執行到哪裡)

@@ -30,6 +30,7 @@ SOURCES += \
         building.cpp \
         commonsubstring.cpp \
         data.cpp \
+        easycity1.cpp \
         easycity2.cpp \
         fib.cpp \
         findfactorial.cpp \
@@ -68,6 +69,7 @@ HEADERS += \
         building.h \
         commonsubstring.h \
         data.h \
+        easycity1.h \
         easycity2.h \
         fib.h \
         findfactorial.h \

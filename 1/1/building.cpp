@@ -28,6 +28,7 @@
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QtDebug>
+#include "easycity1.h"
 #include "judgewindow.h"
 #include <time.h>
 #include <QString>
@@ -57,6 +58,7 @@ Building::Building()
     floor[18] = new Floor(new GetSolution());
     floor[19] = new Floor(new Palindrome());
     floor[20] = new Floor(new Maze());
+    floor[21] = new Floor(new EasyCity1());
     floor[24] = new Floor(new EasyCity2());
     floor[25] = new Floor(new LongestShorestDisstance());
 

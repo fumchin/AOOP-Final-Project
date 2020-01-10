@@ -1,17 +1,18 @@
-#ifndef EASYCITY2_H
-#define EASYCITY2_H
+#ifndef EASYCITY1_H
+#define EASYCITY1_H
+
 #include <QSqlQuery>
 #include "mydatabase.h"
 #include <string>
 
 
-class EasyCity2 : public MyDatabase
+class EasyCity1:public MyDatabase
 {
 public:
-    EasyCity2();
+    EasyCity1();
     string solve(string s);
 private:
     QSqlQuery query;
 };
 
-#endif // EASYCITY2_H
+#endif // EASYCITY1_H
