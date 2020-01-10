@@ -31,8 +31,8 @@ string EasyCity1::solve(string s){
     //input
     ss>>ch>>la>>lo>>p>>q>>evod>>m>>evenodd>>ascdec>>n;
     transform(ch.begin(),ch.end(),ch.begin(),::tolower);
-    evod = (evod=="od"? "1":"0");
-    evenodd = (evenodd=="od"? "1":"0");
+    evod = (evod=="ev"? "0":"1");
+    evenodd = (evenodd=="odd"? "1":"0");
     ascdec = (ascdec=="asc"? "asc":"desc");
     //cout<<evod<<" "<<evenodd<<" "<<ascdec<<endl;
     //output
@@ -41,15 +41,14 @@ string EasyCity1::solve(string s){
     query.exec("select (count(city) - count(distinct city)) as dcc from citytable where (left(lower(city),1) regexp '["+QString::fromStdString(ch)+"]') and (right(lower(city),1) regexp lower('[^aeiou]')) and (lat>"+QString::fromStdString(la)+" and lon<"+QString::fromStdString(lo)+")");
     query.next();
     dcc = query.value(0).toString().toStdString();
-    cout<<dcc<<endl;
     query.exec("SET SQL_SAFE_UPDATES=0");
     query.exec("update citytable set LAT = LAT*"+QString::fromStdString(p)+", LON = LON*"+QString::fromStdString(q)+" where right(id,1)%2="+QString::fromStdString(evod));
-    query.exec("select round(sum(lat),"+QString::fromStdString(n)+") as sla,round(sum(lon),"+QString::fromStdString(n)+") as slo,(max(length(city))-min(length(city))) as dmm from(select * from (select * from citytable where right(id,1)%2="+QString::fromStdString(evenodd)+") as temp order by length(city) "+QString::fromStdString(ascdec)+" limit 0,"+QString::fromStdString(m)+") as q");
+    query.exec("select cast(round(sum(lat),"+QString::fromStdString(n)+") as decimal(30,"+QString::fromStdString(n)+")) as sla,cast(round(sum(lon),"+QString::fromStdString(n)+") as decimal(30,"+QString::fromStdString(n)+")) as slo,(max(length(city))-min(length(city))) as dmm from(select * from (select * from citytable where right(id,1)%2="+QString::fromStdString(evenodd)+") as temp order by length(city) "+QString::fromStdString(ascdec)+" limit 0,"+QString::fromStdString(m)+") as q");
     query.next();
     sla = query.value(0).toString().toStdString();
     slo = query.value(1).toString().toStdString();
     dmm = query.value(2).toString().toStdString();
     result = dcc+" "+sla+" "+slo+" "+dmm;
-    cout<<result<<endl;
+    //cout<<result<<endl;
     return result;
 }
