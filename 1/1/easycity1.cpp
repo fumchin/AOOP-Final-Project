@@ -49,6 +49,5 @@ string EasyCity1::solve(string s){
     slo = query.value(1).toString().toStdString();
     dmm = query.value(2).toString().toStdString();
     result = dcc+" "+sla+" "+slo+" "+dmm;
-    cout<<result<<endl;
     return result;
 }
