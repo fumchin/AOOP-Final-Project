@@ -12,7 +12,8 @@ public:
     void fib_last_digit(int*,long long int);
     int find_last_digit(int*,long long int);
     int shift(long long int);
-    virtual ~Fib(){}
+    long long get_pisano_period(long long);
+    long long get_fibonacci_huge(long long , long long );
 };
 
 #endif // FIB_H
