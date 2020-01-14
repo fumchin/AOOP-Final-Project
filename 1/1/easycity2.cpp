@@ -33,30 +33,22 @@ string EasyCity2::solve(string s){
     larsma = (larsma == "lar"? "desc":"asc");
 
     //order by how much city in a country (course7_2_7)
-    if(query.exec("select substring(COUNTRY,1,3),count(*) as compare from citytable group by COUNTRY order by compare "+QString::fromStdString(larsma)+" limit 1 offset "+QString::number(nth-1))){
-        query.next();
+
+    query.exec("select left(COUNTRY,3) as sn,count(*) as nc from citytable group by COUNTRY order by nc "+QString::fromStdString(larsma)+" limit "+QString::number(nth-1)+",1");
+    if(!query.next()){
+        result+="NULL NULL ";
+    }
+    else{
         result +=query.value(0).toString().toStdString()+" "+query.value(1).toString().toStdString()+" ";
     }
     query.exec("SET SQL_SAFE_UPDATES=0");
     //update table and delete something(course7_2_8)
-    query.exec("delete from citytable where (CITY regexp '^[^"+QString::fromStdString(chs)+"]' or CITY regexp '["+QString::fromStdString(che)+"]$') or (LAT >= "+QString::number(la)+" and LAT <= "+QString::number(ha)+" and LON >= "+QString::number(lo)+" and LON <= "+QString::number(ho)+")");
-    //course7_2_9
-    query.exec("SET SQL_SAFE_UPDATES=0");
-    query.exec("update citytable set LAT=LAT+LON,LON=LAT-LON,LAT=LAT-LON where id like '%"+QString::number(m)+"'");
+    query.exec("delete from citytable where (right(CITY,1) regexp '["+QString::fromStdString(che)+"]' or left(CITY,1) regexp '[^"+QString::fromStdString(chs)+"]') or (LAT >= "+QString::number(la)+" and LAT <= "+QString::number(ha)+" and LON >= "+QString::number(lo)+" and LON <= "+QString::number(ho)+")");
+    query.exec("update citytable set lat = (@temp := lat),lat=lon,lon=@temp where right(id,1)= "+QString::number(m));
     //course7_2_10
+    query.exec("select cast(round(sqrt(pow(max(LAT)-min(LAT),2)+pow(max(LON)-min(LON),2)),4) as char(20)) as ed from citytable");
+    query.next();
+    result+=query.value(0).toString().toStdString();
 
-    if(query.exec("select round(sqrt(pow(max(LAT)-min(LAT),2)+pow(max(LON)-min(LON),2)),4) from citytable having count(CITY)>0")){
-        if(query.next()){
-            if(query.value(0).toInt() == 0){
-                result +="0.0000";
-            }
-            else{
-                result +=QString::number(query.value(0).toDouble(),'f',4).toStdString();
-            }
-        }
-        else{
-            result +="NULL";
-        }
-    }
     return result;
 }
