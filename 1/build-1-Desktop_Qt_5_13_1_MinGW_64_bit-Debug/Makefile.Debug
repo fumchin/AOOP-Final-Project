@@ -887,8 +887,9 @@ debug/building.o: ../1/building.cpp C:/Qt/5.13.1/mingw73_64/include/QtCore/QTime
 		../1/getsolution.h \
 		../1/palindrome.h \
 		../1/maze.h \
-		../1/easycity2.h \
+		../1/easycity1.h \
 		../1/mydatabase.h \
+		../1/easycity2.h \
 		../1/longestshorestdisstance.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/QtDebug \
 		../1/easycity1.h
