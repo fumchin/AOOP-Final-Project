@@ -8,6 +8,7 @@ public:
     GetSolution();
     string solve(string s);
     string gauss(vector< vector<double> > A);
+    virtual ~GetSolution(){}
 };
 
 #endif // GETSOLUTION_H

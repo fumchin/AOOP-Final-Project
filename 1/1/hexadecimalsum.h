@@ -12,6 +12,7 @@ public:
     string solve(string s);
     int getValue(char);
     char getChar(int);
+    virtual ~HexadecimalSum(){}
 };
 
 #endif // HEXADECIMALSUM_H

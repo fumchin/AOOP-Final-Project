@@ -1,12 +1,13 @@
 #ifndef STRINGPERIOD_H
 #define STRINGPERIOD_H
-#include "mymath.h"
+#include "mystring.h"
 
-class StringPeriod:public MyMath
+class StringPeriod:public MyString
 {
 public:
     StringPeriod();
     string solve(string inputStr);
+    virtual ~StringPeriod(){}
 };
 
 #endif // STRINGPERIOD_H

@@ -13,8 +13,8 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -23,71 +23,62 @@ class Ui_JudgeWindow
 {
 public:
     QWidget *gridLayoutWidget;
-    QGridLayout *gridLayout_2;
-    QWidget *gridLayoutWidget_2;
-    QGridLayout *gridLayout_checkbox;
-    QLabel *label;
-    QLabel *label_2;
-    QLabel *label_3;
-    QLabel *label_4;
-    QWidget *gridLayoutWidget_3;
-    QGridLayout *gridLayout_label;
-    QPushButton *export_to_database;
-    QLineEdit *name1;
-    QLineEdit *id1;
-    QLineEdit *name2;
-    QLineEdit *id2;
+    QGridLayout *gridLayout;
+    QPushButton *pushButton;
+    QWidget *layoutWidget;
+    QVBoxLayout *verticalLayout;
+    QLabel *overWeightLabel;
+    QLabel *TotalPeopleLabel;
+    QLabel *TotalPathLabel;
+    QLabel *TotalScoreLabel;
 
     void setupUi(QWidget *JudgeWindow)
     {
         if (JudgeWindow->objectName().isEmpty())
             JudgeWindow->setObjectName(QString::fromUtf8("JudgeWindow"));
-        JudgeWindow->resize(1216, 1068);
+        JudgeWindow->resize(1085, 721);
         gridLayoutWidget = new QWidget(JudgeWindow);
         gridLayoutWidget->setObjectName(QString::fromUtf8("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(30, 30, 911, 911));
-        gridLayout_2 = new QGridLayout(gridLayoutWidget);
-        gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
-        gridLayout_2->setContentsMargins(0, 0, 0, 0);
-        gridLayoutWidget_2 = new QWidget(JudgeWindow);
-        gridLayoutWidget_2->setObjectName(QString::fromUtf8("gridLayoutWidget_2"));
-        gridLayoutWidget_2->setGeometry(QRect(960, 29, 31, 931));
-        gridLayout_checkbox = new QGridLayout(gridLayoutWidget_2);
-        gridLayout_checkbox->setObjectName(QString::fromUtf8("gridLayout_checkbox"));
-        gridLayout_checkbox->setContentsMargins(0, 0, 0, 0);
-        label = new QLabel(JudgeWindow);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(80, 10, 191, 20));
-        label_2 = new QLabel(JudgeWindow);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(290, 10, 211, 20));
-        label_3 = new QLabel(JudgeWindow);
-        label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setGeometry(QRect(550, 10, 181, 20));
-        label_4 = new QLabel(JudgeWindow);
-        label_4->setObjectName(QString::fromUtf8("label_4"));
-        label_4->setGeometry(QRect(780, 10, 181, 20));
-        gridLayoutWidget_3 = new QWidget(JudgeWindow);
-        gridLayoutWidget_3->setObjectName(QString::fromUtf8("gridLayoutWidget_3"));
-        gridLayoutWidget_3->setGeometry(QRect(1010, 30, 31, 911));
-        gridLayout_label = new QGridLayout(gridLayoutWidget_3);
-        gridLayout_label->setObjectName(QString::fromUtf8("gridLayout_label"));
-        gridLayout_label->setContentsMargins(0, 0, 0, 0);
-        export_to_database = new QPushButton(JudgeWindow);
-        export_to_database->setObjectName(QString::fromUtf8("export_to_database"));
-        export_to_database->setGeometry(QRect(1060, 650, 121, 41));
-        name1 = new QLineEdit(JudgeWindow);
-        name1->setObjectName(QString::fromUtf8("name1"));
-        name1->setGeometry(QRect(1080, 80, 113, 20));
-        id1 = new QLineEdit(JudgeWindow);
-        id1->setObjectName(QString::fromUtf8("id1"));
-        id1->setGeometry(QRect(1080, 120, 113, 20));
-        name2 = new QLineEdit(JudgeWindow);
-        name2->setObjectName(QString::fromUtf8("name2"));
-        name2->setGeometry(QRect(1080, 170, 113, 20));
-        id2 = new QLineEdit(JudgeWindow);
-        id2->setObjectName(QString::fromUtf8("id2"));
-        id2->setGeometry(QRect(1080, 220, 113, 20));
+        gridLayoutWidget->setGeometry(QRect(30, 10, 421, 681));
+        gridLayout = new QGridLayout(gridLayoutWidget);
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        gridLayout->setContentsMargins(0, 0, 0, 0);
+        pushButton = new QPushButton(JudgeWindow);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(620, 570, 75, 23));
+        layoutWidget = new QWidget(JudgeWindow);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(510, 80, 271, 411));
+        verticalLayout = new QVBoxLayout(layoutWidget);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        overWeightLabel = new QLabel(layoutWidget);
+        overWeightLabel->setObjectName(QString::fromUtf8("overWeightLabel"));
+        QFont font;
+        font.setFamily(QString::fromUtf8("Franklin Gothic Demi"));
+        font.setPointSize(20);
+        overWeightLabel->setFont(font);
+
+        verticalLayout->addWidget(overWeightLabel);
+
+        TotalPeopleLabel = new QLabel(layoutWidget);
+        TotalPeopleLabel->setObjectName(QString::fromUtf8("TotalPeopleLabel"));
+        TotalPeopleLabel->setFont(font);
+
+        verticalLayout->addWidget(TotalPeopleLabel);
+
+        TotalPathLabel = new QLabel(layoutWidget);
+        TotalPathLabel->setObjectName(QString::fromUtf8("TotalPathLabel"));
+        TotalPathLabel->setFont(font);
+
+        verticalLayout->addWidget(TotalPathLabel);
+
+        TotalScoreLabel = new QLabel(layoutWidget);
+        TotalScoreLabel->setObjectName(QString::fromUtf8("TotalScoreLabel"));
+        TotalScoreLabel->setFont(font);
+
+        verticalLayout->addWidget(TotalScoreLabel);
+
 
         retranslateUi(JudgeWindow);
 
@@ -97,11 +88,11 @@ public:
     void retranslateUi(QWidget *JudgeWindow)
     {
         JudgeWindow->setWindowTitle(QCoreApplication::translate("JudgeWindow", "Form", nullptr));
-        label->setText(QCoreApplication::translate("JudgeWindow", "Wait To Leave", nullptr));
-        label_2->setText(QCoreApplication::translate("JudgeWindow", "Arrive people", nullptr));
-        label_3->setText(QCoreApplication::translate("JudgeWindow", "TotalCost", nullptr));
-        label_4->setText(QCoreApplication::translate("JudgeWindow", "WinOrLost", nullptr));
-        export_to_database->setText(QCoreApplication::translate("JudgeWindow", "export", nullptr));
+        pushButton->setText(QCoreApplication::translate("JudgeWindow", "PushButton", nullptr));
+        overWeightLabel->setText(QString());
+        TotalPeopleLabel->setText(QString());
+        TotalPathLabel->setText(QString());
+        TotalScoreLabel->setText(QString());
     } // retranslateUi
 
 };

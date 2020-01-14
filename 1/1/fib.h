@@ -12,6 +12,7 @@ public:
     void fib_last_digit(int*,long long int);
     int find_last_digit(int*,long long int);
     int shift(long long int);
+    virtual ~Fib(){}
 };
 
 #endif // FIB_H

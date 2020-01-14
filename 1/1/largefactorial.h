@@ -7,6 +7,7 @@ class LargeFactorial : public MyMath
 public:
     LargeFactorial();
     string solve(string s);
+    virtual ~LargeFactorial(){}
 };
 
 #endif // LARGEFACTORIAL_H

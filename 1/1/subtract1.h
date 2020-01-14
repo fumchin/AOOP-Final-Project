@@ -7,6 +7,7 @@ class Subtract1:public MyMath
 public:
     Subtract1();
     string solve(string s);
+    virtual ~Subtract1(){}
 };
 
 #endif // SUBTRACT1_H

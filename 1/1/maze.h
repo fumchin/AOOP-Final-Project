@@ -1,8 +1,8 @@
 #ifndef MAZE_H
 #define MAZE_H
-#include "mymath.h"
+#include "myother.h"
 #include <stack>
-class Maze:public MyMath
+class Maze:public MyOther
 {
     struct COORD
     {
@@ -16,6 +16,7 @@ public:
     Maze();
     string solve(string s);
     void PrintDaMaze(int MazeHeight, int MazeWidth);
+    virtual ~Maze(){}
 };
 
 #endif // MAZE_H

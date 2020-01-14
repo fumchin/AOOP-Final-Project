@@ -6,6 +6,7 @@ class Mario:public MyMath
 public:
     Mario();
     string solve(string s);
+    virtual ~Mario(){}
 };
 
 #endif // MARIO_H

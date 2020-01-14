@@ -7,6 +7,7 @@ class Shygame : public MyMath
 public:
     Shygame();
     string solve(string s);
+    virtual ~Shygame(){}
 };
 
 #endif // SHYGAME_H

@@ -1,12 +1,13 @@
 #ifndef MINESWEEPER_H
 #define MINESWEEPER_H
-#include "mymath.h"
+#include "myother.h"
 
-class Minesweeper : public MyMath
+class Minesweeper : public MyOther
 {
 public:
     Minesweeper();
     string solve(string s);
+    virtual ~Minesweeper(){}
 };
 
 #endif // MINESWEEPER_H

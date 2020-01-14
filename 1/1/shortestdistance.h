@@ -14,6 +14,7 @@ public:
     static bool compareX(point a, point b);
     static bool compareY(point a, point b);
     double rounding(double num, int index);
+    virtual ~ShortestDistance(){}
 
 };
 

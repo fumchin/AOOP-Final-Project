@@ -7,6 +7,7 @@ class Fire:public MyOther
 public:
     Fire();
     string solve(string s);
+    virtual ~Fire(){}
 };
 
 #endif // FIRE_H

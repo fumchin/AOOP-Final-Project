@@ -1,8 +1,8 @@
 #ifndef GETSIGNATURE_H
 #define GETSIGNATURE_H
-#include "mymath.h"
+#include "myother.h"
 
-class GetSignature:public MyMath
+class GetSignature:public MyOther
 {
     struct assignment
     {
@@ -12,6 +12,7 @@ class GetSignature:public MyMath
 public:
     GetSignature();
     string solve(string s);
+    virtual ~GetSignature(){}
 };
 
 #endif // GETSIGNATURE_H

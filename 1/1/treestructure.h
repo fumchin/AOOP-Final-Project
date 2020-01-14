@@ -1,9 +1,9 @@
 #ifndef TREESTRUCTURE_H
 #define TREESTRUCTURE_H
-#include "mymath.h"
+#include "mytree.h"
 #include <string>
 
-class TreeStructure:public MyMath
+class TreeStructure:public MyTree
 {
     string result;
 public:
@@ -11,6 +11,7 @@ public:
     string solve(string s);
     int search(char arr[], int x, int n);
     void printPostOrder(char in[], char pre[], int n);
+    virtual ~TreeStructure(){}
 
 };
 

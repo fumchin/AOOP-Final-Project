@@ -12,6 +12,7 @@ public:
     string solve(string s);
 private:
     QSqlQuery query;
+    virtual ~EasyCity2(){}
 };
 
 #endif // EASYCITY2_H

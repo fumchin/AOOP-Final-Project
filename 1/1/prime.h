@@ -8,6 +8,7 @@ public:
     Prime();
     string solve(string s);
     int isPrime(int n);
+    virtual ~Prime(){}
 };
 
 #endif // PRIME_H

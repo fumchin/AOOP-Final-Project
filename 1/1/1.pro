@@ -53,6 +53,8 @@ SOURCES += \
         mydatabase.cpp \
         mymath.cpp \
         myother.cpp \
+        mystring.cpp \
+        mytree.cpp \
         palindrome.cpp \
         problemset.cpp \
         shortestdistance.cpp \
@@ -89,6 +91,8 @@ HEADERS += \
         maze.h \
         minesweeper.h \
         myother.h \
+        mystring.h \
+        mytree.h \
         palindrome.h \
         shortestdistance.h \
         mydatabase.h \

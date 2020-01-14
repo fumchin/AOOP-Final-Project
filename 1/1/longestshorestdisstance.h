@@ -12,6 +12,7 @@ public:
     string solve(string s);
 private:
     QSqlQuery query;
+    virtual ~LongestShorestDisstance(){}
 };
 
 #endif // LONGESTSHORESTDISSTANCE_H

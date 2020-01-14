@@ -7,7 +7,7 @@
 *****************************************************************************/
 
 #include <memory>
-#include "../../../../AOOP Final Project Fumchin/AOOP-Final-Project/1/1/judgewindow.h"
+#include "../../1/judgewindow.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
@@ -23,7 +23,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_JudgeWindow_t {
     QByteArrayData data[3];
-    char stringdata0[43];
+    char stringdata0[35];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -33,12 +33,11 @@ struct qt_meta_stringdata_JudgeWindow_t {
 static const qt_meta_stringdata_JudgeWindow_t qt_meta_stringdata_JudgeWindow = {
     {
 QT_MOC_LITERAL(0, 0, 11), // "JudgeWindow"
-QT_MOC_LITERAL(1, 12, 29), // "on_export_to_database_clicked"
-QT_MOC_LITERAL(2, 42, 0) // ""
+QT_MOC_LITERAL(1, 12, 21), // "on_pushButton_clicked"
+QT_MOC_LITERAL(2, 34, 0) // ""
 
     },
-    "JudgeWindow\0on_export_to_database_clicked\0"
-    ""
+    "JudgeWindow\0on_pushButton_clicked\0"
 };
 #undef QT_MOC_LITERAL
 
@@ -70,7 +69,7 @@ void JudgeWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         auto *_t = static_cast<JudgeWindow *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->on_export_to_database_clicked(); break;
+        case 0: _t->on_pushButton_clicked(); break;
         default: ;
         }
     }

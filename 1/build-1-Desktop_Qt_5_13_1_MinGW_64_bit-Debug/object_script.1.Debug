@@ -2,9 +2,11 @@ debug/add1.o
 debug/building.o
 debug/commonsubstring.o
 debug/data.o
+debug/easycity1.o
 debug/easycity2.o
 debug/fib.o
 debug/findfactorial.o
+debug/fire.o
 debug/floor.o
 debug/getsignature.o
 debug/getsolution.o
@@ -22,6 +24,9 @@ debug/maze.o
 debug/minesweeper.o
 debug/mydatabase.o
 debug/mymath.o
+debug/myother.o
+debug/mystring.o
+debug/mytree.o
 debug/palindrome.o
 debug/problemset.o
 debug/shortestdistance.o
