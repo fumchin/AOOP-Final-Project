@@ -2,9 +2,11 @@ release/add1.o
 release/building.o
 release/commonsubstring.o
 release/data.o
+release/easycity1.o
 release/easycity2.o
 release/fib.o
 release/findfactorial.o
+release/fire.o
 release/floor.o
 release/getsignature.o
 release/getsolution.o
@@ -22,6 +24,7 @@ release/maze.o
 release/minesweeper.o
 release/mydatabase.o
 release/mymath.o
+release/myother.o
 release/palindrome.o
 release/problemset.o
 release/shortestdistance.o
