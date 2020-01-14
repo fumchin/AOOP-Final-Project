@@ -9,14 +9,16 @@
     並與其他人在本層樓進出解題正確所得的加權分數相加而成。   
     d. 時間 (TotalCost) : 同一筆testdata(同一人)重複執行十次的時間除10，並與其他人在本層樓進出解題所花的時間相加而成。  
   (3) about floor program (以question 為基準 -> question + 1 == floor)  
-    a. 尚缺少 : 21,22,23,26 (floor : 22,23,24,27)  
-    b. 測試有問題 : 2,24,25 (floor : 3(部分),25(部分),26(全都跑不出來))，無法正確作答 
-    c. time cost問題 : 4,20 (floor : 5,21)，time cost 太大，但解法正確
-  (4)about checkbox  
+    a. 尚缺少 : 22,23,26 (floor : 23,24,27)  
+    b. 測試有問題 : 2,25 (floor : 3(部分),26(全都跑不出來))，無法正確作答 
+    c. time cost問題 : 20 (floor : 21)，time cost 太大，但解法正確
+  (4) about checkbox  
     a. 打勾代表放棄執行該floor program，但電梯照常運行  
     b. 可以從judgeWindow.cpp 的 constructor 中更改要giveup的floor，也可將想測試的floor以外的floor program全部giveup以測試其中一題  
   (5)about result  
-    a. 上傳的程式碼已完成 (judgeWindow.cpp)  
+    a. 上傳的程式碼已完成 (judgeWindow.cpp)
+  (6) 助教提供的judgeWindow已經在new_judgeWindow中了  
+    a. 但測試還是原本的judgeWindow比較好用
     
 2. MySQL  
   (1) mysql 目前使用的檔案 (dir: "C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/")    
