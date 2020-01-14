@@ -11,14 +11,14 @@
   (3) about floor program (以question 為基準 -> question + 1 == floor)  
     a. 尚缺少 : 22,23,26 (floor : 23,24,27)  
     b. 測試有問題 : 2,25 (floor : 3(部分),26(全都跑不出來))，無法正確作答 
-    c. time cost問題 : 20 (floor : 21)，time cost 太大，但解法正確
+    c. time cost問題 : 20 (floor : 21)，time cost 太大，但解法正確  
   (4) about checkbox  
     a. 打勾代表放棄執行該floor program，但電梯照常運行  
     b. 可以從judgeWindow.cpp 的 constructor 中更改要giveup的floor，也可將想測試的floor以外的floor program全部giveup以測試其中一題  
   (5)about result  
-    a. 上傳的程式碼已完成 (judgeWindow.cpp)
+    a. 上傳的程式碼已完成 (judgeWindow.cpp)  
   (6) 助教提供的judgeWindow已經在new_judgeWindow中了  
-    a. 但測試還是原本的judgeWindow比較好用
+    a. 但測試還是原本的judgeWindow比較好用  
     
 2. MySQL  
   (1) mysql 目前使用的檔案 (dir: "C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/")    
@@ -33,5 +33,5 @@
        更改上傳資訊 (hostname,password之類的)
        
 3. 目前問題
-  (1) 趕1/10 24:00前生出22題rrrr
+  (1) 趕快寫哈哈哈哈哈
 
