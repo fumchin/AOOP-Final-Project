@@ -22,13 +22,13 @@
 #include "getsolution.h"
 #include "palindrome.h"
 #include "maze.h"
+#include "easycity1.h"
 #include "easycity2.h"
 #include "longestshorestdisstance.h"
 #include <QApplication>
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QtDebug>
-#include "easycity1.h"
 #include "judgewindow.h"
 #include <time.h>
 #include <QString>
