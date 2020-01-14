@@ -65,7 +65,7 @@ JudgeWindow::JudgeWindow(QWidget *parent) :QWidget(parent),ui(new Ui::JudgeWindo
     //========================================可在此測試某一題(除了該題外全部guveup)===========================
     for(int i=0;i<27;i++){
         for(int j=0;j<1;j++){
-            if(i==4){
+            if(i==21){
                 boxlist[i][j].setCheckState(Qt::Unchecked);
             }
             else boxlist[i][j].setCheckState(Qt::Checked);
