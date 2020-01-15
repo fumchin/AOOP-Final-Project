@@ -22,6 +22,7 @@ debug/mainwindow.o
 debug/manhattandistance.o
 debug/mario.o
 debug/maze.o
+debug/median.o
 debug/minesweeper.o
 debug/mydatabase.o
 debug/mymath.o

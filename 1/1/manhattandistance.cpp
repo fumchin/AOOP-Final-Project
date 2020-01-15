@@ -46,3 +46,9 @@ string ManhattanDistance::solve(string s){
     }
     return result;
 }
+
+
+//sql code
+//select cast(round(a.x1x2+b.y1y2,4) as char(20)) as md from
+//(select abs(max(t1.lon)-min(t1.lon)) as x1x2 from (select * from citytable where lat < 121.7 order by lat desc limit 3,6) as t1) as a,
+//(select abs(max(t1.lat)-min(t1.lat)) as y1y2 from (select * from citytable where lon > 25 order by lon asc limit 3,6) as t1) as b;

@@ -22,6 +22,7 @@ release/mainwindow.o
 release/manhattandistance.o
 release/mario.o
 release/maze.o
+release/median.o
 release/minesweeper.o
 release/mydatabase.o
 release/mymath.o

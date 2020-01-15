@@ -50,6 +50,7 @@ SOURCES += \
         manhattandistance.cpp \
         mario.cpp \
         maze.cpp \
+        median.cpp \
         minesweeper.cpp \
         mydatabase.cpp \
         mymath.cpp \
@@ -91,6 +92,7 @@ HEADERS += \
         manhattandistance.h \
         mario.h \
         maze.h \
+        median.h \
         minesweeper.h \
         myother.h \
         mystring.h \
