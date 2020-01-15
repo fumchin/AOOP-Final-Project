@@ -47,6 +47,7 @@ SOURCES += \
         longestshorestdisstance.cpp \
         main.cpp \
         mainwindow.cpp \
+        manhattandistance.cpp \
         mario.cpp \
         maze.cpp \
         minesweeper.cpp \
@@ -87,6 +88,7 @@ HEADERS += \
         longestpair.h \
         longestshorestdisstance.h \
         mainwindow.h \
+        manhattandistance.h \
         mario.h \
         maze.h \
         minesweeper.h \

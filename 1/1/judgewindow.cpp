@@ -44,6 +44,7 @@ void JudgeWindow::initializeGUI(){
             ui->gridLayout->addWidget(showline[i][j],i+1,j+2);
         }
         giveupbox[i] = new QCheckBox();
+        giveupbox[i]->setCheckState(Qt::Checked);   //testing
         ui->gridLayout->addWidget(giveupbox[i], i+1, 6);
     }
     ui->gridLayout->setColumnStretch(2, 1);

@@ -19,6 +19,7 @@ debug/longestpair.o
 debug/longestshorestdisstance.o
 debug/main.o
 debug/mainwindow.o
+debug/manhattandistance.o
 debug/mario.o
 debug/maze.o
 debug/minesweeper.o

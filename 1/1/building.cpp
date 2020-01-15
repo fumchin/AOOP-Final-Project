@@ -23,6 +23,7 @@
 #include "palindrome.h"
 #include "maze.h"
 #include "easycity1.h"
+#include "manhattandistance.h"
 #include "easycity2.h"
 #include "longestshorestdisstance.h"
 #include <QApplication>
@@ -59,6 +60,7 @@ Building::Building()
     floor[19] = new Floor(new Palindrome());
     floor[20] = new Floor(new Maze());
     floor[21] = new Floor(new EasyCity1());
+    floor[22] = new Floor(new ManhattanDistance());
     floor[24] = new Floor(new EasyCity2());
     floor[25] = new Floor(new LongestShorestDisstance());
 

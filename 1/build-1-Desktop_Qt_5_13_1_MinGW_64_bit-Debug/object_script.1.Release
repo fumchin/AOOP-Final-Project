@@ -19,6 +19,7 @@ release/longestpair.o
 release/longestshorestdisstance.o
 release/main.o
 release/mainwindow.o
+release/manhattandistance.o
 release/mario.o
 release/maze.o
 release/minesweeper.o
