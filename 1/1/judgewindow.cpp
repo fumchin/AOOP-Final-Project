@@ -94,7 +94,7 @@ void JudgeWindow::initializeDB(){
                )");
 
     //path改成你的檔案路徑
-    path = "C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/simple_initial_condition.csv";
+    path = "C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/initial_condition.csv";
     query.exec("load data infile '" + path + "' \
                into table peoplelist \
                fields terminated by ',' \

@@ -898,6 +898,7 @@ debug/building.o: ../1/building.cpp C:/Qt/5.13.1/mingw73_64/include/QtCore/QTime
 		../1/median.h \
 		../1/easycity2.h \
 		../1/longestshorestdisstance.h \
+		../1/symmetricpairs.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QApplication \
 		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qapplication.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/qcoreapplication.h \
@@ -1333,22 +1334,6 @@ debug/judgewindow.o: ../1/judgewindow.cpp ../1/judgewindow.h \
 		../1/people.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/QString \
 		ui_judgewindow.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtCore/QVariant \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QApplication \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qapplication.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtCore/qcoreapplication.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtCore/qeventloop.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtGui/qguiapplication.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtGui/qinputmethod.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QGridLayout \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qgridlayout.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qlayout.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qlayoutitem.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qboxlayout.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QPushButton \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QVBoxLayout \
 		C:/Qt/5.13.1/mingw73_64/include/QtSql/QSqlError \
 		C:/Qt/5.13.1/mingw73_64/include/QtSql/qsqlerror.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\judgewindow.o ..\1\judgewindow.cpp
@@ -1746,41 +1731,7 @@ debug/mainwindow.o: ../1/mainwindow.cpp ../1/mainwindow.h \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/QRandomGenerator \
 		C:/Qt/5.13.1/mingw73_64/include/QtCore/qrandom.h \
 		../1/scheduler.h \
-		ui_mainwindow.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtCore/QVariant \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QApplication \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qapplication.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtCore/qcoreapplication.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtCore/qeventloop.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtGui/qguiapplication.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtGui/qinputmethod.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QComboBox \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qcombobox.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qabstractitemdelegate.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qstyleoption.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qabstractspinbox.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtGui/qvalidator.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtCore/qregularexpression.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qslider.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qabstractslider.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qstyle.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qtabbar.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qrubberband.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtCore/qabstractitemmodel.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QLCDNumber \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qlcdnumber.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QMenuBar \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qmenubar.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qmenu.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qaction.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qactiongroup.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QPushButton \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QStatusBar \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qstatusbar.h \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/QToolBar \
-		C:/Qt/5.13.1/mingw73_64/include/QtWidgets/qtoolbar.h
+		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\mainwindow.o ..\1\mainwindow.cpp
 
 debug/manhattandistance.o: ../1/manhattandistance.cpp ../1/manhattandistance.h \

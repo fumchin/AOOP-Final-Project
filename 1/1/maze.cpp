@@ -18,7 +18,7 @@ Maze::Maze()
 string Maze::solve(string s)
 {
 
-    cout << "start" << endl;
+    //cout << "start" << endl;
     stringstream ss;
     ss<<s;
     int colNum, rowNum;
@@ -124,11 +124,11 @@ string Maze::solve(string s)
         }
         else
         {
-            cout << "error!" << endl;
+            //cout << "error!" << endl;
             break;
         }
     }
-    PrintDaMaze(rowNum, colNum);
+    //PrintDaMaze(rowNum, colNum);
     maze[EndingPoint.X][EndingPoint.Y] = 'E';
     PrintDaMaze(rowNum, colNum);
     for (int i=0; i<rowNum; i++)
@@ -148,14 +148,14 @@ string Maze::solve(string s)
 
 void Maze::PrintDaMaze(int MazeHeight, int MazeWidth)
 {
-    cout << endl;
-    for (int i=0; i<MazeHeight; i++)
-    {
-        for (int j=0; j<MazeWidth; j++)
-            cout << maze[i][j];
-        cout << endl;
-    }
-    cout << endl;
+//    cout << endl;
+//    for (int i=0; i<MazeHeight; i++)
+//    {
+//        for (int j=0; j<MazeWidth; j++)
+//            cout << maze[i][j];
+//        cout << endl;
+//    }
+//    cout << endl;
 }
 
 

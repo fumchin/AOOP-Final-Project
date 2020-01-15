@@ -43,9 +43,6 @@ string SymmetricPairs::solve(string s){
     command += " where";
     command += " round(t1.lat,"+to_string(n)+") = round(t2.lon,"+to_string(n)+") and round(t1.lon,"+to_string(n)+") = round(t2.lat,"+to_string(n)+") and t1.id != t2.id order by x asc,y asc) as t";
     command += " where t.x <= t.y limit "+to_string(k-1)+",1";
-    //command += " limit "+to_string(k-1)+",1";
-    //command += "";
-    //command += "";
 
     query.exec(QString::fromStdString(command));
     if(query.next()){
@@ -60,6 +57,5 @@ string SymmetricPairs::solve(string s){
     else{
         result += "NULL NULL";
     }
-    cout<<result<<endl;
     return result;
 }

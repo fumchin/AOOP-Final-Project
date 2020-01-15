@@ -73,15 +73,16 @@ Building::Building()
     judge.show();
     //judge.setSeed(1);
     int n=judge.getConditionNum(); //get People data according variable n
-
+    cout<<"n: "<<n<<endl;
     //create people
     query.exec("create database if not exists FINAL");
     query.exec("use FINAL");
-    query.exec("drop table if exists InitialCondition");
-    query.exec("create table if not exists InitialCondition (ID char(8),Nowfloor int,Destination int,Number int,PRIMARY KEY(ID))");
-    query.exec("load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/simple_initial_condition.csv' into table InitialCondition fields terminated by ',' enclosed by '\"' lines terminated by '\r\n' ignore 1 rows");
+    query.exec("drop table if exists peoplelist");
+    query.exec("create table if not exists peoplelist (ID char(8),Nowfloor int,Destination int,Number int,PRIMARY KEY(ID))");
+    query.exec("load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/initial_condition.csv' into table peoplelist fields terminated by ',' enclosed by '\"' lines terminated by '\r\n' ignore 1 rows");
+    query.exec("select * from peoplelist where left(id,5) = "+QString::number(n));
     //query.exec("select n.* from (select * from peoplelist limit "+QString::number(n-1)+",1) as s,peoplelist as n where left(n.id,5)=left(s.id,5)");
-    query.exec("select * from InitialCondition");
+    //query.exec("select * from InitialCondition");
 
     for(int i=0;i<27;i++){
         people[i] = new People;
@@ -124,7 +125,7 @@ void Building::run(int nowfloor)
             bool correct = judge.submitData(s2);
             data.correct1 = correct;
             //cout<<"quertion: "<<s<<endl;
-            cout<<"correct?: "<<data.correct1<<endl;
+            //cout<<"correct?: "<<data.correct1<<endl;
         }
 
         data.spendtime1 = judge.getSpendTime();

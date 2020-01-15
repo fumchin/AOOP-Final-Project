@@ -35,11 +35,16 @@ string EasyCity2::solve(string s){
     //order by how much city in a country (course7_2_7)
 
     query.exec("select left(COUNTRY,3) as sn,count(*) as nc from citytable group by COUNTRY order by nc "+QString::fromStdString(larsma)+" limit "+QString::number(nth-1)+",1");
-    if(!query.next()){
-        result+="NULL NULL ";
+    if(query.next()){
+        if(query.value(0).isNull() || query.value(1).isNull()){
+            result+="NULL NULL ";
+        }
+        else{
+            result +=query.value(0).toString().toStdString()+" "+query.value(1).toString().toStdString()+" ";
+        }
     }
     else{
-        result +=query.value(0).toString().toStdString()+" "+query.value(1).toString().toStdString()+" ";
+        result+="NULL NULL ";
     }
     query.exec("SET SQL_SAFE_UPDATES=0");
     //update table and delete something(course7_2_8)
@@ -47,8 +52,19 @@ string EasyCity2::solve(string s){
     query.exec("update citytable set lat = (@temp := lat),lat=lon,lon=@temp where right(id,1)= "+QString::number(m));
     //course7_2_10
     query.exec("select cast(round(sqrt(pow(max(LAT)-min(LAT),2)+pow(max(LON)-min(LON),2)),4) as char(20)) as ed from citytable");
-    query.next();
-    result+=query.value(0).toString().toStdString();
+    if(query.next()){
+        if(query.value(0).isNull()){
+            result+= "NULL";
+        }
+        else{
+             result+=query.value(0).toString().toStdString();
+        }
+
+    }
+    else{
+        result += "NULL";
+    }
+
 
     return result;
 }

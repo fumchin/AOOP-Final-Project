@@ -29,7 +29,7 @@ string Median::solve(string s){
     int a,b,m;
     string latlon,ascdes;
     ss>>a>>b>>latlon>>m>>ascdes;
-    cout<<a<<" "<<b<<" "<<latlon<<" "<<m<<" "<<ascdes<<endl;
+    //cout<<a<<" "<<b<<" "<<latlon<<" "<<m<<" "<<ascdes<<endl;
     latlon = (latlon == "lat"? "lat":"lon");
     ascdes = (ascdes == "asc"? "asc":"desc");
     string command = "";
