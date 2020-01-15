@@ -26,7 +26,7 @@ string ShortestDistance::solve(string s){
         }
 
         MIN = 1000000;
-        sort(pointVec.begin(), pointVec.end(), this->compareX);
+//        sort(pointVec.begin(), pointVec.end(), this->compareX);
         compute(0,pointVec);
         pointVec.clear();
         ostringstream Strs;
@@ -45,8 +45,8 @@ double ShortestDistance::compute(double totalDistance, vector<point> pVec)
         return totalDistance;
     }
     int counter = 1;
-//    while (counter!=pVec.size())
-    while (counter!=(pVec.size()<6?pVec.size():6))
+    while (counter!=pVec.size())
+//    while (counter!=(pVec.size()<6?pVec.size():6))
     {
         //calculate distance for the pair: 0 & counter
         double twoPointDistance = sqrt(pow(pVec[counter].X-pVec[0].X,2)+pow(pVec[counter].Y-pVec[0].Y,2));
