@@ -1,17 +1,16 @@
 #ifndef GETSIGNATURE_H
 #define GETSIGNATURE_H
-#include "myother.h"
-
-class GetSignature:public MyOther
+#include "mymath.h"
+#include <vector>
+class GetSignature:public MyMath
 {
-    struct assignment
-    {
-        int source, desination;
-        assignment(int s, int d){source=s; desination=d;}
-    };
+    int T, N, a, b;
+    vector<int> graph, sum;
+    vector<bool> vis;
 public:
     GetSignature();
     string solve(string s);
+    int dfs(int u);
     virtual ~GetSignature(){}
 };
 
