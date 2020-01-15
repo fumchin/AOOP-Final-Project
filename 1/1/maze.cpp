@@ -17,8 +17,6 @@ Maze::Maze()
 
 string Maze::solve(string s)
 {
-
-    //cout << "start" << endl;
     stringstream ss;
     ss<<s;
     int colNum, rowNum;
@@ -37,100 +35,58 @@ string Maze::solve(string s)
             {
                 StartingPoint.X = i;
                 StartingPoint.Y = j;
-//                row[j] = '0';
             }
             else if (ele == 'E')
             {
                 EndingPoint.X = i;
                 EndingPoint.Y = j;
-//                row[j] = '0';
             }
         }
         maze.push_back(row);
     }
 
-//    cout << endl;
-//    for (int i=0; i<rowNum; i++)
-//    {
-//        for (int j=0; j<colNum; j++)
-//        {
-//            if (i==StartingPoint.X&&j==StartingPoint.Y)
-//                cout << "S" << " ";
-//            else if (i==EndingPoint.X&&j==EndingPoint.Y)
-//                cout << "E" << " ";
-//            else
-//                cout << maze[i][j] << " ";
-//        }
-//        cout << endl;
-//    }
-
+    mark = maze;
+    mark[StartingPoint.X][StartingPoint.Y] = Free;
+    mark[EndingPoint.X][EndingPoint.Y] = Free;
     result = "";
     int x=StartingPoint.X;
     int y=StartingPoint.Y;
-    stack<COORD> alternativeStack, trajactoryStack;
+//    trajactoryStack.push(COORD(x,y));
+//    mark[x][y] = Wall;
     while (!(x==EndingPoint.X && y==EndingPoint.Y))
     {
-        PrintDaMaze(rowNum, colNum);
-        int choice=0;
-        //push to stack in reverse order
-        if (x > 0 && (maze[x - 1][y] == Free || maze[x - 1][y] == End))
-        {//top
-            alternativeStack.push(COORD(x-1,y));
-            trajactoryStack.push(COORD(x-1,y));
-            choice++;
-        }
-        if (y > 0 && (maze[x][y - 1] == Free || maze[x][y - 1] == End))
-        {//left
-            alternativeStack.push(COORD(x,y-1));
-            trajactoryStack.push(COORD(x,y-1));
-            choice++;
-        }
-        if (x < rowNum && (maze[x + 1][y] == Free || maze[x + 1][y] == End))
-        {//down
-            alternativeStack.push(COORD(x+1,y));
-            trajactoryStack.push(COORD(x+1,y));
-            choice++;
-        }
-        if (y < colNum && (maze[x][y + 1] == Free || maze[x][y + 1] == End))
-        {//right
-            alternativeStack.push(COORD(x,y+1));
-            trajactoryStack.push(COORD(x,y+1));
-            choice++;
-        }
-
-        if (choice!=0)
+        trajactoryStack.push(COORD(x,y));
+        mark[x][y] = Wall;
+        if (y < colNum && (mark[x][y + 1] == Free || mark[x][y + 1] == End))//can go right
+            y++;
+        else if (x < rowNum && (mark[x + 1][y] == Free || mark[x + 1][y] == End))//can go down
+            x++;
+        else if (y > 0 && (mark[x][y - 1] == Free || mark[x][y - 1] == End))//can go left
+            y--;
+        else if (x > 0 && (mark[x - 1][y] == Free || mark[x - 1][y] == End))//can go top
+            x--;
+        else//dead end
         {
-            x=alternativeStack.top().X;
-            y=alternativeStack.top().Y;
-            alternativeStack.pop();
-            trajactoryStack.pop();
-            trajactoryStack.push(COORD(x,y));
-            maze[x][y] = '1';
-        }
-        else if (!alternativeStack.empty())
-        {//backtrack
-            maze[x][y] = '0';
-            x=alternativeStack.top().X;
-            y=alternativeStack.top().Y;
-            alternativeStack.pop();
-            trajactoryStack.pop();
-            while (!(trajactoryStack.top().X==x && trajactoryStack.top().Y==y))
+            while (mark[x - 1][y]==Wall&&mark[x + 1][y]==Wall&&mark[x][y - 1]==Wall&&mark[x][y + 1]==Wall)
             {
-                maze[trajactoryStack.top().X][trajactoryStack.top().Y] = Free;
-                PrintDaMaze(rowNum, colNum);
+                x = trajactoryStack.top().X;
+                y = trajactoryStack.top().Y;
                 trajactoryStack.pop();
             }
-            maze[x][y]  = '1';
-        }
-        else
-        {
-            //cout << "error!" << endl;
-            break;
         }
     }
-    //PrintDaMaze(rowNum, colNum);
+
+    while (!trajactoryStack.empty())
+    {
+        x = trajactoryStack.top().X;
+        y = trajactoryStack.top().Y;
+        trajactoryStack.pop();
+        maze[x][y] = SomeDude;
+    }
+    maze[StartingPoint.X][StartingPoint.Y] = 'S';
     maze[EndingPoint.X][EndingPoint.Y] = 'E';
-    PrintDaMaze(rowNum, colNum);
+//    PrintDaMaze(rowNum, colNum);
+
     for (int i=0; i<rowNum; i++)
     {
         for (int j=0; j<colNum; j++)
@@ -141,21 +97,19 @@ string Maze::solve(string s)
     }
     result.erase(result.length()-1);
     maze.clear();//to avoid bug, prepare for next input
+
     return result;
 }
 
-
-
 void Maze::PrintDaMaze(int MazeHeight, int MazeWidth)
 {
-//    cout << endl;
-//    for (int i=0; i<MazeHeight; i++)
-//    {
-//        for (int j=0; j<MazeWidth; j++)
-//            cout << maze[i][j];
-//        cout << endl;
-//    }
-//    cout << endl;
+    cout << endl;
+    for (int i=0; i<MazeHeight; i++)
+    {
+        for (int j=0; j<MazeWidth; j++)
+            cout << maze[i][j];
+        cout << endl;
+    }
+    cout << endl;
+
 }
-
-

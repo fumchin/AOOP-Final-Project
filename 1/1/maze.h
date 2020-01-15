@@ -12,6 +12,8 @@ class Maze:public MyOther
     };
     string result;
     vector<vector<char>> maze;
+    vector<vector<char>> mark;
+    stack<COORD> trajactoryStack;
 public:
     Maze();
     string solve(string s);
