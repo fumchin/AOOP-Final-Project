@@ -15,6 +15,7 @@ public:
     ShortestDistance();
     string solve(string s);
     double compute(double, vector<point>);
+    static bool compareX(point a, point b);
 };
 
 #endif // SHORTESTDISTANCE_H

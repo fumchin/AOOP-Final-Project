@@ -1,7 +1,6 @@
 #include "shortestdistance.h"
 #include <iostream>
 #include <sstream>
-#include <string>
 #include <vector>
 #include <math.h>
 #include <algorithm>
@@ -13,7 +12,6 @@ ShortestDistance::ShortestDistance()
 
 string ShortestDistance::solve(string s){
 
-    cout << "=========================" << endl;
     stringstream ss;
     ss<<s;
     int N,x,y;
@@ -26,12 +24,9 @@ string ShortestDistance::solve(string s){
             counter++;
             pointVec.push_back(point(x,y));
         }
-        cout << N << endl;
-        for (int i=0; i<pointVec.size(); i++)
-            cout << pointVec[i].X << " " << pointVec[i].Y << endl;
-        cout << "=========================" << endl;
 
         MIN = 1000000;
+        sort(pointVec.begin(), pointVec.end(), this->compareX);
         compute(0,pointVec);
         pointVec.clear();
         ostringstream Strs;
@@ -46,12 +41,12 @@ double ShortestDistance::compute(double totalDistance, vector<point> pVec)
 {
     if (pVec.size() == 0)
     {
-        cout << totalDistance << endl;
         MIN = totalDistance<MIN? totalDistance:MIN;
         return totalDistance;
     }
     int counter = 1;
-    while (counter!=pVec.size())
+//    while (counter!=pVec.size())
+    while (counter!=(pVec.size()<6?pVec.size():6))
     {
         //calculate distance for the pair: 0 & counter
         double twoPointDistance = sqrt(pow(pVec[counter].X-pVec[0].X,2)+pow(pVec[counter].Y-pVec[0].Y,2));
@@ -64,4 +59,12 @@ double ShortestDistance::compute(double totalDistance, vector<point> pVec)
         counter++;
     }
     return 0;
+}
+
+bool ShortestDistance::compareX(point a, point b)
+{
+    if (a.X > b.X)
+        return 0;
+    else if (a.X < b.X)
+        return 1;
 }
