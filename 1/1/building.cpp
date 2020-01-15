@@ -27,6 +27,7 @@
 #include "median.h"
 #include "easycity2.h"
 #include "longestshorestdisstance.h"
+#include "symmetricpairs.h"
 #include <QApplication>
 #include <QSqlDatabase>
 #include <QSqlQuery>
@@ -65,6 +66,7 @@ Building::Building()
     floor[23] = new Floor(new Median());
     floor[24] = new Floor(new EasyCity2());
     floor[25] = new Floor(new LongestShorestDisstance());
+    floor[26] = new Floor(new SymmetricPairs());
 
 
     //JudgeWindow judge;
@@ -121,7 +123,7 @@ void Building::run(int nowfloor)
             //送去submitdata算分數跟平均時間
             bool correct = judge.submitData(s2);
             data.correct1 = correct;
-
+            //cout<<"quertion: "<<s<<endl;
             cout<<"correct?: "<<data.correct1<<endl;
         }
 

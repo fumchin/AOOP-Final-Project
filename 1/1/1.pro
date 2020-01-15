@@ -66,6 +66,7 @@ SOURCES += \
         scheduler.cpp \
         stringperiod.cpp \
         subtract1.cpp \
+        symmetricpairs.cpp \
         treestructure.cpp
 
 HEADERS += \
@@ -108,6 +109,7 @@ HEADERS += \
         shygame.h \
         stringperiod.h \
         subtract1.h \
+        symmetricpairs.h \
         treestructure.h
 
 FORMS += \
