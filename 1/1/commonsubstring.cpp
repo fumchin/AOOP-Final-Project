@@ -21,29 +21,21 @@ string CommonSubstring::solve(string s)
     newS1 = capitailize(newS1);
     newS2 = capitailize(newS2);
 
-    //X = newS1, Y = newS2, m = newS1.length(), n = newS2.length()
-    int maxlen = 0;			// stores the max length of LCS
-    int endingIndex = newS1.length();	// stores the ending index of LCS in X
-
-    // lookup[i][j] stores the length of LCS of substring
-    // X[0..i-1], Y[0..j-1]
+    int maxlen = 0;
+    int endingIndex = newS1.length();
     int lookup[newS1.length() + 1][newS2.length() + 1];
 
-    // initialize all cells of lookup table to 0
     memset(lookup, 0, sizeof(lookup));
 
-    // fill the lookup table in bottom-up manner
     for (int i = 1; i <= newS1.length(); i++)
     {
         for (int j = 1; j <= newS2.length(); j++)
         {
-            // if current character of newS1 and newS2 matches
             if (newS1[i - 1] == newS2[j - 1])
             {
                 lookup[i][j] = lookup[i - 1][j - 1] + 1;
 
-                // update the maximum length and ending index
-                if (lookup[i][j] > maxlen)
+                if (lookup[i][j] > maxlen || lookup[i][j] == maxlen && newS1[i-lookup[i][j]] < newS1[endingIndex-maxlen])
                 {
                     maxlen = lookup[i][j];
                     endingIndex = i;
@@ -52,7 +44,6 @@ string CommonSubstring::solve(string s)
         }
     }
 
-    // return Longest common substring having length maxlen
     return newS1.substr(endingIndex - maxlen, maxlen);
 }
 

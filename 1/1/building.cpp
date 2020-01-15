@@ -99,6 +99,8 @@ void Building::run(int nowfloor)
             data.submit1 = s2;
         }
         else{
+//================***testing***====================//
+            times = 50;
             //10 times each testdata (時間會不斷累積)
             for(int i=0;i<times;i++){
                 s2 = floor[nowfloor-1]->p->solve(s);

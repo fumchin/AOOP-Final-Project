@@ -17,8 +17,7 @@ Maze::Maze()
 
 string Maze::solve(string s)
 {
-
-    cout << "start" << endl;
+//    cout << "start" << endl;
     stringstream ss;
     ss<<s;
     int colNum, rowNum;
@@ -70,7 +69,7 @@ string Maze::solve(string s)
     stack<COORD> alternativeStack, trajactoryStack;
     while (!(x==EndingPoint.X && y==EndingPoint.Y))
     {
-        PrintDaMaze(rowNum, colNum);
+//        PrintDaMaze(rowNum, colNum);
         int choice=0;
         //push to stack in reverse order
         if (x > 0 && (maze[x - 1][y] == Free || maze[x - 1][y] == End))
@@ -117,7 +116,7 @@ string Maze::solve(string s)
             while (!(trajactoryStack.top().X==x && trajactoryStack.top().Y==y))
             {
                 maze[trajactoryStack.top().X][trajactoryStack.top().Y] = Free;
-                PrintDaMaze(rowNum, colNum);
+//                PrintDaMaze(rowNum, colNum);
                 trajactoryStack.pop();
             }
             maze[x][y]  = '1';
@@ -128,9 +127,9 @@ string Maze::solve(string s)
             break;
         }
     }
-    PrintDaMaze(rowNum, colNum);
+//    PrintDaMaze(rowNum, colNum);
     maze[EndingPoint.X][EndingPoint.Y] = 'E';
-    PrintDaMaze(rowNum, colNum);
+//    PrintDaMaze(rowNum, colNum);
     for (int i=0; i<rowNum; i++)
     {
         for (int j=0; j<colNum; j++)
