@@ -8,10 +8,8 @@
     c. 分數 (score): 在執行正確的情況下是根據該testdata為該樓層的第幾筆testdata，以score = 10000000000+pow(2,第n筆testdata)，  
     並與其他人在本層樓進出解題正確所得的加權分數相加而成。   
     d. 時間 (TotalCost) : 同一筆testdata(同一人)重複執行十次的時間除10，並與其他人在本層樓進出解題所花的時間相加而成。  
-  (3) about floor program (以question 為基準 -> question + 1 == floor)  
-    a. 尚缺少 : 22,23,26 (floor : 23,24,27)  
-    b. 測試有問題 : 2,25 (floor : 3(部分),26(全都跑不出來))，無法正確作答 
-    c. time cost問題 : 20 (floor : 21)，time cost 太大，但解法正確  
+  (3) about floor program (以question 為基準 -> question + 1 == floor)    
+    a. time cost問題 : 17 (floor : 18)，time cost 太大，但解法正確  
   (4) about checkbox  
     a. 打勾代表放棄執行該floor program，但電梯照常運行  
     b. 可以從judgeWindow.cpp 的 constructor 中更改要giveup的floor，也可將想測試的floor以外的floor program全部giveup以測試其中一題  
@@ -32,6 +30,4 @@
     b. 在on_export_to_database_clicked()
        更改上傳資訊 (hostname,password之類的)
        
-3. 目前問題
-  (1) 趕快寫哈哈哈哈哈
 
